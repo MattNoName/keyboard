@@ -4,6 +4,7 @@ package keyboard;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -44,60 +45,11 @@ public class Keyboard extends Application {
         Scene scene = new Scene(root, 300, 250);
         
         EventHandler<KeyEvent> keyPressed=(final KeyEvent keyEvent) -> {
-            switch (keyEvent.getCode()){
-                case A:
-                    System.out.println("A pressed");
-                    break;
-                case W:
-                    System.out.println("W pressed");
-                    break;
-                case S:
-                    break;
-                case E:
-                    break;
-                case D:
-                    break;
-                case R:
-                    break;
-                case F:
-                    break;
-                case G:
-                    break;
-                case Y:
-                    break;
-                case H:
-                    break;
-                case U:
-                    break;
-                case J:
-                    break;
-                case K:
-                    break;
-                case O:
-                    break;
-                case L:
-                    break;
-                case P:
-                    break;
-                case SEMICOLON:
-                    break;
-                case BRACELEFT:
-                    break;
-                case QUOTE:
-                    break;
-                case BRACERIGHT:
-                    break;
-            }
-            
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            KeyboardManager.getNoteFromKey(keyEvent.getCode());
         };
         
-        EventHandler<KeyEvent> keyReleased=new EventHandler<KeyEvent>(){
-            @Override
-            public void handle(final KeyEvent keyEvent) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-            
+        EventHandler<KeyEvent> keyReleased=(final KeyEvent keyEvent) -> {
+            KeyboardManager.getNoteFromKey(keyEvent.getCode());
         };
         
         scene.setOnKeyPressed(keyPressed);
@@ -107,6 +59,8 @@ public class Keyboard extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
+    
 
     /**
      * @param args the command line arguments
