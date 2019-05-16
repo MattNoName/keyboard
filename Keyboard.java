@@ -41,19 +41,9 @@ public class Keyboard extends Application {
         
         
         StackPane root = new StackPane();
-        
         Scene scene = new Scene(root, 300, 250);
         
-        EventHandler<KeyEvent> keyPressed=(final KeyEvent keyEvent) -> {
-            KeyboardManager.getNoteFromKey(keyEvent.getCode());
-        };
-        
-        EventHandler<KeyEvent> keyReleased=(final KeyEvent keyEvent) -> {
-            KeyboardManager.getNoteFromKey(keyEvent.getCode());
-        };
-        
-        scene.setOnKeyPressed(keyPressed);
-        scene.setOnKeyReleased(keyReleased);
+        KeyboardManager keyboardManager=new KeyboardManager(scene);
         
         primaryStage.setTitle("Keyboard");
         primaryStage.setScene(scene);
