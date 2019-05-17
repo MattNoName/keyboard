@@ -23,4 +23,5 @@ public class AlertsManager {
         alert.setContentText(model.getDescription());
         alert.showAndWait();
     }
+    
 }

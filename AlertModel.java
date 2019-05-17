@@ -5,7 +5,7 @@
  */
 package keyboard;
 
-import javafx.scene.control.Alert;
+import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 
 /**
@@ -37,9 +37,14 @@ public class AlertModel {
             title="Sound Resource Unavailable";
             description="A necessary sound resource was not avilable.  Keyboard will quit now.";
         }
+        else if(exception instanceof InvalidMidiDataException){
+            title="Invalid Midi Data";
+            description="Data sent to synthesizer was invalid.";
+        }
         else{
-            title="Unknown Error";
-            description="An unkown error occurred.  Keyboard will quit now.";
+            title="Exception";
+            //description="An unkown error occurred.  Keyboard will quit now.";
+            description=exception.toString();
         }
         return new AlertModel(title, description);
     }
