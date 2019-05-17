@@ -6,6 +6,7 @@
 package keyboard;
 
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
@@ -15,12 +16,33 @@ import javax.sound.midi.ShortMessage;
  * @author mattroberts
  */
 public class KeyboardModel {
+    
+    private boolean [] keyDown=new boolean[95];
+    
+    private boolean isKeyPressed(char character){
+        System.out.println((int)character);
+        if (character<32||character>126){
+            return false;
+        }
+        else{
+            return keyDown[character-32];
+        }
+    }
+    
+    private void updateKeyPressed(char character, boolean yes){
+        if (character<32||character>126){
+            return;
+        }
+        else{
+            keyDown[character-32]=yes;
+        }
+    }
 
     /**
      *
      * @param key the key
      */
-    private int getEMajorIntFromKey(KeyCode key) throws BadKeyCodeException {
+    private int getEMajorIntFromKey(KeyCode key) throws UnusedKeyCodeException {
         switch (key) {
             case A:
                 return -8;
@@ -59,10 +81,10 @@ public class KeyboardModel {
             case BRACERIGHT:
                 return 10;
         }
-        throw new BadKeyCodeException();
+        throw new UnusedKeyCodeException();
     }
     
-    private int getCMajorIntFromKey(KeyCode key) throws BadKeyCodeException {
+    private int getCMajorIntFromKey(KeyCode key) throws UnusedKeyCodeException {
         switch (key) {
             case A:
                 return 0;
@@ -104,7 +126,7 @@ public class KeyboardModel {
                 return 18;
         }
         
-        throw new BadKeyCodeException();
+        throw new UnusedKeyCodeException();
     }
 
     private int getNoteCode(int input) {
@@ -118,9 +140,22 @@ public class KeyboardModel {
         return noteMessage;
     }
     
-    public ShortMessage getNoteMessage(KeyCode key)
-            throws BadKeyCodeException, InvalidMidiDataException, 
-            MidiUnavailableException {
-        return getNoteMessage(getNoteCode(getCMajorIntFromKey(key)));
+    public ShortMessage respondToKeyPressed(KeyEvent keyEvent)throws UnusedKeyCodeException, 
+            InvalidMidiDataException, MidiUnavailableException{
+        char character=keyEvent.getCharacter().charAt(0);
+        System.out.println(character);
+        if (isKeyPressed(character)){
+            updateKeyPressed(character, true);
+            return null;
+        }else{
+            updateKeyPressed(character, true);
+            return getNoteMessage(getNoteCode(getCMajorIntFromKey(keyEvent.getCode())));
+        }
+    }
+    
+    public void respondToKeyReleased(KeyEvent keyEvent){
+        char character=keyEvent.getCharacter().charAt(0);
+        updateKeyPressed(character, false);
+        
     }
 }

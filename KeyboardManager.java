@@ -47,7 +47,7 @@ public class KeyboardManager {
     private void setUpKeyboardInput(Scene scene){
         EventHandler<KeyEvent> keyPressed=(final KeyEvent keyEvent) -> {
             try{
-                playNote(keyEvent.getCode());
+                respondToKeyPressed(keyEvent);
             }
             catch(Exception e){
                 AlertsManager.showAlert(e);
@@ -55,7 +55,7 @@ public class KeyboardManager {
         };
         
         EventHandler<KeyEvent> keyReleased=(final KeyEvent keyEvent) -> {
-            //model.playNote(keyEvent.getCode());
+            model.respondToKeyReleased(keyEvent);
         };
         
         scene.setOnKeyPressed(keyPressed);
@@ -63,12 +63,12 @@ public class KeyboardManager {
         
     }
     
-    public void playNote(KeyCode key) throws
+    public void respondToKeyPressed(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException{
         try{
-            sound.playNote(model.getNoteMessage(key));
+            sound.playNote(model.respondToKeyPressed(keyEvent));
         }
-        catch(BadKeyCodeException e){
+        catch(UnusedKeyCodeException e){
             //do nothing
         }
     }
