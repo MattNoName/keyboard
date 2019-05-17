@@ -7,13 +7,10 @@ package keyboard;
 
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javax.sound.midi.Instrument;
 import javax.sound.midi.InvalidMidiDataException;
-import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Synthesizer;
+import javax.sound.midi.ShortMessage;
 
 /**
  *
@@ -66,7 +63,10 @@ public class KeyboardManager {
     public void respondToKeyPressed(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException{
         try{
-            sound.playNote(model.respondToKeyPressed(keyEvent));
+            ShortMessage noteMessage=model.respondToKeyPressed(keyEvent);
+            if (noteMessage!=null){
+                sound.playNote(noteMessage);
+            }
         }
         catch(UnusedKeyCodeException e){
             //do nothing

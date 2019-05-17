@@ -5,6 +5,7 @@
  */
 package keyboard;
 
+import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javax.sound.midi.InvalidMidiDataException;
@@ -17,25 +18,23 @@ import javax.sound.midi.ShortMessage;
  */
 public class KeyboardModel {
     
-    private boolean [] keyDown=new boolean[95];
-    
-    private boolean isKeyPressed(char character){
-        System.out.println((int)character);
-        if (character<32||character>126){
-            return false;
-        }
-        else{
-            return keyDown[character-32];
+    private HashMap<String, Boolean> keyDown=new HashMap<>();
+
+    public KeyboardModel() {
+        KeyCode [] keyCodes=KeyCode.values();
+        for (KeyCode kc: keyCodes){
+            keyDown.put(kc.getName(), Boolean.FALSE);
         }
     }
     
-    private void updateKeyPressed(char character, boolean yes){
-        if (character<32||character>126){
-            return;
-        }
-        else{
-            keyDown[character-32]=yes;
-        }
+    
+    
+    private boolean isKeyPressed(KeyCode kc){
+            return keyDown.get(kc.getName());
+    }
+    
+    private void updateKeyPressed(KeyCode kc, boolean yes){
+            keyDown.put(kc.getName(), yes);
     }
 
     /**
@@ -142,20 +141,19 @@ public class KeyboardModel {
     
     public ShortMessage respondToKeyPressed(KeyEvent keyEvent)throws UnusedKeyCodeException, 
             InvalidMidiDataException, MidiUnavailableException{
-        char character=keyEvent.getCharacter().charAt(0);
-        System.out.println(character);
-        if (isKeyPressed(character)){
-            updateKeyPressed(character, true);
+        KeyCode kc=keyEvent.getCode();
+        if (isKeyPressed(kc)){
+            updateKeyPressed(kc, true);
             return null;
         }else{
-            updateKeyPressed(character, true);
+            updateKeyPressed(kc, true);
             return getNoteMessage(getNoteCode(getCMajorIntFromKey(keyEvent.getCode())));
         }
     }
     
     public void respondToKeyReleased(KeyEvent keyEvent){
-        char character=keyEvent.getCharacter().charAt(0);
-        updateKeyPressed(character, false);
+        KeyCode kc=keyEvent.getCode();
+        updateKeyPressed(kc, false);
         
     }
 }
