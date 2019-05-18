@@ -139,7 +139,7 @@ public class KeyboardModel {
         return noteMessage;
     }
     
-    public ShortMessage respondToKeyPressed(KeyEvent keyEvent)throws UnusedKeyCodeException, 
+    public ShortMessage respondToKeyPressed(KeyEvent keyEvent) throws UnusedKeyCodeException, 
             InvalidMidiDataException, MidiUnavailableException{
         KeyCode kc=keyEvent.getCode();
         if (isKeyPressed(kc)){
