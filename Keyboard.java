@@ -2,8 +2,6 @@
 package keyboard;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -17,7 +15,7 @@ public class Keyboard extends Application {
         
         /*
         Almost no GUI
-        a keyboard for macOs, Windows, and maybe Linux
+        a keyboard for macOS, Windows, and maybe Linux
         19 keys at a time
         start with f?
         many octaves
@@ -36,15 +34,14 @@ public class Keyboard extends Application {
             
         */
         
+        /*
+        Buttons as part of view
+        view object as part of controller
+        actions in controller
+        */
         
-        StackPane root = new StackPane();
-        Scene scene = new Scene(root, 300, 250);
         
-        KeyboardManager keyboardManager=new KeyboardManager(scene);
-        
-        primaryStage.setTitle("Keyboard");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        KeyboardManager keyboardManager=new KeyboardManager(primaryStage);
     }
     
     

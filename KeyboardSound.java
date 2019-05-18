@@ -34,7 +34,7 @@ public class KeyboardSound {
         synthesizer=MidiSystem.getSynthesizer();
         Instrument [] availableInstruments=synthesizer.getAvailableInstruments();
         for (Instrument instrument : availableInstruments){
-            System.out.println(instrument.getName());
+            //System.out.println(instrument.getName());
             if (instrument.getName().equals(ELECTRIC_PIANO)){
                 electricPiano=instrument;
             }
