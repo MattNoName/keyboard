@@ -5,6 +5,7 @@
  */
 package keyboard;
 
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import keymappings.UnusedKeyCodeException;
@@ -30,7 +31,7 @@ public class KeyboardManager {
     ChoiceView choiceView=new ChoiceView();
     
     /*
-    Once note is gotten, pass to playNote function
+    Once note is gotten, pass to sendToSynethesizer function
     to get list of all soundbank's instruments, use sounbank getAllInstruments
     load instrument with synthesizer
     */
@@ -89,7 +90,12 @@ public class KeyboardManager {
         };
         
         EventHandler<KeyEvent> keyReleased=(final KeyEvent keyEvent) -> {
-            model.respondToKeyReleased(keyEvent);
+            try{
+                respondToKeyReleased(keyEvent);
+            }
+            catch(Exception e){
+                AlertsManager.showAlert(e);
+            }
         };
         
         scene.setOnKeyPressed(keyPressed);
@@ -100,9 +106,28 @@ public class KeyboardManager {
     public void respondToKeyPressed(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException{
         try{
+            ArrayList<ShortMessage> notesOffArrayList=model.respondToPedalsDown(keyEvent);
+            if (notesOffArrayList!=null){
+                sound.sendToSynethesizer(notesOffArrayList);
+            }
             ShortMessage noteMessage=model.respondToKeyPressed(keyEvent);
             if (noteMessage!=null){
-                sound.playNote(noteMessage);
+                sound.sendToSynethesizer(noteMessage);
+            }
+        }
+        catch(UnusedKeyCodeException e){
+            //do nothing
+        }
+    }
+    
+    public void respondToKeyReleased(KeyEvent keyEvent) throws
+            InvalidMidiDataException, MidiUnavailableException{
+        try{
+            System.out.println("key released");
+            model.respondToPedalUp(keyEvent);
+            ShortMessage noteMessage=model.respondToKeyReleased(keyEvent);
+            if (noteMessage!=null){
+                sound.sendToSynethesizer(noteMessage);
             }
         }
         catch(UnusedKeyCodeException e){

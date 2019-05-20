@@ -5,6 +5,7 @@
  */
 package keyboard;
 
+import java.util.ArrayList;
 import javax.sound.midi.Instrument;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
@@ -24,7 +25,7 @@ public class KeyboardSound {
     
     Instrument electricPiano;
     
-    private String ELECTRIC_PIANO="Electric Piano 1";
+    private String ELECTRIC_PIANO="Electric Piano 2";
 
     public KeyboardSound() throws MidiUnavailableException{
         setUpSound();
@@ -34,7 +35,7 @@ public class KeyboardSound {
         synthesizer=MidiSystem.getSynthesizer();
         Instrument [] availableInstruments=synthesizer.getAvailableInstruments();
         for (Instrument instrument : availableInstruments){
-            //System.out.println(instrument.getName());
+            System.out.println(instrument.getName());
             if (instrument.getName().equals(ELECTRIC_PIANO)){
                 electricPiano=instrument;
             }
@@ -43,11 +44,14 @@ public class KeyboardSound {
         receiver = MidiSystem.getReceiver();
     }
     
-    public void playNote(ShortMessage noteMessage){
+    public void sendToSynethesizer(ShortMessage noteMessage){
         receiver.send(noteMessage, -1);
     }
     
-   
+    public void sendToSynethesizer(ArrayList<ShortMessage> noteMessageArrayList){
+        for (ShortMessage noteMessage : noteMessageArrayList)
+        receiver.send(noteMessage, -1);
+    }
     
     
 }
