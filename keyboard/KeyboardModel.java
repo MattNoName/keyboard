@@ -33,8 +33,6 @@ public class KeyboardModel {
 
     private final short NOTE_TRANSLATION_CONSTANT = 60;
 
-    private short VOLUME_ADJUSTMENT = 0;
-
     public KeyboardModel() {
         for (int i = -100; i < 100; i++) {
             keyDown.put(i, Boolean.FALSE);
@@ -77,7 +75,7 @@ public class KeyboardModel {
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
         noteMessage.setMessage(ShortMessage.NOTE_ON, 4,
-                noteCode + NOTE_TRANSLATION_CONSTANT, 70 + VOLUME_ADJUSTMENT);
+                noteCode + NOTE_TRANSLATION_CONSTANT, 70);
         return noteMessage;
     }
 
@@ -108,19 +106,13 @@ public class KeyboardModel {
                     }
                     return notesOffArrayList;
                 }
-            case SPACE:
-                VOLUME_ADJUSTMENT = -30;
+               
         }
         return null;
     }
 
     public void respondToPedalUp(KeyEvent keyEvent) {
         KeyCode kc = keyEvent.getCode();
-        switch (kc) {
-            case SPACE:
-                VOLUME_ADJUSTMENT = 0;
-                break;
-        }
     }
 
     public ShortMessage respondToKeyPressed(KeyEvent keyEvent) throws UnusedKeyCodeException,
