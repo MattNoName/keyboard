@@ -124,7 +124,10 @@ public class KeyboardManager {
             InvalidMidiDataException, MidiUnavailableException{
         try{
             System.out.println("key released");
-            model.respondToPedalUp(keyEvent);
+            ArrayList<ShortMessage> notesOffArrayList=model.respondToPedalUp(keyEvent);
+            if (notesOffArrayList!=null){
+                sound.sendToSynethesizer(notesOffArrayList);
+            }
             ShortMessage noteMessage=model.respondToKeyReleased(keyEvent);
             if (noteMessage!=null){
                 sound.sendToSynethesizer(noteMessage);

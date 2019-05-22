@@ -8,13 +8,13 @@ package keyboard;
 import java.util.ArrayList;
 import keymappings.KeyboardType;
 import keymappings.UnusedKeyCodeException;
-import java.util.HashMap;
+import java.util.HashSet;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
-import keymappings.KeyboardInterface;
+import keymappings.AbstractKeyboard;
 import keymappings.MusicTheoryKeyboard;
 import keymappings.TraditionalKeyboard;
 
@@ -24,35 +24,51 @@ import keymappings.TraditionalKeyboard;
  */
 public class KeyboardModel {
 
-    private final HashMap<Integer, Boolean> keyDown = new HashMap<>();
-    private final HashMap<Integer, Boolean> sustenatoNotes = new HashMap<>();
+    private final HashSet<Integer> keyDown = new HashSet<>();
+    
+    /*
+    As long as the sustaining key was "on" when these were played, 
+    these were't dampened.  They are dampened when the sustaining key is pressed again.
+    */
+    private final HashSet<Integer> sustainingNotes = new HashSet<>();
+    /*
+    As long as these were down when the sostenato key was pressed, these are held
+    until it is lifted.
+    */
+    private final HashSet<Integer> sostenatoNotes = new HashSet<>();
 
-    private KeyboardInterface keyboard;
+    private AbstractKeyboard keyboard;
 
     private boolean sustaining = false;
+    
+    private boolean sostenato = false;
 
     private final short NOTE_TRANSLATION_CONSTANT = 60;
+    
+    private short octaveTranslation = 0;
 
     public KeyboardModel() {
+        /*
         for (int i = -100; i < 100; i++) {
             keyDown.put(i, Boolean.FALSE);
         }
+        */
         /*
         KeyCode [] keyCodes=KeyCode.values();
         for (KeyCode kc: keyCodes){
             keyDown.put(kc.getName(), Boolean.FALSE);
         }
          */
-        keyboard = new TraditionalKeyboard();
+        keyboard = new TraditionalKeyboard(0,0);
     }
 
     public void setKeyboard(KeyboardType kt) {
         System.out.println("Setting keyboard");
         if (kt == KeyboardType.TRADITIONAL) {
-            keyboard = new TraditionalKeyboard();
+            keyboard = new TraditionalKeyboard(keyboard);
             System.out.println("Traditional");
         } else {
-            keyboard = new MusicTheoryKeyboard();
+            keyboard = new MusicTheoryKeyboard(keyboard);
             System.out.println("Music Theory");
         }
 
@@ -98,35 +114,60 @@ public class KeyboardModel {
                 } else {
                     sustaining = false;
                     ArrayList<ShortMessage> notesOffArrayList = new ArrayList<>();
-                    for (Integer i : sustenatoNotes.keySet()) {
-                        if (!keyDown.get(i)) {
-                            sustenatoNotes.put(i, false);
+                    for (Integer i : sustainingNotes) {
+                        if (!keyDown.contains(i)) {
                             notesOffArrayList.add(getNoteOffMessage(i));
                         }
                     }
+                    sustainingNotes.clear();
                     return notesOffArrayList;
                 }
+            case SPACE:
+                if (!sostenato){
+                    sostenato=true;
+                    for (Integer i : keyDown) {
+                        sostenatoNotes.add(i);
+                    }
+                }
+                return null;
                
         }
         return null;
     }
 
-    public void respondToPedalUp(KeyEvent keyEvent) {
+    public ArrayList<ShortMessage> respondToPedalUp(KeyEvent keyEvent) throws
+            InvalidMidiDataException, MidiUnavailableException{
         KeyCode kc = keyEvent.getCode();
+        switch (kc){
+            case SPACE:
+                if (sostenato){
+                    ArrayList<ShortMessage> notesOffArrayList=new ArrayList<>();
+                    sostenato=false;
+                    for (Integer i : sostenatoNotes) {
+                        notesOffArrayList.add(getNoteOffMessage(i));
+                    }
+                    sostenatoNotes.clear();
+                    return notesOffArrayList;
+                }
+            return null;
+        }
+        return null;
     }
 
     public ShortMessage respondToKeyPressed(KeyEvent keyEvent) throws UnusedKeyCodeException,
             InvalidMidiDataException, MidiUnavailableException {
         int noteCode = keyboard.getIntFromKey(keyEvent.getCode());
         //KeyCode kc=keyEvent.getCode();
-        if (keyDown.get(noteCode)) {
+        if (keyDown.contains(noteCode)) {
             //updateKeyPressed(kc, true);
             //keyDown.put(noteCode, true);
             return null;
         } else {
             //updateKeyPressed(kc, true);
-            keyDown.put(noteCode, true);
-            sustenatoNotes.put(noteCode, true);
+            keyDown.add(noteCode);
+            if(sustaining){
+                sustainingNotes.add(noteCode);
+            }
             return getNoteOnMessage(noteCode);
         }
     }
@@ -136,11 +177,25 @@ public class KeyboardModel {
         //KeyCode kc=keyEvent.getCode();
         int noteCode = keyboard.getIntFromKey(keyEvent.getCode());
         //updateKeyPressed(kc, false);
-        keyDown.put(noteCode, false);
-        if (sustaining) {
+        keyDown.remove(noteCode);
+        if (sustaining||sostenatoNotes.contains(noteCode)) {
             throw new UnusedKeyCodeException();
-        }
+        }   
         return getNoteOffMessage(noteCode);
 
+    }
+    
+    public void updateKeyboard(KeyEvent keyEvent){
+        KeyCode kc=keyEvent.getCode();
+        switch(kc){
+            case M:
+                keyboard=new MusicTheoryKeyboard(keyboard);
+                return;
+            case N:
+                keyboard=new TraditionalKeyboard(keyboard);
+                return;
+            case C:
+                
+        }
     }
 }

@@ -11,7 +11,17 @@ import javafx.scene.input.KeyCode;
  *
  * @author mattroberts
  */
-public class MusicTheoryKeyboard implements KeyboardInterface{
+public class MusicTheoryKeyboard extends AbstractKeyboard{
+
+    public MusicTheoryKeyboard(int octaveTranslation, int key) {
+        super(octaveTranslation, key);
+    }
+
+    public MusicTheoryKeyboard(AbstractKeyboard ak) {
+        super(ak);
+    }
+    
+    
 
     @Override
     public int getIntFromKey(KeyCode key) throws UnusedKeyCodeException {
