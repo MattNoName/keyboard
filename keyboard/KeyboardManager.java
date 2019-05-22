@@ -8,7 +8,7 @@ package keyboard;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import keymappings.UnusedKeyCodeException;
+import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
-import keymappings.KeyboardType;
+import keyboardmappings.KeyboardType;
 
 /**
  *
@@ -105,37 +105,46 @@ public class KeyboardManager {
     
     public void respondToKeyPressed(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException{
+        ShortMessage noteMessage=null;
         try{
-            ArrayList<ShortMessage> notesOffArrayList=model.respondToPedalsDown(keyEvent);
-            if (notesOffArrayList!=null){
-                sound.sendToSynethesizer(notesOffArrayList);
-            }
-            ShortMessage noteMessage=model.respondToKeyPressed(keyEvent);
+            noteMessage=model.respondToKeyPressed(keyEvent);
+        }
+            catch(UnusedKeyCodeException e){
+            //do nothing
+        }
             if (noteMessage!=null){
                 sound.sendToSynethesizer(noteMessage);
             }
+            else if (!model.updateOctaveAndKey(keyEvent)){
+                
+                ArrayList<ShortMessage> notesOffArrayList=model.respondToPedalsDown(keyEvent);
+                if (notesOffArrayList!=null){
+                    sound.sendToSynethesizer(notesOffArrayList);
+                }
+                model.updateKeyboard(keyEvent);
+            }
         }
-        catch(UnusedKeyCodeException e){
-            //do nothing
-        }
-    }
     
     public void respondToKeyReleased(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException{
+        ShortMessage noteMessage=null;
         try{
             System.out.println("key released");
-            ArrayList<ShortMessage> notesOffArrayList=model.respondToPedalUp(keyEvent);
-            if (notesOffArrayList!=null){
-                sound.sendToSynethesizer(notesOffArrayList);
-            }
-            ShortMessage noteMessage=model.respondToKeyReleased(keyEvent);
+            noteMessage=model.respondToKeyReleased(keyEvent);
+        }
+            catch(UnusedKeyCodeException e){
+            //do nothing
+        }
             if (noteMessage!=null){
                 sound.sendToSynethesizer(noteMessage);
             }
+            else{
+                ArrayList<ShortMessage> notesOffArrayList=model.respondToPedalUp(keyEvent);
+                if (notesOffArrayList!=null){
+                    sound.sendToSynethesizer(notesOffArrayList);
+                }
+            }
         }
-        catch(UnusedKeyCodeException e){
-            //do nothing
-        }
-    }
+    
     
 }

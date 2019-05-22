@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keymappings;
-
-import javafx.scene.input.KeyCode;
+package keyboardmappings;
 
 /**
  *
  * @author mattroberts
  */
-public interface KeyboardInterface {
+public class UnusedKeyCodeException extends Exception{
+
+    public UnusedKeyCodeException() {
+    }
+
+    public UnusedKeyCodeException(String message) {
+        super(message);
+    }
     
-    public int getIntFromKey(KeyCode key) throws UnusedKeyCodeException;
+    
     
 }

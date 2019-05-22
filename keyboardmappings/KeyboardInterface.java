@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keymappings;
+package keyboardmappings;
+
+import javafx.scene.input.KeyCode;
 
 /**
  *
  * @author mattroberts
  */
-public enum KeyboardType {
-    TRADITIONAL, MUSIC_THEORY;
+public interface KeyboardInterface {
+    
+    public int getIntFromKey(KeyCode key) throws UnusedKeyCodeException;
+    
 }

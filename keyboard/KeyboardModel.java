@@ -6,17 +6,17 @@
 package keyboard;
 
 import java.util.ArrayList;
-import keymappings.KeyboardType;
-import keymappings.UnusedKeyCodeException;
+import keyboardmappings.KeyboardType;
+import keyboardmappings.UnusedKeyCodeException;
 import java.util.HashSet;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
-import keymappings.AbstractKeyboard;
-import keymappings.MusicTheoryKeyboard;
-import keymappings.TraditionalKeyboard;
+import keyboardmappings.AbstractKeyboard;
+import keyboardmappings.MusicTheoryKeyboard;
+import keyboardmappings.TraditionalKeyboard;
 
 /**
  *
@@ -44,8 +44,6 @@ public class KeyboardModel {
     private boolean sostenato = false;
 
     private final short NOTE_TRANSLATION_CONSTANT = 60;
-    
-    private short octaveTranslation = 0;
 
     public KeyboardModel() {
         /*
@@ -91,7 +89,8 @@ public class KeyboardModel {
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
         noteMessage.setMessage(ShortMessage.NOTE_ON, 4,
-                noteCode + NOTE_TRANSLATION_CONSTANT, 70);
+                noteCode + keyboard.getOctaveKeyTranslation()
+                        +NOTE_TRANSLATION_CONSTANT, 70);
         return noteMessage;
     }
 
@@ -99,7 +98,7 @@ public class KeyboardModel {
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
         noteMessage.setMessage(ShortMessage.NOTE_OFF, 4,
-                noteCode + NOTE_TRANSLATION_CONSTANT, 0);
+                noteCode + keyboard.getOctaveKeyTranslation()+ NOTE_TRANSLATION_CONSTANT, 0);
         return noteMessage;
     }
 
@@ -193,9 +192,12 @@ public class KeyboardModel {
                 return;
             case N:
                 keyboard=new TraditionalKeyboard(keyboard);
-                return;
-            case C:
-                
+                return;              
         }
     }
+    
+    public boolean updateOctaveAndKey(KeyEvent ke){
+        return keyboard.updateOctaveAndKey(ke);
+    }
+    
 }

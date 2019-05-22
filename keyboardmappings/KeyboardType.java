@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keymappings;
+package keyboardmappings;
 
 /**
  *
  * @author mattroberts
  */
-public class UnusedKeyCodeException extends Exception{
-
-    public UnusedKeyCodeException() {
-    }
-
-    public UnusedKeyCodeException(String message) {
-        super(message);
-    }
-    
-    
-    
+public enum KeyboardType {
+    TRADITIONAL, MUSIC_THEORY;
 }
