@@ -82,6 +82,7 @@ public class KeyboardManager {
     private void setUpKeyboardInput(Scene scene){
         EventHandler<KeyEvent> keyPressed=(final KeyEvent keyEvent) -> {
             try{
+                //System.out.println(keyEvent.getCode());
                 respondToKeyPressed(keyEvent);
             }
             catch(Exception e){
@@ -129,7 +130,7 @@ public class KeyboardManager {
             InvalidMidiDataException, MidiUnavailableException{
         ShortMessage noteMessage=null;
         try{
-            System.out.println("key released");
+            //System.out.println("key released");
             noteMessage=model.respondToKeyReleased(keyEvent);
         }
             catch(UnusedKeyCodeException e){
