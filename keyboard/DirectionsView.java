@@ -5,8 +5,10 @@
  */
 package keyboard;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -45,6 +47,15 @@ public class DirectionsView extends BorderPane {
     
     void setTeachingText(String text){
         teachingTextArea.setText(text);
+    }
+    
+    void setUpKeyPressedInput(EventHandler<KeyEvent> kph){
+        teachingTextArea.setOnKeyPressed(kph);
+
+    }
+    
+    void setUpKeyReleasedInput(EventHandler<KeyEvent> krh){
+        teachingTextArea.setOnKeyReleased(krh);
     }
     
     /*
