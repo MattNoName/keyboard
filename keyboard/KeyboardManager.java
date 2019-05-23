@@ -8,8 +8,6 @@ package keyboard;
 import java.util.ArrayList;
 import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javax.sound.midi.InvalidMidiDataException;
@@ -24,12 +22,9 @@ public class KeyboardManager {
 
     KeyboardModel model;
     KeyboardSound sound;
-    Stage primaryStage;
-    Scene scene;
-    DirectionsView directionsView = new DirectionsView();
-    DirectionsModel directionsModel = new DirectionsModel();
     KeyPressedHandler keyPressedHandler=new KeyPressedHandler();
     KeyReleasedHandler keyReleasedHandler=new KeyReleasedHandler();
+    ViewManager viewManager;
 
     /*
     Once note is gotten, pass to sendToSynethesizer function
@@ -37,7 +32,6 @@ public class KeyboardManager {
     load instrument with synthesizer
      */
     public KeyboardManager(Stage primaryStage) {
-        this.primaryStage = primaryStage;
         model = new KeyboardModel();
 
         try {
@@ -46,30 +40,8 @@ public class KeyboardManager {
             AlertsManager.showAlert(e);
             return;
         }
-        setUpScene();
-        primaryStage.show();
-    }
-
-    private void setUpScene() {
-        setUpDirectionsScene();
-        setUpKeyboardInput(scene);
-    }
-
-    private void setUpDirectionsScene() {
-        directionsView.setTeachingText(directionsModel.getTeachingText());
-        directionsView.setUpKeyPressedInput(keyPressedHandler);
-        directionsView.setUpKeyReleasedInput(keyReleasedHandler);
-        scene = new Scene(directionsView, 375, 450);
-
-        primaryStage.setTitle("Keyboard");
-        primaryStage.setScene(scene);
-    }
-
-    private void setUpKeyboardInput(Scene scene) {
-
-        scene.setOnKeyPressed(keyPressedHandler);
-        scene.setOnKeyReleased(keyReleasedHandler);
-
+        viewManager=new ViewManager(primaryStage,keyPressedHandler,keyReleasedHandler);
+        viewManager.showWindow();
     }
 
     public void respondToKeyPressed(KeyEvent keyEvent) throws
