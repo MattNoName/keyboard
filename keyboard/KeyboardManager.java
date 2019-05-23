@@ -6,8 +6,6 @@
 package keyboard;
 
 import java.util.ArrayList;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,7 +14,6 @@ import javafx.stage.Stage;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
-import keyboardmappings.KeyboardType;
 
 /**
  *
@@ -28,7 +25,8 @@ public class KeyboardManager {
     KeyboardSound sound;
     Stage primaryStage;
     Scene scene;
-    ChoiceView choiceView=new ChoiceView();
+    DirectionsView directionsView=new DirectionsView();
+    DirectionsModel directionsModel=new DirectionsModel();
     
     /*
     Once note is gotten, pass to sendToSynethesizer function
@@ -53,28 +51,14 @@ public class KeyboardManager {
     }
     
     private void setUpScene(){
-        setUpChoiceScene();
+        setUpDirectionsScene();
         setUpKeyboardInput(scene);
     }
     
-    private void setUpChoiceScene(){
-        scene = new Scene(choiceView, 300, 250);
-        EventHandler<ActionEvent> traditionalHandler=new EventHandler(){
-            @Override
-            public void handle(Event event) {
-                model.setKeyboard(KeyboardType.TRADITIONAL);
-            }
-            
-        };
-        choiceView.getTraditionalBtn().setOnAction(traditionalHandler);
-        EventHandler<ActionEvent> musicTheoryHandler=new EventHandler(){
-            @Override
-            public void handle(Event event) {
-                model.setKeyboard(KeyboardType.MUSIC_THEORY);
-            }
-            
-        };
-        choiceView.getMusicTheoryBtn().setOnAction(musicTheoryHandler);
+    private void setUpDirectionsScene(){
+        directionsView.setTeachingText(directionsModel.getTeachingText());
+        scene = new Scene(directionsView, 375, 450);
+        
         primaryStage.setTitle("Keyboard");
         primaryStage.setScene(scene);
     }
