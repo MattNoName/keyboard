@@ -24,10 +24,6 @@ public class TraditionalKeyboard extends AbstractKeyboard{
         return getCIntFromKey(key);
     }
     
-    /**
-     *
-     * @param key the key
-     */
     private int getEIntFromKey(KeyCode key) throws UnusedKeyCodeException {
         switch (key) {
             case A:

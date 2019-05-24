@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package keyboard;
 
 import java.util.ArrayList;
@@ -17,21 +13,17 @@ import javax.sound.midi.Synthesizer;
  *
  * @author mattroberts
  */
-public class KeyboardSound {
+class KeyboardSound {
     
-    Synthesizer synthesizer;
+    private Synthesizer synthesizer;
     
-    Receiver receiver;
+    private Receiver receiver;
     
-    Instrument electricPiano;
+    private Instrument electricPiano;
     
     private String ELECTRIC_PIANO="Electric Piano 2";
 
-    public KeyboardSound() throws MidiUnavailableException{
-        setUpSound();
-    }
-    
-    private void setUpSound() throws MidiUnavailableException {
+    KeyboardSound() throws MidiUnavailableException{
         synthesizer=MidiSystem.getSynthesizer();
         Instrument [] availableInstruments=synthesizer.getAvailableInstruments();
         for (Instrument instrument : availableInstruments){
@@ -44,11 +36,11 @@ public class KeyboardSound {
         receiver = MidiSystem.getReceiver();
     }
     
-    public void sendToSynethesizer(ShortMessage noteMessage){
+    void sendToSynethesizer(ShortMessage noteMessage){
         receiver.send(noteMessage, -1);
     }
     
-    public void sendToSynethesizer(ArrayList<ShortMessage> noteMessageArrayList){
+    void sendToSynethesizer(ArrayList<ShortMessage> noteMessageArrayList){
         for (ShortMessage noteMessage : noteMessageArrayList)
         receiver.send(noteMessage, -1);
     }

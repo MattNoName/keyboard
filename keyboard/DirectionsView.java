@@ -22,17 +22,17 @@ public class DirectionsView extends BorderPane {
     title--keyboard
     directions in uneditable text area
     */
-    private VBox topVBox=new VBox();
+    //private VBox topVBox=new VBox();
     //private Label titleLabel=new Label("Keyboard");
     private VBox centerVBox=new VBox();
     private TextArea teachingTextArea=new TextArea();
 
     //private Label directionsLabel=new Label("Press some keys until you know how to use it.");
 
-    public DirectionsView() {
+    DirectionsView() {
         //topVBox.getChildren().addAll(titleLabel);
-        topVBox.setAlignment(Pos.CENTER);
-        topVBox.setSpacing(20);
+        //topVBox.setAlignment(Pos.CENTER);
+        //topVBox.setSpacing(20);
         teachingTextArea.setFocusTraversable(false);
         teachingTextArea.setEditable(false);
         teachingTextArea.setWrapText(true);
@@ -41,7 +41,7 @@ public class DirectionsView extends BorderPane {
         centerVBox.getChildren().addAll(teachingTextArea);
         centerVBox.setAlignment(Pos.CENTER);
         centerVBox.setSpacing(20);
-        setTop(topVBox);
+        //setTop(topVBox);
         setCenter(teachingTextArea);
     }
     

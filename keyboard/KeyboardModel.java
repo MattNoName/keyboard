@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package keyboard;
 
 import java.util.ArrayList;
@@ -22,7 +18,7 @@ import keyboardmappings.TraditionalKeyboard;
  *
  * @author mattroberts
  */
-public class KeyboardModel {
+class KeyboardModel {
 
     private final HashSet<Integer> keyDown = new HashSet<>();
     
@@ -45,22 +41,11 @@ public class KeyboardModel {
 
     private final short NOTE_TRANSLATION_CONSTANT = 60;
 
-    public KeyboardModel() {
-        /*
-        for (int i = -100; i < 100; i++) {
-            keyDown.put(i, Boolean.FALSE);
-        }
-        */
-        /*
-        KeyCode [] keyCodes=KeyCode.values();
-        for (KeyCode kc: keyCodes){
-            keyDown.put(kc.getName(), Boolean.FALSE);
-        }
-         */
+    KeyboardModel() {
         keyboard = new TraditionalKeyboard(0,0);
     }
 
-    public void setKeyboard(KeyboardType kt) {
+    void setKeyboard(KeyboardType kt) {
         System.out.println("Setting keyboard");
         if (kt == KeyboardType.TRADITIONAL) {
             keyboard = new TraditionalKeyboard(keyboard);
@@ -76,15 +61,8 @@ public class KeyboardModel {
     private boolean isKeyPressed(KeyCode kc){
             return keyDown.get(kc.getName());
     }
-    
-    private void updateKeyPressed(KeyCode kc, boolean yes){
-            keyDown.put(kc.getName(), yes);
-    }
-
-    private int getNoteCode(int input) {
-        return input + 60;
-    }
      */
+    
     private ShortMessage getNoteOnMessage(int noteCode)
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
@@ -102,7 +80,7 @@ public class KeyboardModel {
         return noteMessage;
     }
 
-    public ArrayList<ShortMessage> respondToPedalsDown(KeyEvent keyEvent) throws
+    ArrayList<ShortMessage> respondToPedalsDown(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException {
         KeyCode kc = keyEvent.getCode();
         switch (kc) {
@@ -134,7 +112,7 @@ public class KeyboardModel {
         return null;
     }
 
-    public ArrayList<ShortMessage> respondToPedalUp(KeyEvent keyEvent) throws
+    ArrayList<ShortMessage> respondToPedalUp(KeyEvent keyEvent) throws
             InvalidMidiDataException, MidiUnavailableException{
         KeyCode kc = keyEvent.getCode();
         switch (kc){
@@ -153,7 +131,7 @@ public class KeyboardModel {
         return null;
     }
 
-    public ShortMessage respondToKeyPressed(KeyEvent keyEvent) throws UnusedKeyCodeException,
+    ShortMessage respondToKeyPressed(KeyEvent keyEvent) throws UnusedKeyCodeException,
             InvalidMidiDataException, MidiUnavailableException {
         int noteCode = keyboard.getIntFromKey(keyEvent.getCode());
         //KeyCode kc=keyEvent.getCode();
@@ -184,7 +162,7 @@ public class KeyboardModel {
 
     }
     
-    public void updateKeyboard(KeyEvent keyEvent){
+    void updateKeyboard(KeyEvent keyEvent){
         KeyCode kc=keyEvent.getCode();
         switch(kc){
             case M:
@@ -196,7 +174,7 @@ public class KeyboardModel {
         }
     }
     
-    public boolean updateOctaveAndKey(KeyEvent ke){
+    boolean updateOctaveAndKey(KeyEvent ke){
         return keyboard.updateOctaveAndKey(ke);
     }
     

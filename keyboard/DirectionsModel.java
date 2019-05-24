@@ -7,11 +7,11 @@ package keyboard;
  */
 public class DirectionsModel {
     
-    public String getTeachingText(){
+    String getTeachingText(){
         StringBuilder strBuilder=new StringBuilder();
         strBuilder.append("This keyboard is an electric keyboard that plays the notes as you play the keys.\n\n");
         
-        strBuilder.append("Its window must be the last thing uyou clicked on for it to play the notes you play.\n\n");
+        strBuilder.append("Its window must be the last thing you clicked on for it to play the notes you play.\n\n");
         
         strBuilder.append("It is really meant for a QWERTY keyboard (a keyboard where the top right letters are, from left to right, Q, W, E, R T, Y.  ");
         strBuilder.append("This is important becuase you want the keys for the notes you want to be where you want them to be.  ");
@@ -34,7 +34,7 @@ public class DirectionsModel {
         strBuilder.append("V is up pone octave from middle C and B is up two.\n\n");
         
         strBuilder.append("To change keys, use the number keys, the minus key, and the equals key.  ");
-        strBuilder.append("1 is for C, 2 is for C#, 3 is for D, 4 is for D#, 5 is for E, 6 is for F, 7 is for F#, 8 is for G, 9 is for G#, 0 is for A, minus is for A#, and equals is for B.\n\n");
+        strBuilder.append("1 is for C, 2 is for C# (C sharp), 3 is for D, 4 is for D# (D sharp), 5 is for E, 6 is for F, 7 is for F# (F sharp), 8 is for G, 9 is for G# (G sharp), 0 is for A, minus is for A# (B sharp), and equals is for B.\n\n");
         
         strBuilder.append("To make notes keep playiong after you lift your fingers, press caps lock.  ");
         strBuilder.append("To stop this, press caps lock again.  ");

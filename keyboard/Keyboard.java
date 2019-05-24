@@ -1,4 +1,3 @@
-
 package keyboard;
 
 import javafx.application.Application;
@@ -9,11 +8,8 @@ import javafx.stage.Stage;
  * @author mattroberts
  */
 public class Keyboard extends Application {
-    
-    @Override
-    public void start(Stage primaryStage) {
-        
-        /*
+
+    /*
         Almost no GUI
         a keyboard for macOS, Windows, and maybe Linux
         19 keys at a time
@@ -32,19 +28,18 @@ public class Keyboard extends Application {
         based on another enum, choose octave
         
             
-        */
-        
-        /*
+     */
+    /*
         Buttons as part of view
         view object as part of controller
         actions in controller
-        */
-        
-        
-        KeyboardManager keyboardManager=new KeyboardManager(primaryStage);
+     */
+    
+    @Override
+    public void start(Stage primaryStage) {
+
+        KeyboardManager keyboardManager = new KeyboardManager(primaryStage);
     }
-    
-    
 
     /**
      * @param args the command line arguments
@@ -52,5 +47,5 @@ public class Keyboard extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

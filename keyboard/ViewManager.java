@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  *
  * @author mattroberts
  */
-public class ViewManager {
+class ViewManager {
     
     private Stage primaryStage;
     private Scene scene;
