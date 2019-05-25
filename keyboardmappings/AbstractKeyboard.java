@@ -1,4 +1,3 @@
-
 package keyboardmappings;
 
 import javafx.scene.input.KeyCode;
@@ -51,8 +50,8 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
     }
 
     public boolean updateOctaveAndKey(KeyEvent keyEvent) {
-        KeyCode kc=keyEvent.getCode();
-        if(updateOctave(kc)||updateKey(kc)){
+        KeyCode kc = keyEvent.getCode();
+        if (updateOctave(kc) || updateKey(kc)) {
             System.out.println("Updated Octave or Key");
             setOctaveKeyTranslation();
             return true;
@@ -77,9 +76,24 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
             case B:
                 octaveTranslation = 24;
                 return true;
+            case SHIFT:
+                if (octaveTranslation == -24) {
+
+                } else {
+                    octaveTranslation -= 12;
+                }
+                return true;
+            case ENTER:
+                if (octaveTranslation == 24) {
+
+                } else {
+                    octaveTranslation += 12;
+                }
+                return true;
         }
         return false;
     }
+    
 
     private boolean updateKey(KeyCode kc) {
         switch (kc) {
