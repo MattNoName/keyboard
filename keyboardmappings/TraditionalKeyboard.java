@@ -1,6 +1,7 @@
 
 package keyboardmappings;
 
+import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 
 /**
@@ -8,6 +9,9 @@ import javafx.scene.input.KeyCode;
  * @author mattroberts
  */
 public class TraditionalKeyboard extends AbstractKeyboard{
+    
+    private HashMap<KeyCode, HashMap<KeyCode, Integer>> keyMappingsHashMap=new HashMap<>();
+
 
     public TraditionalKeyboard(int octaveTranslation, int key) {
         super(octaveTranslation, key);

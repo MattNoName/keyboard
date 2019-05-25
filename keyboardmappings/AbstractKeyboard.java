@@ -1,5 +1,6 @@
 package keyboardmappings;
 
+import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -9,11 +10,19 @@ import javafx.scene.input.KeyEvent;
  */
 public abstract class AbstractKeyboard implements KeyboardInterface {
 
-    private int octaveTranslation = 0;
+    protected int octaveTranslation = 0;
 
-    private int key = 0;
+    protected int key = 0;
 
-    private int octaveKeyTranslation = 0;
+    protected int octaveKeyTranslation = 0;
+    
+    protected HashMap<KeyCode, Integer> changeKeyHashMap=new HashMap<>();
+    
+    protected HashMap<KeyCode, Integer> keyHashMap=new HashMap<>();
+    
+    public AbstractKeyboard(){
+        makeChangeKeyHashMap();
+    }
 
     public int getOctaveTranslation() {
         return octaveTranslation;
@@ -94,7 +103,32 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
         return false;
     }
     
+    private void makeChangeKeyHashMap(){
+        changeKeyHashMap.put(KeyCode.DIGIT1, 0);
+        changeKeyHashMap.put(KeyCode.DIGIT2, 1);
+        changeKeyHashMap.put(KeyCode.DIGIT3, 2);
+        changeKeyHashMap.put(KeyCode.DIGIT4, 3);
+        changeKeyHashMap.put(KeyCode.DIGIT5, 4);
+        changeKeyHashMap.put(KeyCode.DIGIT6, 5);
+        changeKeyHashMap.put(KeyCode.DIGIT7, 6);
+        changeKeyHashMap.put(KeyCode.DIGIT8, 7);
+        changeKeyHashMap.put(KeyCode.DIGIT9, 8);
+        changeKeyHashMap.put(KeyCode.DIGIT0, 9);
+        changeKeyHashMap.put(KeyCode.MINUS, 10);
+        changeKeyHashMap.put(KeyCode.EQUALS, 11);
+    }
+    
+    private boolean updateKey(KeyCode kc) {
+    
+        Integer foundKey=changeKeyHashMap.get(kc);
+        if (foundKey!=null){
+            key=foundKey;
+            return true;
+        }
+        return false;
+    }
 
+    /*
     private boolean updateKey(KeyCode kc) {
         switch (kc) {
             case DIGIT1:
@@ -136,5 +170,6 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
         }
         return false;
     }
+*/
 
 }
