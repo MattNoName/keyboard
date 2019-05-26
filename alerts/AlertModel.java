@@ -1,12 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package alerts;
 
-import javax.sound.midi.InvalidMidiDataException;
-import javax.sound.midi.MidiUnavailableException;
+package alerts;
 
 /**
  *
@@ -38,7 +31,7 @@ public class AlertModel {
     
     public AlertModel(Exception exception){
             title="Exception";
-            //description="An unkown error occurred.  Keyboard will quit now.";
+            
             description=exception.toString();
     }
     

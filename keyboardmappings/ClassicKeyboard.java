@@ -71,51 +71,6 @@ public class ClassicKeyboard extends AbstractKeyboard{
         setKeyMapping(key);
         return updated;
     }
-    
-    /*
-    private int getEIntFromKey(KeyCode key) throws UnusedKeyCodeException {
-        switch (key) {
-            case A:
-                return -8;
-            case S:
-                return -7;
-            case E:
-                return -6;
-            case D:
-                return -5;
-            case R:
-                return -3;
-            case F:
-                return -2;
-            case G:
-                return -1;
-            case H:
-                return 0;
-            case U:
-                return 1;
-            case J:
-                return 2;
-            case I:
-                return 3;
-            case K:
-                return 4;
-            case L:
-                return 5;
-            case P:
-                return 6;
-            case SEMICOLON:
-                return 7;
-            case BRACELEFT:
-                return 8;
-            case QUOTE:
-                return 9;
-            case BRACERIGHT:
-                return 10;
-        }
-        throw new UnusedKeyCodeException();
-    }
-*/
-    
-    
+
     
 }

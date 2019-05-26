@@ -96,7 +96,7 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
                 return true;
             case SHIFT:
                 
-                if (octaveTranslation == 24) {
+                if (octaveTranslation == 36) {
 
                 } else {
                     octaveTranslation -= 12;
@@ -104,13 +104,12 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
                 return true;
             case ENTER:
                 
-                if (octaveTranslation == 96) {
+                if (octaveTranslation == 84) {
 
                 } else {
                     octaveTranslation += 12;
                 }
                 
-                octaveTranslation += 12;
                 return true;
         }
         return false;
@@ -165,49 +164,5 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
         }
         throw new UnusedKeyCodeException();
     }
-
-    /*
-    private boolean updateKey(KeyCode kc) {
-        switch (kc) {
-            case DIGIT1:
-                key = 0;
-                return true;
-            case DIGIT2:
-                key = 1;
-                return true;
-            case DIGIT3:
-                key = 2;
-                return true;
-            case DIGIT4:
-                key = 3;
-                return true;
-            case DIGIT5:
-                key = 4;
-                return true;
-            case DIGIT6:
-                key = 5;
-                return true;
-            case DIGIT7:
-                key = 6;
-                return true;
-            case DIGIT8:
-                key = 7;
-                return true;
-            case DIGIT9:
-                key = 8;
-                return true;
-            case DIGIT0:
-                key = 10;
-                return true;
-            case MINUS:
-                key = 10;
-                return true;
-            case EQUALS:
-                key = 11;
-                return true;
-        }
-        return false;
-    }
-*/
 
 }
