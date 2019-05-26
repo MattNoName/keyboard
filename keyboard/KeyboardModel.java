@@ -13,7 +13,7 @@ import javax.sound.midi.ShortMessage;
 import keyboardmappings.AbstractKeyboard;
 import keyboardmappings.MusicTheoryKeyboard;
 import keyboardmappings.ClassicKeyboard;
-import keyboardmappings.MusicalKey;
+import musictheory.MusicalKey;
 
 /**
  *

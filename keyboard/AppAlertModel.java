@@ -1,6 +1,7 @@
 
 package keyboard;
 
+import alerts.AlertModel;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 
@@ -8,27 +9,13 @@ import javax.sound.midi.MidiUnavailableException;
  *
  * @author mattroberts
  */
-public class AlertModel {
-    
-    private String title;
-    private String description;
+public class AppAlertModel extends AlertModel{
 
-    public AlertModel(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public AppAlertModel(String title, String description) {
+        super(title, description);
     }
     
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-    
-    public static AlertModel makeAlertData(Exception exception){
-        String title;
-        String description;
+    public AppAlertModel(Exception exception){
         if (exception instanceof MidiUnavailableException){
             title="Sound Resource Unavailable";
             description="A necessary sound resource was not avilable.  Keyboard will quit now.";
@@ -42,7 +29,6 @@ public class AlertModel {
             //description="An unkown error occurred.  Keyboard will quit now.";
             description=exception.toString();
         }
-        return new AlertModel(title, description);
     }
     
 }

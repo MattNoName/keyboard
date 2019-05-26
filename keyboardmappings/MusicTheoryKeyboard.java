@@ -1,6 +1,8 @@
 
 package keyboardmappings;
 
+import musictheory.MusicalKey;
+
 /**
  *
  * @author mattroberts

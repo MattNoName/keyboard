@@ -31,7 +31,7 @@ class KeyboardManager {
         try {
             sound = new KeyboardSound();
         } catch (MidiUnavailableException e) {
-            AlertsManager.showAlert(e);
+            AppAlertsManager.showAlert(e);
             return;
         }
         viewManager = new ViewManager(primaryStage, keyPressedHandler, keyReleasedHandler);
@@ -62,7 +62,7 @@ class KeyboardManager {
                     model.updateKeyboard(event);
                 }
             } catch (Exception e) {
-                AlertsManager.showAlert(e);
+                AppAlertsManager.showAlert(e);
             }
         }
     };
@@ -89,7 +89,7 @@ class KeyboardManager {
                     }
                 }
             } catch (Exception e) {
-                AlertsManager.showAlert(e);
+                AppAlertsManager.showAlert(e);
             }
         }
     };

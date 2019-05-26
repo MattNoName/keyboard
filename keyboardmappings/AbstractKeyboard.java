@@ -1,5 +1,6 @@
 package keyboardmappings;
 
+import musictheory.MusicalKey;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

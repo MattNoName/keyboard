@@ -1,6 +1,19 @@
 
 package keyboardmappings;
 
+import musictheory.MusicalKey;
+import keyboardmappings.classickeys.ClassicGSharpKeys;
+import keyboardmappings.classickeys.ClassicEKeys;
+import keyboardmappings.classickeys.ClassicFSharpKeys;
+import keyboardmappings.classickeys.ClassicASharpKeys;
+import keyboardmappings.classickeys.ClassicGKeys;
+import keyboardmappings.classickeys.ClassicAKeys;
+import keyboardmappings.classickeys.ClassicFKeys;
+import keyboardmappings.classickeys.ClassicBKeys;
+import keyboardmappings.classickeys.ClassicDSharpKeys;
+import keyboardmappings.classickeys.ClassicDKeys;
+import keyboardmappings.classickeys.ClassicCSharpKeys;
+import keyboardmappings.classickeys.ClassicCKeys;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 
