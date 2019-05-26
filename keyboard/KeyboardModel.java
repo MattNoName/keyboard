@@ -40,10 +40,10 @@ class KeyboardModel {
     
     private boolean sostenato = false;
 
-    private final short NOTE_TRANSLATION_CONSTANT = 60;
+    //private final short NOTE_TRANSLATION_CONSTANT = 60;
 
     KeyboardModel() {
-        keyboard = new MusicTheoryKeyboard(0,MusicalKey.C);
+        keyboard = new MusicTheoryKeyboard(60,MusicalKey.C);
     }
 
     void setKeyboard(KeyboardType kt) {
@@ -67,9 +67,9 @@ class KeyboardModel {
     private ShortMessage getNoteOnMessage(int noteCode)
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
+        System.out.println(noteCode);
         noteMessage.setMessage(ShortMessage.NOTE_ON, 4,
-                noteCode + keyboard.getOctaveKeyTranslation()
-                        +NOTE_TRANSLATION_CONSTANT, 70);
+                noteCode + keyboard.getOctaveKeyTranslation(), 70);
         return noteMessage;
     }
 
@@ -77,7 +77,7 @@ class KeyboardModel {
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
         noteMessage.setMessage(ShortMessage.NOTE_OFF, 4,
-                noteCode + keyboard.getOctaveKeyTranslation()+ NOTE_TRANSLATION_CONSTANT, 0);
+                noteCode + keyboard.getOctaveKeyTranslation(), 0);
         return noteMessage;
     }
 

@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
  */
 public abstract class AbstractKeyboard implements KeyboardInterface {
 
-    protected int octaveTranslation = 0;
+    protected int octaveTranslation = 60;
 
     protected int key = 0;
 
@@ -25,6 +25,7 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
     public AbstractKeyboard(){
         makeChangeKeyHashMap();
         makeMusicalKeyHashMap();
+        setOctaveKeyTranslation();
     }
 
     public final int getOctaveTranslation() {
@@ -56,6 +57,8 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
     }
 
     private void setOctaveKeyTranslation() {
+        System.out.println(octaveTranslation);
+        System.out.println(key);
         octaveKeyTranslation = octaveTranslation + key;
     }
 
@@ -76,33 +79,37 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
     private boolean updateOctave(KeyCode kc) {
         switch (kc) {
             case Z:
-                octaveTranslation = -24;
+                octaveTranslation = 36;
                 return true;
             case X:
-                octaveTranslation = -12;
+                octaveTranslation = 48;
                 return true;
             case C:
-                octaveTranslation = 0;
+                octaveTranslation = 60;
                 return true;
             case V:
-                octaveTranslation = 12;
+                octaveTranslation = 72;
                 return true;
             case B:
-                octaveTranslation = 24;
+                octaveTranslation = 84;
                 return true;
             case SHIFT:
-                if (octaveTranslation == -24) {
+                
+                if (octaveTranslation == 24) {
 
                 } else {
                     octaveTranslation -= 12;
                 }
                 return true;
             case ENTER:
-                if (octaveTranslation == 24) {
+                
+                if (octaveTranslation == 96) {
 
                 } else {
                     octaveTranslation += 12;
                 }
+                
+                octaveTranslation += 12;
                 return true;
         }
         return false;

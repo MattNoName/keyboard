@@ -26,7 +26,7 @@ public class DirectionsModel {
         strBuilder.append("Go down and to the left, or up and to the left to go down a note.\n\n");
         
         strBuilder.append("For the traditional keyboard, the keys are like those on a traitional electric keyboard or a piano.  ");
-        strBuilder.append("The first key on your keyboard of the key you are using is A for all keys.  ");
+        strBuilder.append("The first key on your keyboard of the key you are using is A or Q for all keys.  ");
         
         strBuilder.append("For either keyboard, switch octaves by pressing Z, X, C, V, or B.  ");
         strBuilder.append("C gives you a keyboard that uses middle C.  ");

@@ -29,6 +29,17 @@ public class ClassicKeyboard extends AbstractKeyboard{
     
     protected void makeKeyMappingsHashMap(){
         keyMappingsHashMap.put(0, new ClassicCKeys());
+        keyMappingsHashMap.put(1, new ClassicCSharpKeys());
+        keyMappingsHashMap.put(2, new ClassicDKeys());
+        keyMappingsHashMap.put(3, new ClassicDSharpKeys());
+        keyMappingsHashMap.put(4, new ClassicEKeys());
+        keyMappingsHashMap.put(5, new ClassicFKeys());
+        keyMappingsHashMap.put(6, new ClassicFSharpKeys());
+        keyMappingsHashMap.put(7, new ClassicGKeys());
+        keyMappingsHashMap.put(8, new ClassicGSharpKeys());
+        keyMappingsHashMap.put(9, new ClassicAKeys());
+        keyMappingsHashMap.put(10, new ClassicASharpKeys());
+        keyMappingsHashMap.put(11, new ClassicBKeys());
     }
     
     private void setKeyMapping(int key){
@@ -48,6 +59,7 @@ public class ClassicKeyboard extends AbstractKeyboard{
         return updated;
     }
     
+    /*
     private int getEIntFromKey(KeyCode key) throws UnusedKeyCodeException {
         switch (key) {
             case A:
@@ -89,6 +101,7 @@ public class ClassicKeyboard extends AbstractKeyboard{
         }
         throw new UnusedKeyCodeException();
     }
+*/
     
     
     
