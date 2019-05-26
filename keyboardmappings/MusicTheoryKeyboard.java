@@ -1,55 +1,20 @@
 
 package keyboardmappings;
 
-import javafx.scene.input.KeyCode;
-
 /**
  *
  * @author mattroberts
  */
 public class MusicTheoryKeyboard extends AbstractKeyboard{
     
-    public MusicTheoryKeyboard(int octaveTranslation, int key) {
-        super(octaveTranslation, key);
+    public MusicTheoryKeyboard(int octaveTranslation, MusicalKey mk) {
+        super(octaveTranslation, mk);
+        keyHashMap=new MusicTheoryKeys();
     }
 
     public MusicTheoryKeyboard(AbstractKeyboard ak) {
         super(ak);
-        keyHashMap.put(KeyCode.TAB, -12);
-        keyHashMap.put(KeyCode.Q, -11);
-        keyHashMap.put(KeyCode.A, -10);
-        keyHashMap.put(KeyCode.W, -9);
-        keyHashMap.put(KeyCode.S, -8);
-        keyHashMap.put(KeyCode.E, -7);
-        keyHashMap.put(KeyCode.D, -6);
-        keyHashMap.put(KeyCode.R, -5);
-        keyHashMap.put(KeyCode.F, -4);
-        keyHashMap.put(KeyCode.T, -3);
-        keyHashMap.put(KeyCode.G, -2);
-        keyHashMap.put(KeyCode.Y, -1);
-        keyHashMap.put(KeyCode.H, 0);
-        keyHashMap.put(KeyCode.U, 1);
-        keyHashMap.put(KeyCode.J, 2);
-        keyHashMap.put(KeyCode.I, 3);
-        keyHashMap.put(KeyCode.K, 4);
-        keyHashMap.put(KeyCode.O, 5);
-        keyHashMap.put(KeyCode.L, 6);
-        keyHashMap.put(KeyCode.P, 7);
-        keyHashMap.put(KeyCode.SEMICOLON, 8);
-        keyHashMap.put(KeyCode.OPEN_BRACKET, 9);
-        keyHashMap.put(KeyCode.QUOTE, 10);
-        keyHashMap.put(KeyCode.CLOSE_BRACKET, 11);
-        keyHashMap.put(KeyCode.BACK_SLASH, 12);
-    }
-    
-    @Override
-    public int getIntFromKey(KeyCode key) throws UnusedKeyCodeException {
-        
-        Integer foundKey=keyHashMap.get(key);
-        if (foundKey!=null){
-            return foundKey;
-        }
-        throw new UnusedKeyCodeException();
+        keyHashMap=new MusicTheoryKeys();
     }
     
     

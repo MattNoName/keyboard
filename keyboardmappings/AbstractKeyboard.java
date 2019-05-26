@@ -20,45 +20,50 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
     
     protected HashMap<KeyCode, Integer> keyHashMap=new HashMap<>();
     
+    protected HashMap<MusicalKey, Integer> musicalKeyHashMap=new HashMap<>();
+    
     public AbstractKeyboard(){
         makeChangeKeyHashMap();
+        makeMusicalKeyHashMap();
     }
 
-    public int getOctaveTranslation() {
+    public final int getOctaveTranslation() {
         return octaveTranslation;
     }
 
-    public int getKey() {
+    public final int getKey() {
         return key;
     }
 
-    public AbstractKeyboard(int octaveTranslation, int key) {
+    public AbstractKeyboard(int octaveTranslation, MusicalKey mk) {
+        this();
         this.octaveTranslation = octaveTranslation;
-        this.key = key;
+        this.key = musicalKeyHashMap.get(mk);
     }
 
     public AbstractKeyboard(AbstractKeyboard ak) {
+        this();
         this.octaveTranslation = ak.getOctaveTranslation();
         this.key = ak.getKey();
     }
 
-    public void setOctaveTranslation(int octaveTranslation) {
+    public final void setOctaveTranslation(int octaveTranslation) {
         this.octaveTranslation = octaveTranslation;
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    protected void setKey(MusicalKey mk){
+        key=musicalKeyHashMap.get(mk);
     }
 
     private void setOctaveKeyTranslation() {
         octaveKeyTranslation = octaveTranslation + key;
     }
 
-    public int getOctaveKeyTranslation() {
+    public final int getOctaveKeyTranslation() {
         return octaveKeyTranslation;
     }
 
-    public boolean updateOctaveAndKey(KeyEvent keyEvent) {
+    public final boolean updateOctaveAndKey(KeyEvent keyEvent) {
         KeyCode kc = keyEvent.getCode();
         if (updateOctave(kc) || updateKey(kc)) {
             System.out.println("Updated Octave or Key");
@@ -118,7 +123,22 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
         changeKeyHashMap.put(KeyCode.EQUALS, 11);
     }
     
-    private boolean updateKey(KeyCode kc) {
+    private void makeMusicalKeyHashMap(){
+        musicalKeyHashMap.put(MusicalKey.C, 0);
+        musicalKeyHashMap.put(MusicalKey.C_SHARP, 1);
+        musicalKeyHashMap.put(MusicalKey.D, 2);
+        musicalKeyHashMap.put(MusicalKey.D_SHARP, 3);
+        musicalKeyHashMap.put(MusicalKey.E, 4);
+        musicalKeyHashMap.put(MusicalKey.F, 5);
+        musicalKeyHashMap.put(MusicalKey.F_SHARP, 6);
+        musicalKeyHashMap.put(MusicalKey.G, 7);
+        musicalKeyHashMap.put(MusicalKey.G_SHARP, 9);
+        musicalKeyHashMap.put(MusicalKey.A, 10);
+        musicalKeyHashMap.put(MusicalKey.A_SHARP, 11);
+        musicalKeyHashMap.put(MusicalKey.B, 12);
+    }
+    
+    protected boolean updateKey(KeyCode kc) {
     
         Integer foundKey=changeKeyHashMap.get(kc);
         if (foundKey!=null){
@@ -126,6 +146,16 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
             return true;
         }
         return false;
+    }
+    
+    @Override
+    public final int getIntFromKey(KeyCode key) throws UnusedKeyCodeException {
+        
+        Integer foundKey=keyHashMap.get(key);
+        if (foundKey!=null){
+            return foundKey;
+        }
+        throw new UnusedKeyCodeException();
     }
 
     /*
