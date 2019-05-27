@@ -67,7 +67,7 @@ class KeyboardModel {
     private ShortMessage getNoteOnMessage(int noteCode)
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
-        System.out.println(noteCode);
+        //System.out.println(noteCode);
         noteMessage.setMessage(ShortMessage.NOTE_ON, 4,
                 noteCode + keyboard.getOctaveKeyTranslation(), 70);
         return noteMessage;

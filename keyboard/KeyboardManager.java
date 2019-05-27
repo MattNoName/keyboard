@@ -51,7 +51,7 @@ class KeyboardManager {
                     //do nothing
                 }
                 if (noteMessage != null) {
-                    System.out.println(noteMessage.toString());
+                    //System.out.println(noteMessage.toString());
                     sound.sendToSynethesizer(noteMessage);
                 } else if (!model.updateOctaveAndKey(event)) {
 
