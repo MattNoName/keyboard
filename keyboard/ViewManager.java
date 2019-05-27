@@ -31,7 +31,7 @@ class ViewManager {
     }
 
     private void setUpDirectionsScene() {
-        directionsView.setTeachingText(directionsModel.getTeachingText());
+        directionsView.setTeachingText(directionsModel.getTeachingText(false), directionsModel.getTeachingText(true));
         
         scene = new Scene(directionsView, 375, 450);
         primaryStage.setScene(scene);

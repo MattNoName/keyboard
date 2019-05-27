@@ -45,8 +45,9 @@ public class DirectionsView extends BorderPane {
         setCenter(teachingTextArea);
     }
     
-    void setTeachingText(String text){
-        teachingTextArea.setText(text);
+    void setTeachingText(String writtenText, String spokenText){
+        teachingTextArea.setText(writtenText);
+        teachingTextArea.setAccessibleText(spokenText);
     }
     
     void setUpKeyPressedInput(EventHandler<KeyEvent> kph){

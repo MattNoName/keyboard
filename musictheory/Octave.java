@@ -2,7 +2,7 @@
 package musictheory;
 
 /**
- *
+ * Octaves on a keyboard
  * @author mattroberts
  */
 public enum Octave {

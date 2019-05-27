@@ -7,7 +7,7 @@ package keyboard;
  */
 public class DirectionsModel {
     
-    String getTeachingText(){
+    String getTeachingText(boolean spoken){
         StringBuilder strBuilder=new StringBuilder();
         strBuilder.append("This keyboard is an electric keyboard that plays the notes as you play the keys.\n\n");
         
@@ -34,8 +34,11 @@ public class DirectionsModel {
         strBuilder.append("V is up pone octave from middle C and B is up two.\n\n");
         
         strBuilder.append("To change keys, use the number keys, the minus key, and the equals key.  ");
-        strBuilder.append("1 is for C, 2 is for C# (C sharp), 3 is for D, 4 is for D# (D sharp), 5 is for E, 6 is for F, 7 is for F# (F sharp), 8 is for G, 9 is for G# (G sharp), 0 is for A, minus is for A# (B sharp), and equals is for B.\n\n");
-        
+        if(spoken){
+            strBuilder.append("1 is for C, 2 is for C sharp, 3 is for D, 4 is for D sharp, 5 is for E, 6 is for F, 7 is for F sharp, 8 is for G, 9 is for G sharp, 0 is for A, minus is for B sharp, and equals is for B.\n\n");
+        }else{
+            strBuilder.append("1 is for C, 2 is for C# (C sharp), 3 is for D, 4 is for D# (D sharp), 5 is for E, 6 is for F, 7 is for F# (F sharp), 8 is for G, 9 is for G# (G sharp), 0 is for A, minus is for A# (B sharp), and equals is for B.\n\n");
+        }
         strBuilder.append("To make notes keep playiong after you lift your fingers, press caps lock.  ");
         strBuilder.append("To stop this, press caps lock again.  ");
         strBuilder.append("On a piano, this is done by the sustaining pedal.\n\n");

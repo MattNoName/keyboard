@@ -2,18 +2,18 @@
 package keyboardmappings;
 
 import musictheory.MusicalKey;
-import keyboardmappings.classickeys.ClassicGSharpKeys;
-import keyboardmappings.classickeys.ClassicEKeys;
-import keyboardmappings.classickeys.ClassicFSharpKeys;
-import keyboardmappings.classickeys.ClassicASharpKeys;
-import keyboardmappings.classickeys.ClassicGKeys;
-import keyboardmappings.classickeys.ClassicAKeys;
-import keyboardmappings.classickeys.ClassicFKeys;
-import keyboardmappings.classickeys.ClassicBKeys;
-import keyboardmappings.classickeys.ClassicDSharpKeys;
-import keyboardmappings.classickeys.ClassicDKeys;
-import keyboardmappings.classickeys.ClassicCSharpKeys;
-import keyboardmappings.classickeys.ClassicCKeys;
+import keyboardmappings.pianokeys.PianoGSharpKeys;
+import keyboardmappings.pianokeys.PianoEKeys;
+import keyboardmappings.pianokeys.PianoFSharpKeys;
+import keyboardmappings.pianokeys.PianoASharpKeys;
+import keyboardmappings.pianokeys.PianoGKeys;
+import keyboardmappings.pianokeys.PianoAKeys;
+import keyboardmappings.pianokeys.PianoFKeys;
+import keyboardmappings.pianokeys.PianoBKeys;
+import keyboardmappings.pianokeys.PianoDSharpKeys;
+import keyboardmappings.pianokeys.PianoDKeys;
+import keyboardmappings.pianokeys.PianoCSharpKeys;
+import keyboardmappings.pianokeys.PianoCKeys;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 
@@ -41,18 +41,18 @@ public class ClassicKeyboard extends AbstractKeyboard{
     }
     
     protected void makeKeyMappingsHashMap(){
-        keyMappingsHashMap.put(0, new ClassicCKeys());
-        keyMappingsHashMap.put(1, new ClassicCSharpKeys());
-        keyMappingsHashMap.put(2, new ClassicDKeys());
-        keyMappingsHashMap.put(3, new ClassicDSharpKeys());
-        keyMappingsHashMap.put(4, new ClassicEKeys());
-        keyMappingsHashMap.put(5, new ClassicFKeys());
-        keyMappingsHashMap.put(6, new ClassicFSharpKeys());
-        keyMappingsHashMap.put(7, new ClassicGKeys());
-        keyMappingsHashMap.put(8, new ClassicGSharpKeys());
-        keyMappingsHashMap.put(9, new ClassicAKeys());
-        keyMappingsHashMap.put(10, new ClassicASharpKeys());
-        keyMappingsHashMap.put(11, new ClassicBKeys());
+        keyMappingsHashMap.put(0, new PianoCKeys());
+        keyMappingsHashMap.put(1, new PianoCSharpKeys());
+        keyMappingsHashMap.put(2, new PianoDKeys());
+        keyMappingsHashMap.put(3, new PianoDSharpKeys());
+        keyMappingsHashMap.put(4, new PianoEKeys());
+        keyMappingsHashMap.put(5, new PianoFKeys());
+        keyMappingsHashMap.put(6, new PianoFSharpKeys());
+        keyMappingsHashMap.put(7, new PianoGKeys());
+        keyMappingsHashMap.put(8, new PianoGSharpKeys());
+        keyMappingsHashMap.put(9, new PianoAKeys());
+        keyMappingsHashMap.put(10, new PianoASharpKeys());
+        keyMappingsHashMap.put(11, new PianoBKeys());
     }
     
     private void setKeyMapping(int key){

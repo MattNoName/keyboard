@@ -1,5 +1,5 @@
 
-package keyboardmappings.classickeys;
+package keyboardmappings.pianokeys;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
@@ -8,9 +8,9 @@ import javafx.scene.input.KeyCode;
  *
  * @author mattroberts
  */
-public class ClassicCKeys extends HashMap<KeyCode, Integer>{
+public class PianoCKeys extends HashMap<KeyCode, Integer>{
 
-    public ClassicCKeys() {
+    public PianoCKeys() {
         put(KeyCode.A, 0);//C
         put(KeyCode.W, 1);//C#
         put(KeyCode.S, 2);//D

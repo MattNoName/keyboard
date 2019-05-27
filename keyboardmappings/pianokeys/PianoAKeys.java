@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboardmappings.classickeys;
+package keyboardmappings.pianokeys;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
@@ -13,9 +13,9 @@ import javafx.scene.input.KeyCode;
  * @author mattroberts
  */
 
-public class ClassicAKeys extends HashMap<KeyCode, Integer>{
+public class PianoAKeys extends HashMap<KeyCode, Integer>{
 
-    public ClassicAKeys() {
+    public PianoAKeys() {
         put(KeyCode.A, 9);//A
         put(KeyCode.W, 10);//A#
         put(KeyCode.S, 11);//B
