@@ -11,6 +11,9 @@ package musictheory;
  */
 public enum MusicalKey {
     
-    C, C_SHARP, D, D_SHARP, E, F, F_SHARP, G, G_SHARP, A, A_SHARP, B
+    C, C_SHARP, D, D_SHARP, E, F, F_SHARP, G, 
+    G_SHARP, A, A_SHARP, B, E_SHARP, B_SHARP, 
+    B_FLAT, C_FLAT, D_FLAT, E_FLAT, F_FLAT, 
+    G_FLAT, A_FLAT
     
 }
