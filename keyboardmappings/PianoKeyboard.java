@@ -21,7 +21,7 @@ import javafx.scene.input.KeyCode;
  *
  * @author mattroberts
  */
-public class ClassicKeyboard extends AbstractKeyboard{
+public class PianoKeyboard extends AbstractKeyboard{
     
     private HashMap<Integer, HashMap<KeyCode, Integer>> keyMappingsHashMap=new HashMap<>();
 
@@ -30,12 +30,12 @@ public class ClassicKeyboard extends AbstractKeyboard{
         setKeyMapping(key);
     }
 
-    public ClassicKeyboard(int octaveTranslation, MusicalKey mk) {
+    public PianoKeyboard(int octaveTranslation, MusicalKey mk) {
         super(octaveTranslation, mk);
         setUpkeyMappingsHashMap();
     }
 
-    public ClassicKeyboard(AbstractKeyboard ak) {
+    public PianoKeyboard(AbstractKeyboard ak) {
         super(ak);
         setUpkeyMappingsHashMap();
     }

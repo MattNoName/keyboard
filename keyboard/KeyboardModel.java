@@ -12,7 +12,7 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
 import keyboardmappings.AbstractKeyboard;
 import keyboardmappings.MusicTheoryKeyboard;
-import keyboardmappings.ClassicKeyboard;
+import keyboardmappings.PianoKeyboard;
 import musictheory.MusicalKey;
 
 /**
@@ -43,13 +43,13 @@ class KeyboardModel {
     //private final short NOTE_TRANSLATION_CONSTANT = 60;
 
     KeyboardModel() {
-        keyboard = new MusicTheoryKeyboard(60,MusicalKey.C);
+        keyboard = new PianoKeyboard(60,MusicalKey.C);
     }
 
     void setKeyboard(KeyboardType kt) {
         System.out.println("Setting keyboard");
         if (kt == KeyboardType.TRADITIONAL) {
-            keyboard = new ClassicKeyboard(keyboard);
+            keyboard = new PianoKeyboard(keyboard);
             System.out.println("Traditional");
         } else {
             keyboard = new MusicTheoryKeyboard(keyboard);
@@ -170,7 +170,7 @@ class KeyboardModel {
                 keyboard=new MusicTheoryKeyboard(keyboard);
                 return;
             case N:
-                keyboard=new ClassicKeyboard(keyboard);
+                keyboard=new PianoKeyboard(keyboard);
                 return;              
         }
     }
