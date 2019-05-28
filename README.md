@@ -7,6 +7,8 @@ Thank you to Osa for introducing me to the Java midi sound library whioch is use
 
 Thank you to Osa again and to Vanely for encouraging me to create this keyboard.
 
+To run the app, download keyboard.jar and double click it to run.  It is a little slow to satrt the application, so please be alittle patient.
+
 Here are the directions, which are the only thing displayed on the screen by the app other than any system menus or icons.
 
 This keyboard is an electric keyboard that plays the notes as you play the keys.
