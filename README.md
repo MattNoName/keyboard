@@ -3,6 +3,10 @@
 
 This app does not require anything on the screen to use other than to open th application and to quit it and can be used with your screen off or the brightness turned down all the way.
 
+Thank you to Osa for introducing me to the Java midi sound library whioch is used to create sound with your computer.
+
+Thank you to Osa again and to Vanely for encouraging me to create this keyboard.
+
 Here are the directions, which are the only thing displayed on the screen by the app other than any system menus or icons.
 
 This keyboard is an electric keyboard that plays the notes as you play the keys.
@@ -11,11 +15,11 @@ Its window must be the last thing you clicked on for it to play the notes you pl
 
 It is really meant for a QWERTY keyboard (a keyboard where the top right letters are, from left to right, Q, W, E, R T, Y.  This is important becuase you want the keys for the notes you want to be where you want them to be.  All the keys for notes are within the two rows of keys that are below the number keys.
 
-It has two keyboards: a music theory keyboard and a traditional keyboard.  To use the music theory keyboard, type M.  To use the traditional keyboard, type N.
+It has two keyboards: a music theory keyboard and a piano keyboard.  To use the music theory keyboard, type M.  To use the piano keyboard, type N.
 
 The music theory keyboard has each note one key away from the next on the keyboard.  Go up and to the right or down and to the left to go up a note.  Go down and to the left, or up and to the left to go down a note.
 
-For the traditional keyboard, the keys are like those on a traditional electric keyboard or a piano.  The first key on your keyboard of the key you are using is A or Q for all keys.  For either keyboard, switch octaves by pressing Z, X, C, V, or B.  C gives you a keyboard that uses middle C.  X is down one octave from middle C and Z is down two.  V is up pone octave from middle C and B is up two.
+For the piano keyboard, the keys are like those on an electric keyboard or a piano.  The first key on your keyboard of the key you are using is A or Q for all keys.  For either keyboard, switch octaves by pressing Z, X, C, V, or B.  C gives you a keyboard that uses middle C.  X is down one octave from middle C and Z is down two.  V is up pone octave from middle C and B is up two.
 
 To change keys, use the number keys, the minus key, and the equals key.  1 is for C, 2 is for C# (C sharp), 3 is for D, 4 is for D# (D sharp), 5 is for E, 6 is for F, 7 is for F# (F sharp), 8 is for G, 9 is for G# (G sharp), 0 is for A, minus is for A# (B sharp), and equals is for B.
 
