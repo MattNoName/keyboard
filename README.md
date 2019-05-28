@@ -1,7 +1,7 @@
 # keyboard
-## A Java App that Let's Your Computer Keyboard be a Piano Keyboard
+## A Java Application that Let's Your Computer Keyboard be a Piano Keyboard
 ### About keyboard
-This app does not require anything on the screen to use other than to open th application and to quit it and can be used with your screen off or the brightness turned down all the way.
+This application does not require anything on the screen to use other than to open th application and to quit it and can be used with your screen off or the brightness turned down all the way.
 
 ### Acknowledgments  
 Thank you to Osa for introducing me to the Java midi sound library whioch is used to create sound with your computer.
@@ -9,7 +9,7 @@ Thank you to Osa for introducing me to the Java midi sound library whioch is use
 Thank you to Osa again and to Vanely for encouraging me to create this keyboard.
 
 ### Download and Run
-To run the app, download keyboard.jar and double click it to run.  It is a little slow to satrt the application, so please be alittle patient.
+To run the application, download keyboard.jar and double click it to run.  It is a little slow to start the application, so please be a little patient.  If it doesn't run at all, please make sure you have Java installed on your computer.
 
 ### How to Use It
 Here are the directions, which are the only thing displayed on the screen by the app other than any system menus or icons.
