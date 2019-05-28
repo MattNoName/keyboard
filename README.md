@@ -4,7 +4,7 @@
 This application does not require anything on the screen to use other than to open th application and to quit it and can be used with your screen off or the brightness turned down all the way.
 
 ### Acknowledgments  
-Thank you to Osa for introducing me to the Java midi sound library whioch is used to create sound with your computer.
+Thank you to Osa for introducing me to the Java midi sound library which is used to create sound with your computer.
 
 Thank you to Osa again and to Vanely for encouraging me to create this keyboard.
 
