@@ -18,8 +18,8 @@ class ViewManager {
     
     private Stage primaryStage;
     private Scene scene;
-    private DirectionsView directionsView = new DirectionsView();
-    private DirectionsModel directionsModel = new DirectionsModel();
+    private View directionsView = new View();
+    private ViewModel directionsModel = new ViewModel();
 
     ViewManager(Stage primaryStage, 
             EventHandler<KeyEvent> keyPressedHandler, 
@@ -31,9 +31,10 @@ class ViewManager {
     }
 
     private void setUpDirectionsScene() {
+        directionsView.setThankYouText(directionsModel.getThankYouText());
         directionsView.setTeachingText(directionsModel.getTeachingText(false), directionsModel.getTeachingText(true));
         
-        scene = new Scene(directionsView, 375, 450);
+        scene = new Scene(directionsView, 375, 600);
         primaryStage.setScene(scene);
     }
     

@@ -15,10 +15,10 @@ It has two keyboards: a music theory keyboard and a traditional keyboard.  To us
 
 The music theory keyboard has each note one key away from the next on the keyboard.  Go up and to the right or down and to the left to go up a note.  Go down and to the left, or up and to the left to go down a note.
 
-For the traditional keyboard, the keys are like those on a traitional electric keyboard or a piano.  The first key on your keyboard of the key you are using is A or Q for all keys.  For either keyboard, switch octaves by pressing Z, X, C, V, or B.  C gives you a keyboard that uses middle C.  X is down one octave from middle C and Z is down two.  V is up pone octave from middle C and B is up two.
+For the traditional keyboard, the keys are like those on a traditional electric keyboard or a piano.  The first key on your keyboard of the key you are using is A or Q for all keys.  For either keyboard, switch octaves by pressing Z, X, C, V, or B.  C gives you a keyboard that uses middle C.  X is down one octave from middle C and Z is down two.  V is up pone octave from middle C and B is up two.
 
 To change keys, use the number keys, the minus key, and the equals key.  1 is for C, 2 is for C# (C sharp), 3 is for D, 4 is for D# (D sharp), 5 is for E, 6 is for F, 7 is for F# (F sharp), 8 is for G, 9 is for G# (G sharp), 0 is for A, minus is for A# (B sharp), and equals is for B.
 
-To make notes keep playiong after you lift your fingers, press caps lock.  To stop this, press caps lock again.  On a piano, this is done by the sustaining pedal.
+To make notes keep playing after you lift your fingers, press caps lock.  To stop this, press caps lock again.  On a piano, this is done by the sustaining pedal.
 
 To make just the notes you are already playing play after you have lifted your fingers, press and hold space bar.  Let go of space bar to stop their playing.  On a piano, this is done by the sostenuto pedal.

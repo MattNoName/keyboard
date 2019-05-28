@@ -5,7 +5,14 @@ package keyboard;
  *
  * @author mattroberts
  */
-public class DirectionsModel {
+public class ViewModel {
+    
+    String getThankYouText(){
+        StringBuilder strBuilder=new StringBuilder();
+        strBuilder.append("Thank you to Osa for introducing me to the Java midi sound library whioch is used to create sound with your computer.\n\n");
+        strBuilder.append("Thank you to Osa again and to Vanely for encouraging me to create this keyboard.");
+        return strBuilder.toString();
+    }
     
     String getTeachingText(boolean spoken){
         StringBuilder strBuilder=new StringBuilder();
@@ -17,15 +24,15 @@ public class DirectionsModel {
         strBuilder.append("This is important becuase you want the keys for the notes you want to be where you want them to be.  ");
         strBuilder.append("All the keys for notes are within the two rows of keys that are below the number keys.\n\n");
         
-        strBuilder.append("It has two keyboards: a music theory keyboard and a traditional keyboard.  ");
+        strBuilder.append("It has two keyboards: a music theory keyboard and a piano keyboard.  ");
         strBuilder.append("To use the music theory keyboard, type M.  ");
-        strBuilder.append("To use the traditional keyboard, type N.\n\n");
+        strBuilder.append("To use the piano keyboard, type N.\n\n");
         
         strBuilder.append("The music theory keyboard has each note one key away from the next on the keyboard.  ");
         strBuilder.append("Go up and to the right or down and to the left to go up a note.  ");
         strBuilder.append("Go down and to the left, or up and to the left to go down a note.\n\n");
         
-        strBuilder.append("For the traditional keyboard, the keys are like those on a traitional electric keyboard or a piano.  ");
+        strBuilder.append("For the piano keyboard, the keys are like those on an electric keyboard or a piano.  ");
         strBuilder.append("The first key on your keyboard of the key you are using is A or Q for all keys.  ");
         
         strBuilder.append("For either keyboard, switch octaves by pressing Z, X, C, V, or B.  ");
