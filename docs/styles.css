@@ -1,4 +1,6 @@
 body{
+    background-color: rgb(255, 232, 23);
+    background-color: rgb(255, 231, 19);
     background-color: rgb(255, 230, 0);
 }
 
@@ -10,25 +12,42 @@ body{
 .basicHeading{
     margin-left: 5%;
     color: rgb(165, 120, 37)
+    
 }
 
 .basicText{
+    font-size: 20px;
     margin-left: 2.5%;
     margin-right: 2.5%;
+    color: rgb(0, 110, 255);
+    color: black;
 }
 
-.downloadLinks{
-    margin-left: 7.5%;
-    margin-right: 7.5%;
+.linkBtn{
+    font-size: 20px;
     background-color: rgb(255, 174, 0);
+    background-color: rgb(255, 166, 0);
     color: white;
     border-radius: 8px;
-    padding: 10px 18px;
+    padding: 7.5px 18px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 }
 
-.downloadLinks:hover, .downloadLinks:active {
+.columnBtn{
+    margin-bottom: 20px;
+}
+
+.gridBtn{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.linkBtn:hover, .linkBtn:active {
     background-color: rgb(255, 136, 0);
   }
+
+.inset1{
+    margin-left: 7.5%;
+}
