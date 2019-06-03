@@ -1,0 +1,36 @@
+
+/* 
+    Created on : Jun 3, 2019, 1:29:30 PM
+    Author     : mattroberts
+*/
+
+.text-area{
+-fx-control-inner-background: rgb(255, 230, 0);
+-fx-background-color: rgb(255, 230, 0);
+-fx-text-fill: rgb(136, 97, 24);
+-fx-border-color: rgb(136, 97, 24);
+}
+
+.scroll-bar{
+    -fx-background-color: rgb(255, 174, 0);
+    -fx-background-color: rgb(189, 135, 34);
+}
+
+.thumb{
+    -fx-background-color: rgb(255, 174, 0);
+    -fx-background-color: rgb(136, 97, 24);
+}
+
+
+.root{
+    -fx-background-color: rgb(255, 232, 23);
+    -fx-control-inner-background: rgb(255, 232, 23);
+}
+
+.decrement-button{
+    -fx-base: rgb(136, 97, 24);
+}
+
+.increment-button{
+    -fx-base: rgb(136, 97, 24);
+}

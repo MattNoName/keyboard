@@ -35,6 +35,7 @@ class ViewManager {
         directionsView.setTeachingText(directionsModel.getTeachingText(false), directionsModel.getTeachingText(true));
         
         scene = new Scene(directionsView, 375, 600);
+        scene.getStylesheets().add("keyboard/view-style.css");
         primaryStage.setScene(scene);
     }
     
