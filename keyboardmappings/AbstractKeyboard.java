@@ -59,8 +59,8 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
     }
 
     private void setOctaveKeyTranslation() {
-        System.out.println(octaveTranslation);
-        System.out.println(key);
+        //System.out.println(octaveTranslation);
+        //System.out.println(key);
         octaveKeyTranslation = octaveTranslation + key;
     }
 
