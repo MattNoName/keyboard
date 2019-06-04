@@ -30,7 +30,7 @@ class KeyboardManager {
 
         try {
             sound = new KeyboardSound();
-        } catch (MidiUnavailableException e) {
+        } catch (Exception e) {
             AppAlertsManager.showAlert(e);
             return;
         }
