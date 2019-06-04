@@ -24,6 +24,10 @@ public class AppAlertModel extends AlertModel{
             title="Invalid Midi Data";
             description="Data sent to synthesizer was invalid.";
         }
+        else if(exception instanceof InstrumentUnavailableException){
+            title="Required Instrument Unavailable";
+            description="The required instrument was unavailable.  Keyboard will quit now.";
+        }
         else{
             title="Exception";
             //description="An unkown error occurred.  Keyboard will quit now.";

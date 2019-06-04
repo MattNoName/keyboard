@@ -26,10 +26,15 @@ class KeyboardSound {
     //private String PC_E_PIANO_2="E. Piano 2   ";
     private short ELECTRIC_PIANO_NUM=6;
 
-    KeyboardSound() throws MidiUnavailableException{
+    KeyboardSound() throws MidiUnavailableException, InstrumentUnavailableException{
         synthesizer=MidiSystem.getSynthesizer();
         Instrument [] availableInstruments=synthesizer.getAvailableInstruments();
-        electricPiano=availableInstruments[6];
+        try{
+            electricPiano=availableInstruments[6];
+        }
+        catch(Exception e){
+            throw new InstrumentUnavailableException();
+        }
         /*
         for (Instrument instrument : availableInstruments){
             System.out.println(instrument.getName());
