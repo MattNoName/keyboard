@@ -26,6 +26,7 @@ body{
 .linkBtn{
     font-size: 20px;
     color: white;
+    color: rgb(255, 230, 0);
     border-radius: 8px;
     padding: 7.5px 18px;
     text-align: center;
@@ -33,6 +34,7 @@ body{
     background-color: rgb(255, 174, 0);
     background-color: rgb(255, 166, 0);
     background-color: rgb(255, 136, 0);
+    background-color: rgb(136, 97, 24);
     
     display: inline-block;
 }
@@ -48,6 +50,7 @@ body{
 
 .linkBtn:hover, .linkBtn:active {
     background-color: rgb(255, 174, 0);
+    background-color: rgb(172, 121, 28);
   }
 
 .inset1{
