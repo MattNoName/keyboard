@@ -8,10 +8,12 @@ Thank you to Osa for introducing me to the Java midi sound library which is used
 
 Thank you to Osa again and to Vanely for encouraging me to create this keyboard.
 
-Thank you to Wayne for testing it on Windows so we could find why it didn't initially work on Windows.  Windows is still not working, but I hope to continue on creating a working build for Windows.
+Thank you to Wayne for testing it on Windows so we could find why it didn't initially work on Windows.
+
+Thank you to Tsung Lin for testing it on Windows again once it was made compatible for Windows.
 
 ### Download and Run
-To run the application, first download keyboard.jar.  The app for Windows is still not working yet.  When it does, on Windows, right click it and select from the drop dwon menu "Open with" and choose Java (TM) Platform SE.  On Mac, double-click it to use it.  On both, the application starts up a little slowly, so please be a little patient.  If it doesn't run at all, please make sure you have Java installed on your computer.
+To run the application, first download keyboard.jar. When it does, on Windows, right click it and select from the drop dwon menu "Open with" and choose Java (TM) Platform SE. On Mac, double-click it to use it. On Mac, you may have to allow it from Security and Privacy->General as I am not registered as a developer with Apple. It works on Mac and on some Windows computers.  It has not been tested on Linux.  The application starts up a little slowly, so please be a little patient. If it doesn't run at all, please make sure you have Java installed on your computer.
 
 ### How to Use It
 Here are the directions, which are the only thing displayed on the screen by the app other than any system menus or icons.
