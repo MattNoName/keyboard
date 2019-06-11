@@ -4,11 +4,18 @@
     Author     : mattroberts
 */
 
+.label{
+-fx-font-size: 16pt;
+-fx-text-fill: rgb(136, 97, 24);
+-fx-padding: 3;
+}
+
 .text-area{
 -fx-control-inner-background: rgb(255, 230, 0);
 -fx-background-color: rgb(255, 230, 0);
 -fx-text-fill: rgb(136, 97, 24);
 -fx-border-color: rgb(136, 97, 24);
+-fx-font-size: 12pt;
 }
 
 .scroll-bar{
