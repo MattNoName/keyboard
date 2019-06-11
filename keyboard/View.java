@@ -7,9 +7,9 @@ package keyboard;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
@@ -24,7 +24,9 @@ public class View extends VBox {
     directions in uneditable text area
     */
     //private VBox topVBox=new VBox();
+    private Label instructionsLabel=new Label("Instructions");
     private TextArea thankYouTextArea=new TextArea();
+    private Label acknowledgementsLabel=new Label("Acknowledgements");
     private TextArea teachingTextArea=new TextArea();
     
 
@@ -44,9 +46,9 @@ public class View extends VBox {
         teachingTextArea.setWrapText(true);
         teachingTextArea.setMaxWidth(500);
         teachingTextArea.setMaxHeight(500);
-        getChildren().addAll(teachingTextArea, thankYouTextArea);
+        getChildren().addAll(instructionsLabel, teachingTextArea, acknowledgementsLabel,thankYouTextArea);
         setAlignment(Pos.CENTER);
-        setSpacing(20);
+        setSpacing(5);
         VBox.setVgrow(thankYouTextArea, Priority.ALWAYS);
         VBox.setVgrow(teachingTextArea, Priority.ALWAYS);
         //setTop(topVBox);
