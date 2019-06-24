@@ -5,7 +5,6 @@ import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
 
 /**

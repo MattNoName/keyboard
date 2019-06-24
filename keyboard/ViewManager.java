@@ -5,6 +5,8 @@
  */
 package keyboard;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
@@ -28,6 +30,7 @@ class ViewManager {
         setUpDirectionsScene();
         setUpWindow();
         setUpKeyboardInput(keyPressedHandler, keyReleasedHandler);
+        directionsView.setShowKeyboardHandler(new showKeyboardViewHandler());
     }
 
     private void setUpDirectionsScene() {
@@ -52,6 +55,15 @@ class ViewManager {
     
     void showWindow(){
         primaryStage.show();
+    }
+    
+    class showKeyboardViewHandler implements EventHandler{
+
+        @Override
+        public void handle(Event event) {
+            KeyboardViewManager.getInstance().showView();
+        }
+        
     }
     
     
