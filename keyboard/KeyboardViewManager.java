@@ -36,7 +36,7 @@ public class KeyboardViewManager {
             window=new Stage();
             window.setTitle("Keyboard View");
             Scene scene=new Scene(new KeyboardView(), 
-                    KeyboardView.VIEW_WIDTH, KeyboardView.VIEW_HEIGHT);
+                    KeyboardView.VIEW_HEIGHT, KeyboardView.VIEW_WIDTH);
             scene.getStylesheets().add("keyboard/view-style.css");
             window.setScene(scene);
         }

@@ -5,27 +5,31 @@
  */
 package keyboard;
 
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
 /**
  *
  * @author mattroberts
  */
-public class KeyboardView extends StackPane{
+public class KeyboardView extends VBox{
     
     private int NUM_TOP_KEYS=12;
     private int NUM_BOTTOM_KEYS=11;
     
     static final int VIEW_WIDTH=840;
-    static final int VIEW_HEIGHT=340;
+    static final int VIEW_HEIGHT=360;
     
     Rectangle []topKeys=new Rectangle[NUM_TOP_KEYS];
     Rectangle []bottomKeys=new Rectangle[11];
     
     KeyboardView(){
+        StackPane keysStackPane=new StackPane();
         FlowPane bottomKeysFP=new FlowPane();
         FlowPane topKeysFP=new FlowPane();
         topKeysFP.setTranslateX(60);
@@ -37,7 +41,17 @@ public class KeyboardView extends StackPane{
         
         topKeysFP.getChildren().addAll(topKeys);
         bottomKeysFP.getChildren().addAll(bottomKeys);
-        this.getChildren().addAll(bottomKeysFP,topKeysFP);
+        keysStackPane.getChildren().addAll(bottomKeysFP,topKeysFP);
+        HBox labelsHBox=new HBox();
+        Label keyLabel=new Label("Key of C");
+        Label octaveLabel=new Label("Octave: Middle C");
+        labelsHBox.getChildren().addAll(keyLabel, octaveLabel);
+        labelsHBox.setAlignment(Pos.CENTER);
+        labelsHBox.setSpacing(30);
+        this.getChildren().addAll(keysStackPane, labelsHBox);
+        this.setSpacing(20);
+        this.setAlignment(Pos.TOP_CENTER);
+        
     }
     
     private void createTopKeys(){
