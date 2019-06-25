@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboard;
+package keyboard.startingview;
 
-import javafx.event.ActionEvent;
+import keyboard.keyboardview.KeyboardViewManager;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,14 +16,14 @@ import javafx.stage.Stage;
  *
  * @author mattroberts
  */
-class ViewManager {
+public class ViewManager {
     
     private Stage primaryStage;
     private Scene scene;
     private View directionsView = new View();
     private ViewModel directionsModel = new ViewModel();
 
-    ViewManager(Stage primaryStage, 
+    public ViewManager(Stage primaryStage, 
             EventHandler<KeyEvent> keyPressedHandler, 
             EventHandler<KeyEvent> keyReleasedHandler) {
         this.primaryStage = primaryStage;
@@ -53,7 +53,7 @@ class ViewManager {
         primaryStage.setTitle("Keyboard");
     }
     
-    void showWindow(){
+    public void showWindow(){
         primaryStage.show();
     }
     

@@ -1,5 +1,6 @@
 package keyboard;
 
+import keyboard.startingview.ViewManager;
 import java.util.ArrayList;
 import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;

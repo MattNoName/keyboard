@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboard;
+package keyboard.keyboardview;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -32,12 +32,13 @@ public class KeyboardView extends VBox{
         StackPane keysStackPane=new StackPane();
         FlowPane bottomKeysFP=new FlowPane();
         FlowPane topKeysFP=new FlowPane();
-        topKeysFP.setTranslateX(60);
+        //topKeysFP.setTranslateX(60);
         topKeysFP.setHgap(20);
-        bottomKeysFP.setTranslateX(80);
+        //bottomKeysFP.setTranslateX(80);
         createBottomKeys();
         createTopKeys();
-        
+        bottomKeysFP.setAlignment(Pos.TOP_CENTER);
+        topKeysFP.setAlignment(Pos.TOP_CENTER);
         
         topKeysFP.getChildren().addAll(topKeys);
         bottomKeysFP.getChildren().addAll(bottomKeys);
@@ -50,7 +51,7 @@ public class KeyboardView extends VBox{
         labelsHBox.setSpacing(30);
         this.getChildren().addAll(keysStackPane, labelsHBox);
         this.setSpacing(20);
-        this.setAlignment(Pos.TOP_CENTER);
+        this.setAlignment(Pos.CENTER);
         
     }
     

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboard;
+package keyboard.keyboardview;
 
+import keyboard.keyboardview.KeyboardView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -23,7 +24,7 @@ public class KeyboardViewManager {
         setUpWindow();
     }
     
-    static KeyboardViewManager getInstance() 
+    public static KeyboardViewManager getInstance() 
     { 
         if (keyboardViewManager == null) {
             keyboardViewManager=new KeyboardViewManager();
@@ -42,13 +43,16 @@ public class KeyboardViewManager {
         }
     }
     
-    void showView(){
+    public void showView(){
         window.show();
-        window.setMaxHeight(KeyboardView.VIEW_HEIGHT);
         window.setMinHeight(KeyboardView.VIEW_HEIGHT);
-        window.setMaxWidth(KeyboardView.VIEW_WIDTH);
         window.setMinWidth(KeyboardView.VIEW_WIDTH);
+        //window.setMaxHeight(KeyboardView.VIEW_HEIGHT);
+        //window.setMaxWidth(KeyboardView.VIEW_WIDTH);
+        window.setHeight(KeyboardView.VIEW_HEIGHT);
+        window.setWidth(KeyboardView.VIEW_WIDTH);
         window.centerOnScreen();
+        window.toFront();
     }
     
     

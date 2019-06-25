@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboard;
+package keyboard.keyboardview;
 
 /**
  *
@@ -13,19 +13,26 @@ public class Key {
     
     private KeyType keyType;
     
-    private short index;
+    private int index;
+    
+    private char character;
 
-    public Key(KeyType keyType, short index) {
+    public Key(KeyType keyType, int index, char character) {
         this.keyType = keyType;
         this.index = index;
+        this.character=character;
     }
 
     public KeyType getKeyType() {
         return keyType;
     }
 
-    public short getIndex() {
+    public int getIndex() {
         return index;
+    }
+    
+    public char getCharacter() {
+        return character;
     }
     
     
