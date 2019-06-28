@@ -40,7 +40,7 @@ public class PianoKeyboard extends AbstractKeyboard{
         setUpkeyMappingsHashMap();
     }
     
-    protected void makeKeyMappingsHashMap(){
+    private void makeKeyMappingsHashMap(){
         keyMappingsHashMap.put(0, new PianoCKeys());
         keyMappingsHashMap.put(1, new PianoCSharpKeys());
         keyMappingsHashMap.put(2, new PianoDKeys());

@@ -22,18 +22,20 @@ public class ViewManager {
     private Scene scene;
     private View directionsView = new View();
     private ViewModel directionsModel = new ViewModel();
+    private EventHandler<KeyEvent> keyPressedHandler;
+    private EventHandler<KeyEvent> keyReleasedHandler;
 
     public ViewManager(Stage primaryStage, 
             EventHandler<KeyEvent> keyPressedHandler, 
             EventHandler<KeyEvent> keyReleasedHandler) {
         this.primaryStage = primaryStage;
-        setUpDirectionsScene();
+        setUpScene();
         setUpWindow();
         setUpKeyboardInput(keyPressedHandler, keyReleasedHandler);
         directionsView.setShowKeyboardHandler(new showKeyboardViewHandler());
     }
 
-    private void setUpDirectionsScene() {
+    private void setUpScene() {
         directionsView.setThankYouText(directionsModel.getThankYouText());
         directionsView.setTeachingText(directionsModel.getTeachingText(false), directionsModel.getTeachingText(true));
         
@@ -42,11 +44,13 @@ public class ViewManager {
         primaryStage.setScene(scene);
     }
     
-    private void setUpKeyboardInput(EventHandler<KeyEvent> keyPressedHandler, EventHandler<KeyEvent> keyReleasedHandler){
-        directionsView.setUpKeyPressedInput(keyPressedHandler);
-        directionsView.setUpKeyReleasedInput(keyReleasedHandler);
-        scene.setOnKeyPressed(keyPressedHandler);
-        scene.setOnKeyReleased(keyReleasedHandler);
+    private void setUpKeyboardInput(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
+        directionsView.setUpKeyPressedInput(kph);
+        directionsView.setUpKeyReleasedInput(krh);
+        scene.setOnKeyPressed(kph);
+        scene.setOnKeyReleased(krh);
+        keyPressedHandler=kph;
+        keyReleasedHandler=krh;
     }
     
     private void setUpWindow(){
@@ -61,7 +65,7 @@ public class ViewManager {
 
         @Override
         public void handle(Event event) {
-            KeyboardViewManager.getInstance().showView();
+            KeyboardViewManager.getInstance(keyPressedHandler, keyReleasedHandler).showWindow();
         }
         
     }

@@ -5,6 +5,7 @@
  */
 package keyboard.keyboardview;
 
+import java.util.Collection;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -25,8 +26,8 @@ public class KeyboardView extends VBox{
     static final int VIEW_WIDTH=840;
     static final int VIEW_HEIGHT=360;
     
-    Rectangle []topKeys=new Rectangle[NUM_TOP_KEYS];
-    Rectangle []bottomKeys=new Rectangle[11];
+    Rectangle [] topKeys=new Rectangle[NUM_TOP_KEYS];
+    Rectangle [] bottomKeys=new Rectangle[11];
     
     KeyboardView(){
         StackPane keysStackPane=new StackPane();
@@ -68,5 +69,32 @@ public class KeyboardView extends VBox{
             bottomKeys[i].getStyleClass().add("yellow-keys");
         }
     }
+    
+    private void hideKeys(){
+        for (Rectangle rect: topKeys){
+            rect.setVisible(false);
+        }
+        for (Rectangle rect: bottomKeys){
+            rect.setVisible(false);
+        }
+    }
+    
+    void setKeys(Collection<Key> keys){
+        hideKeys();
+        for (Key key : keys){
+            showKey(key);
+        }
+    }
+    
+    private void showKey(Key key){
+        if (key.getKeyType()==KeyType.BOTTOM_KEY){
+            bottomKeys[key.getIndex()].setVisible(true);
+        }
+        else{
+            topKeys[key.getIndex()].setVisible(true);
+        }
+    }
+    
+    
     
 }

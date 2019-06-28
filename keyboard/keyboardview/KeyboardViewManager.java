@@ -5,8 +5,10 @@
  */
 package keyboard.keyboardview;
 
+import javafx.event.EventHandler;
 import keyboard.keyboardview.KeyboardView;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -15,40 +17,50 @@ import javafx.stage.Stage;
  */
 public class KeyboardViewManager {
     
-    private static KeyboardViewManager keyboardViewManager=null;
+    private static KeyboardViewManager kvManager=null;
+    private KeyboardViewModel kvModel=new KeyboardViewModel();
+    private KeyboardView kvView=new KeyboardView();
+    private Scene scene=new Scene(kvView, 
+                    KeyboardView.VIEW_HEIGHT, KeyboardView.VIEW_WIDTH);
     
     private Stage window=null;
     
-    
-    private KeyboardViewManager(){
+    private KeyboardViewManager(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
+        setUpScene(kph, krh);
         setUpWindow();
+        setKeysInView();
     }
     
-    public static KeyboardViewManager getInstance() 
+    private void setKeysInView(){
+        kvView.setKeys(kvModel.getKeyModel().getSetOfKeys());
+    }
+    
+    public static KeyboardViewManager getInstance(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh) 
     { 
-        if (keyboardViewManager == null) {
-            keyboardViewManager=new KeyboardViewManager();
+        if (kvManager == null) {
+            kvManager=new KeyboardViewManager(kph, krh);
         }
-        return keyboardViewManager;
+        return kvManager;
+    }
+    
+    private void setUpScene(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
+        scene.setOnKeyPressed(kph);
+        scene.setOnKeyReleased(krh);
     }
     
     private void setUpWindow(){
         if (window == null) {
             window=new Stage();
             window.setTitle("Keyboard View");
-            Scene scene=new Scene(new KeyboardView(), 
-                    KeyboardView.VIEW_HEIGHT, KeyboardView.VIEW_WIDTH);
             scene.getStylesheets().add("keyboard/view-style.css");
             window.setScene(scene);
         }
     }
     
-    public void showView(){
+    public void showWindow(){
         window.show();
         window.setMinHeight(KeyboardView.VIEW_HEIGHT);
         window.setMinWidth(KeyboardView.VIEW_WIDTH);
-        //window.setMaxHeight(KeyboardView.VIEW_HEIGHT);
-        //window.setMaxWidth(KeyboardView.VIEW_WIDTH);
         window.setHeight(KeyboardView.VIEW_HEIGHT);
         window.setWidth(KeyboardView.VIEW_WIDTH);
         window.centerOnScreen();

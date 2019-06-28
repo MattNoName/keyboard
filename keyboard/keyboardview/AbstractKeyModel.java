@@ -5,6 +5,7 @@
  */
 package keyboard.keyboardview;
 
+import java.util.Collection;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 import keyboardmappings.UnusedKeyCodeException;
@@ -28,5 +29,9 @@ public class AbstractKeyModel {
             return foundKey;
         }
         throw new UnusedKeyCodeException();
+    }
+    
+    Collection<Key> getSetOfKeys(){
+        return keysHashMap.values();
     }
 }
