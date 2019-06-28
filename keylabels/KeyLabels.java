@@ -12,7 +12,7 @@ package keylabels;
 public class KeyLabels {
     
     private final char [] topKeys={'Q','W','E','R','T','Y','U','I','O','P','[',']'};
-    private final char [] bottomKeys={'A','S','D','F','G','H','J','K','L'};
+    private final char [] bottomKeys={'A','S','D','F','G','H','J','K','L',';','\''};
 
     public char[] getTopKeys() {
         return topKeys;

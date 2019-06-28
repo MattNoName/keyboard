@@ -53,6 +53,8 @@
     -fx-fill: rgb(189, 135, 34);
     -fx-text-fill: rgb(255, 230, 0);
     -fx-stroke: rgb(136, 97, 24);
+    -fx-border-color: rgb(136, 97, 24);
+    -fx-background-color: rgb(189, 135, 34);
 }
 
 .yellow-keys{
@@ -60,4 +62,16 @@
     -fx-text-fill: rgb(136, 97, 24);
     -fx-stroke: rgb(136, 97, 24);
     -fx-font-size: 12pt;
+    -fx-border-color: rgb(136, 97, 24);
+    -fx-background-color: rgb(255, 230, 0);
+}
+
+.yellow-label{
+    -fx-font-size: 14pt;
+    -fx-text-fill: rgb(255, 230, 0);
+}
+
+.brown-label{
+    -fx-font-size: 14pt;
+    -fx-text-fill: rgb(189, 135, 34);
 }

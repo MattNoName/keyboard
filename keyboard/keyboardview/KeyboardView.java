@@ -6,14 +6,18 @@
 package keyboard.keyboardview;
 
 import java.util.Collection;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Paint;
+import keylabels.KeyLabels;
 
 /**
  *
@@ -32,6 +36,7 @@ public class KeyboardView extends VBox{
     
     Label keyLabel=new Label("Key of C");
     Label octaveLabel=new Label("Octave: Middle C");
+    KeyLabels keyLabels=new KeyLabels();
     
     KeyboardView(){
         StackPane keysStackPane=new StackPane();
@@ -60,23 +65,36 @@ public class KeyboardView extends VBox{
     
     private void createTopKeys(){
         for (int i=0; i<NUM_TOP_KEYS; i++){
-            topKeys[i]=new VBox(40, 200);
+            topKeys[i]=new VBox();
+            topKeys[i].setMinSize(40, 200);
+            topKeys[i].setMaxSize(40, 200);
             topKeys[i].getStyleClass().add("brown-keys");
+            topKeys[i].setAlignment(Pos.BOTTOM_CENTER);
+            Label keyLabel=new Label(String.valueOf(keyLabels.getTopKeys()[i]));
+            keyLabel.getStyleClass().add("yellow-label");
+            topKeys[i].getChildren().add(keyLabel);
         }
     }
     
     private void createBottomKeys(){
         for (int i=0; i<NUM_BOTTOM_KEYS; i++){
-            bottomKeys[i]=new VBox(60, 280);
+            bottomKeys[i]=new VBox();
+            bottomKeys[i].setMinSize(60, 280);
+            bottomKeys[i].setMaxSize(60, 280);
             bottomKeys[i].getStyleClass().add("yellow-keys");
+            bottomKeys[i].setAlignment(Pos.BOTTOM_CENTER);
+            Label keyLabel=new Label(String.valueOf(keyLabels.getBottomKeys()[i]));
+            keyLabel.getStyleClass().add("brown-label");
+            bottomKeys[i].getChildren().add(keyLabel);
+            
         }
     }
     
     private void hideKeys(){
-        for (Rectangle rect: topKeys){
+        for (VBox rect: topKeys){
             rect.setVisible(false);
         }
-        for (Rectangle rect: bottomKeys){
+        for (VBox rect: bottomKeys){
             rect.setVisible(false);
         }
     }
@@ -96,7 +114,7 @@ public class KeyboardView extends VBox{
         getKeyRect(key).setVisible(true);
     }
     
-    private Rectangle getKeyRect(KeyboardKey key){
+    private VBox getKeyRect(KeyboardKey key){
         if (key.getKeyType()==KeyType.BOTTOM_KEY){
             return bottomKeys[key.getIndex()];
         }
@@ -107,19 +125,22 @@ public class KeyboardView extends VBox{
     
     public void keyDown(KeyboardKey key){
         if (key.getKeyType()==KeyType.BOTTOM_KEY){
-            bottomKeys[key.getIndex()].setFill(Color.web("#ffcc00"));
+            bottomKeys[key.getIndex()].setBackground(new Background(new BackgroundFill(Paint.valueOf("#ffcc00"), CornerRadii.EMPTY, Insets.EMPTY)));
         }
         else{
-            topKeys[key.getIndex()].setFill(Color.web("#cc9900"));
+            topKeys[key.getIndex()].setBackground(new Background(new BackgroundFill(Paint.valueOf("#cc9900"), CornerRadii.EMPTY, Insets.EMPTY)));
+                    
         }
     }
     
     public void keyUp(KeyboardKey key){
         if (key.getKeyType()==KeyType.BOTTOM_KEY){
-            bottomKeys[key.getIndex()].setFill(Color.web("rgb(255, 230, 0)"));
+            bottomKeys[key.getIndex()].setBackground(new Background(new BackgroundFill(Paint.valueOf("rgb(255, 230, 0)"), CornerRadii.EMPTY, Insets.EMPTY)));
+                    
         }
         else{
-            topKeys[key.getIndex()].setFill(Color.web("rgb(189, 135, 34)"));
+            topKeys[key.getIndex()].setBackground(new Background(new BackgroundFill(Paint.valueOf("rgb(189, 135, 34)"), CornerRadii.EMPTY, Insets.EMPTY)));
+
         }
     }
     
