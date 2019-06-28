@@ -3,7 +3,7 @@ package keyboard.keyboardview;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
-import keyboard.keyboardview.keymodels.CKeyModel;
+import keyboard.keyboardview.keys.CKey;
 
 /**
  *
@@ -11,7 +11,7 @@ import keyboard.keyboardview.keymodels.CKeyModel;
  */
 public class PianoKeyModel extends AbstractKeyModel{
     
-    private HashMap<Integer, HashMap<KeyCode, Key>> hashMapOfKeysHashMap=new HashMap<>();
+    private HashMap<Integer, HashMap<KeyCode, KeyboardKey>> hashMapOfKeysHashMap=new HashMap<>();
     
     public PianoKeyModel(){
         setUpKeyHashMaps();
@@ -22,7 +22,7 @@ public class PianoKeyModel extends AbstractKeyModel{
     }
     
     private void putKeyHashMaps(){
-        hashMapOfKeysHashMap.put(0, new CKeyModel());
+        hashMapOfKeysHashMap.put(0, new CKey());
     }
     
     private void setUpKeyHashMaps(){

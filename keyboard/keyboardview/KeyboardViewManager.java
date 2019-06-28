@@ -25,7 +25,7 @@ public class KeyboardViewManager {
     
     private Stage window=null;
     
-    private KeyboardViewManager(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
+    public KeyboardViewManager(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
         setUpScene(kph, krh);
         setUpWindow();
         setKeysInView();
@@ -33,14 +33,6 @@ public class KeyboardViewManager {
     
     private void setKeysInView(){
         kvView.setKeys(kvModel.getKeyModel().getSetOfKeys());
-    }
-    
-    public static KeyboardViewManager getInstance(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh) 
-    { 
-        if (kvManager == null) {
-            kvManager=new KeyboardViewManager(kph, krh);
-        }
-        return kvManager;
     }
     
     private void setUpScene(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
@@ -66,6 +58,16 @@ public class KeyboardViewManager {
         window.centerOnScreen();
         window.toFront();
     }
+
+    public KeyboardViewModel getKvModel() {
+        return kvModel;
+    }
+
+    public KeyboardView getKvView() {
+        return kvView;
+    }
+    
+    
     
     
 }

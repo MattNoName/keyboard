@@ -24,6 +24,7 @@ public class ViewManager {
     private ViewModel directionsModel = new ViewModel();
     private EventHandler<KeyEvent> keyPressedHandler;
     private EventHandler<KeyEvent> keyReleasedHandler;
+    private KeyboardViewManager keyboardViewManager;
 
     public ViewManager(Stage primaryStage, 
             EventHandler<KeyEvent> keyPressedHandler, 
@@ -32,6 +33,7 @@ public class ViewManager {
         setUpScene();
         setUpWindow();
         setUpKeyboardInput(keyPressedHandler, keyReleasedHandler);
+        keyboardViewManager=new KeyboardViewManager(keyPressedHandler,keyReleasedHandler);
         directionsView.setShowKeyboardHandler(new showKeyboardViewHandler());
     }
 
@@ -65,10 +67,17 @@ public class ViewManager {
 
         @Override
         public void handle(Event event) {
-            KeyboardViewManager.getInstance(keyPressedHandler, keyReleasedHandler).showWindow();
+            keyboardViewManager.showWindow();
         }
         
     }
+
+    public KeyboardViewManager getKeyboardViewManager() {
+        return keyboardViewManager;
+    }
+    
+    
+    
     
     
     

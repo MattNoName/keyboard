@@ -12,6 +12,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -79,19 +81,41 @@ public class KeyboardView extends VBox{
         }
     }
     
-    void setKeys(Collection<Key> keys){
+    void setKeys(Collection<KeyboardKey> keys){
         hideKeys();
-        for (Key key : keys){
+        for (KeyboardKey key : keys){
             showKey(key);
         }
     }
     
-    private void showKey(Key key){
+    private void showKey(KeyboardKey key){
+        getKeyRect(key).setVisible(true);
+    }
+    
+    private Rectangle getKeyRect(KeyboardKey key){
         if (key.getKeyType()==KeyType.BOTTOM_KEY){
-            bottomKeys[key.getIndex()].setVisible(true);
+            return bottomKeys[key.getIndex()];
         }
         else{
-            topKeys[key.getIndex()].setVisible(true);
+            return topKeys[key.getIndex()];
+        }
+    }
+    
+    public void keyDown(KeyboardKey key){
+        if (key.getKeyType()==KeyType.BOTTOM_KEY){
+            bottomKeys[key.getIndex()].setFill(Color.web("#ffcc00"));
+        }
+        else{
+            topKeys[key.getIndex()].setFill(Color.web("#cc9900"));
+        }
+    }
+    
+    public void keyUp(KeyboardKey key){
+        if (key.getKeyType()==KeyType.BOTTOM_KEY){
+            bottomKeys[key.getIndex()].setFill(Color.web("rgb(255, 230, 0)"));
+        }
+        else{
+            topKeys[key.getIndex()].setFill(Color.web("rgb(189, 135, 34)"));
         }
     }
     

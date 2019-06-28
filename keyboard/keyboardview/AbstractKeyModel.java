@@ -20,18 +20,18 @@ public class AbstractKeyModel {
 
     protected int key = 0;
     
-    protected HashMap<KeyCode, Key> keysHashMap=new HashMap<>();
+    protected HashMap<KeyCode, KeyboardKey> keysHashMap=new HashMap<>();
     
-    public final Key getKeyFromKeyCode(KeyCode kc) throws UnusedKeyCodeException {
+    public final KeyboardKey getKeyFromKeyCode(KeyCode kc) throws UnusedKeyCodeException {
         
-        Key foundKey=keysHashMap.get(kc);
+        KeyboardKey foundKey=keysHashMap.get(kc);
         if (foundKey!=null){
             return foundKey;
         }
         throw new UnusedKeyCodeException();
     }
     
-    Collection<Key> getSetOfKeys(){
+    Collection<KeyboardKey> getSetOfKeys(){
         return keysHashMap.values();
     }
 }

@@ -5,11 +5,13 @@
  */
 package keyboard.keyboardview;
 
+import keyboard.keyboardview.KeyType;
+
 /**
  *
  * @author mattroberts
  */
-public class Key {
+public class KeyboardKey {
     
     private KeyType keyType;
     
@@ -17,7 +19,7 @@ public class Key {
     
     private char character;
 
-    public Key(KeyType keyType, int index, char character) {
+    public KeyboardKey(KeyType keyType, int index, char character) {
         this.keyType = keyType;
         this.index = index;
         this.character=character;

@@ -4,9 +4,11 @@ import keyboard.startingview.ViewManager;
 import java.util.ArrayList;
 import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javax.sound.midi.ShortMessage;
+import keyboard.keyboardview.KeyboardViewManager;
 
 /**
  *
@@ -46,6 +48,8 @@ class KeyboardManager {
                 //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
+                    KeyboardViewManager kvm=viewManager.getKeyboardViewManager();
+                    kvm.getKvView().keyDown(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                     noteMessage = model.respondToKeyPressed(event);
                 } catch (UnusedKeyCodeException e) {
                     //do nothing
@@ -76,6 +80,8 @@ class KeyboardManager {
                 ShortMessage noteMessage = null;
                 try {
                     //System.out.println("key released");
+                    KeyboardViewManager kvm=viewManager.getKeyboardViewManager();
+                    kvm.getKvView().keyUp(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                     noteMessage = model.respondToKeyReleased(event);
                 } catch (UnusedKeyCodeException e) {
                     //do nothing
