@@ -16,13 +16,10 @@ public class KeyboardKey {
     private KeyType keyType;
     
     private int index;
-    
-    private char character;
 
-    public KeyboardKey(KeyType keyType, int index, char character) {
+    public KeyboardKey(KeyType keyType, int index) {
         this.keyType = keyType;
         this.index = index;
-        this.character=character;
     }
 
     public KeyType getKeyType() {
@@ -32,10 +29,5 @@ public class KeyboardKey {
     public int getIndex() {
         return index;
     }
-    
-    public char getCharacter() {
-        return character;
-    }
-    
     
 }

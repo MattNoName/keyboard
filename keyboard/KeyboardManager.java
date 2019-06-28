@@ -21,6 +21,7 @@ class KeyboardManager {
     KeyPressedHandler keyPressedHandler = new KeyPressedHandler();
     KeyReleasedHandler keyReleasedHandler = new KeyReleasedHandler();
     ViewManager viewManager;
+    KeyboardViewManager kvm;
 
     /*
     Once note is gotten, pass to sendToSynethesizer function
@@ -37,6 +38,7 @@ class KeyboardManager {
             return;
         }
         viewManager = new ViewManager(primaryStage, keyPressedHandler, keyReleasedHandler);
+        kvm=viewManager.getKeyboardViewManager();
         viewManager.showWindow();
     }
 
@@ -48,7 +50,6 @@ class KeyboardManager {
                 //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
-                    KeyboardViewManager kvm=viewManager.getKeyboardViewManager();
                     kvm.getKvView().keyDown(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                     noteMessage = model.respondToKeyPressed(event);
                 } catch (UnusedKeyCodeException e) {
@@ -64,6 +65,8 @@ class KeyboardManager {
                         sound.sendToSynethesizer(notesOffArrayList);
                     }
                     model.updateKeyboard(event);
+                }else if (model.updateOctaveAndKey(event)){
+                    kvm.setKey(model.getKeyboard().getKey());
                 }
             } catch (Exception e) {
                 AppAlertsManager.showAlert(e);

@@ -28,11 +28,21 @@ public class KeyboardViewManager {
     public KeyboardViewManager(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
         setUpScene(kph, krh);
         setUpWindow();
+        setKey(0);
+    }
+    
+    public void setKey(int index){
+        kvModel.getKeyModel().setKey(index);
         setKeysInView();
+        setKeyLabel();
     }
     
     private void setKeysInView(){
         kvView.setKeys(kvModel.getKeyModel().getSetOfKeys());
+    }
+    
+    private void setKeyLabel(){
+        kvView.setKeyLabel(kvModel.getKeyModel().getKeyOfString());
     }
     
     private void setUpScene(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){

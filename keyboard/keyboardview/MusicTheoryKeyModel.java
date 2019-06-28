@@ -9,7 +9,12 @@ package keyboard.keyboardview;
  *
  * @author mattroberts
  */
-public class MusicTheoryKeyModel extends AbstractKeyModel{
+public class MusicTheoryKeyModel extends AbstractKeyOfModel{
+
+    @Override
+    protected void setKey(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 

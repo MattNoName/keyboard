@@ -13,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -28,8 +27,11 @@ public class KeyboardView extends VBox{
     static final int VIEW_WIDTH=840;
     static final int VIEW_HEIGHT=360;
     
-    Rectangle [] topKeys=new Rectangle[NUM_TOP_KEYS];
-    Rectangle [] bottomKeys=new Rectangle[11];
+    VBox [] topKeys=new VBox[NUM_TOP_KEYS];
+    VBox [] bottomKeys=new VBox[NUM_BOTTOM_KEYS];
+    
+    Label keyLabel=new Label("Key of C");
+    Label octaveLabel=new Label("Octave: Middle C");
     
     KeyboardView(){
         StackPane keysStackPane=new StackPane();
@@ -47,8 +49,6 @@ public class KeyboardView extends VBox{
         bottomKeysFP.getChildren().addAll(bottomKeys);
         keysStackPane.getChildren().addAll(bottomKeysFP,topKeysFP);
         HBox labelsHBox=new HBox();
-        Label keyLabel=new Label("Key of C");
-        Label octaveLabel=new Label("Octave: Middle C");
         labelsHBox.getChildren().addAll(keyLabel, octaveLabel);
         labelsHBox.setAlignment(Pos.CENTER);
         labelsHBox.setSpacing(30);
@@ -60,14 +60,14 @@ public class KeyboardView extends VBox{
     
     private void createTopKeys(){
         for (int i=0; i<NUM_TOP_KEYS; i++){
-            topKeys[i]=new Rectangle(40, 200);
+            topKeys[i]=new VBox(40, 200);
             topKeys[i].getStyleClass().add("brown-keys");
         }
     }
     
     private void createBottomKeys(){
         for (int i=0; i<NUM_BOTTOM_KEYS; i++){
-            bottomKeys[i]=new Rectangle(60, 280);
+            bottomKeys[i]=new VBox(60, 280);
             bottomKeys[i].getStyleClass().add("yellow-keys");
         }
     }
@@ -86,6 +86,10 @@ public class KeyboardView extends VBox{
         for (KeyboardKey key : keys){
             showKey(key);
         }
+    }
+    
+    void setKeyLabel(String key){
+        keyLabel.setText("Key of "+key);
     }
     
     private void showKey(KeyboardKey key){

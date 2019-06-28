@@ -8,19 +8,16 @@ package keyboard.keyboardview;
 import java.util.Collection;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
+import keyboard.keyboardview.keys.AbstractKeyOf;
 import keyboardmappings.UnusedKeyCodeException;
 
 /**
  *
  * @author mattroberts
  */
-public class AbstractKeyModel {
+public abstract class AbstractKeyOfModel {
     
-    protected int octave = 0;
-
-    protected int key = 0;
-    
-    protected HashMap<KeyCode, KeyboardKey> keysHashMap=new HashMap<>();
+    protected AbstractKeyOf keysHashMap;
     
     public final KeyboardKey getKeyFromKeyCode(KeyCode kc) throws UnusedKeyCodeException {
         
@@ -34,4 +31,10 @@ public class AbstractKeyModel {
     Collection<KeyboardKey> getSetOfKeys(){
         return keysHashMap.values();
     }
+    abstract protected void setKey(int index);
+    
+    String getKeyOfString(){
+        return keysHashMap.getKeyOfString();
+    }
+    
 }

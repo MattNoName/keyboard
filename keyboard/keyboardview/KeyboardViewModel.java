@@ -11,13 +11,13 @@ package keyboard.keyboardview;
  */
 public class KeyboardViewModel {
     
-    private AbstractKeyModel keyModel;
+    private AbstractKeyOfModel keyModel;
 
     public KeyboardViewModel() {
         this.keyModel = new PianoKeyModel();
     }
 
-    public AbstractKeyModel getKeyModel() {
+    public AbstractKeyOfModel getKeyModel() {
         return keyModel;
     }
     
