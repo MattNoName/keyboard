@@ -32,8 +32,6 @@
 .root{
     -fx-background-color: rgb(255, 232, 23);
     -fx-control-inner-background: rgb(255, 232, 23);
-    -fx-background-color: rgb(65, 105, 225);
-    -fx-control-inner-background: rgb(65, 105, 225);
 }
 
 .decrement-button{
