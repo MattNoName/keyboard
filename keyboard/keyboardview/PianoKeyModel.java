@@ -3,6 +3,9 @@ package keyboard.keyboardview;
 
 import java.util.HashMap;
 import keyboard.keyboardview.keys.AbstractKeyOf;
+import keyboard.keyboardview.keys.KeyOfA;
+import keyboard.keyboardview.keys.KeyOfASharp;
+import keyboard.keyboardview.keys.KeyOfB;
 import keyboard.keyboardview.keys.KeyOfC;
 import keyboard.keyboardview.keys.KeyOfCSharp;
 import keyboard.keyboardview.keys.KeyOfD;
@@ -11,6 +14,7 @@ import keyboard.keyboardview.keys.KeyOfE;
 import keyboard.keyboardview.keys.KeyOfF;
 import keyboard.keyboardview.keys.KeyOfFSharp;
 import keyboard.keyboardview.keys.KeyOfG;
+import keyboard.keyboardview.keys.KeyOfGSharp;
 
 /**
  *
@@ -24,8 +28,14 @@ public class PianoKeyModel extends AbstractKeyOfModel{
         setUpKeyHashMaps();
     }
     
+    public PianoKeyModel(AbstractKeyOfModel abkm) {
+        super(abkm);
+        setUpKeyHashMaps();
+    }
+    
     @Override
     protected void setKey(int key){
+        this.key=key;
         topKeyIndices=hashMapOfKeysHashMap.get(key);
     }
     
@@ -38,6 +48,10 @@ public class PianoKeyModel extends AbstractKeyOfModel{
         hashMapOfKeysHashMap.put(5, new KeyOfF());
         hashMapOfKeysHashMap.put(6, new KeyOfFSharp());
         hashMapOfKeysHashMap.put(7, new KeyOfG());
+        hashMapOfKeysHashMap.put(8, new KeyOfGSharp());
+        hashMapOfKeysHashMap.put(9, new KeyOfA());
+        hashMapOfKeysHashMap.put(10, new KeyOfASharp());
+        hashMapOfKeysHashMap.put(11, new KeyOfB());
     }
     
     private void setUpKeyHashMaps(){

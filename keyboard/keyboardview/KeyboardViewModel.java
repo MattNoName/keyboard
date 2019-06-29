@@ -5,6 +5,10 @@
  */
 package keyboard.keyboardview;
 
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import keyboardmappings.MusicTheoryKeyboard;
+
 /**
  *
  * @author mattroberts
@@ -19,6 +23,17 @@ public class KeyboardViewModel {
 
     public AbstractKeyOfModel getKeyModel() {
         return keyModel;
+    }
+    
+    void updateKeyboard(KeyEvent keyEvent){
+        KeyCode kc=keyEvent.getCode();
+        switch(kc){
+            case M:
+                keyModel=new MusicTheoryKeyModel(keyModel);
+                return;
+            case N:
+                keyModel=new PianoKeyModel(keyModel);            
+        }
     }
     
 }

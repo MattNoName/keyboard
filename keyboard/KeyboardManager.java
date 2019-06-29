@@ -65,6 +65,8 @@ class KeyboardManager {
                         sound.sendToSynethesizer(notesOffArrayList);
                     }
                     model.updateKeyboard(event);
+                    kvm.setKeyboard(event);
+                    
                 }else if (model.updateOctaveAndKey(event)){
                     kvm.setKey(model.getKeyboard().getKey());
                 }
@@ -84,7 +86,6 @@ class KeyboardManager {
                 try {
                     //System.out.println("key released");
                     noteMessage = model.respondToKeyReleased(event);
-                    KeyboardViewManager kvm=viewManager.getKeyboardViewManager();
                     kvm.getKvView().keyUp(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                 } catch (UnusedKeyCodeException e) {
                     //do nothing

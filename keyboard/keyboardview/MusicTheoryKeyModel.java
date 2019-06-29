@@ -5,7 +5,7 @@
  */
 package keyboard.keyboardview;
 
-import java.util.ArrayList;
+import keyboard.keyboardview.keys.MusicTheoryKeys;
 
 /**
  *
@@ -13,9 +13,23 @@ import java.util.ArrayList;
  */
 public class MusicTheoryKeyModel extends AbstractKeyOfModel{
 
+    public MusicTheoryKeyModel() {
+        setUpKeys();
+    }
+    
+    public MusicTheoryKeyModel(AbstractKeyOfModel abkm) {
+        super(abkm);
+        setUpKeys();
+    }
+    
+    private void setUpKeys(){
+        topKeyIndices=new MusicTheoryKeys();
+    }
+    
     @Override
     protected void setKey(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.key=index;
+        ((MusicTheoryKeys)topKeyIndices).setKey(index);
     }
 
 }

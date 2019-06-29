@@ -5,7 +5,6 @@
  */
 package keyboard.keyboardview;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 import keyboard.keyboardview.keys.AbstractKeyOf;
@@ -19,10 +18,20 @@ import keyboardmappings.UnusedKeyCodeException;
  */
 public abstract class AbstractKeyOfModel {
     
+    protected int key=0;
+    
     protected AbstractKeyOf topKeyIndices;
     
     protected HashMap<KeyCode, Integer> bottomKeyMap=new BottomKeys();
     protected HashMap<KeyCode, Integer> topKeyMap=new TopKeys();
+
+    public AbstractKeyOfModel() {
+        
+    }
+    
+    public AbstractKeyOfModel(AbstractKeyOfModel abkm) {
+        key=abkm.getKey();
+    }
     
     public final KeyboardKey getKeyFromKeyCode(KeyCode kc) throws UnusedKeyCodeException {
         
@@ -43,6 +52,10 @@ public abstract class AbstractKeyOfModel {
     }
     
     abstract protected void setKey(int index);
+
+    public int getKey() {
+        return key;
+    }
     
     String getKeyOfString(){
         return topKeyIndices.getKeyOfString();

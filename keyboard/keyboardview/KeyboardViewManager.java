@@ -36,6 +36,11 @@ public class KeyboardViewManager {
         setKeyLabel();
     }
     
+    public void setKeyboard(KeyEvent event){
+        kvModel.updateKeyboard(event);
+        setKeysInView();
+    }
+    
     private void setKeysInView(){
         kvView.setKeys(kvModel.getKeyModel().getKeyIndicies());
     }
