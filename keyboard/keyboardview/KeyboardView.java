@@ -5,7 +5,6 @@
  */
 package keyboard.keyboardview;
 
-import java.util.Collection;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -17,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
+import keyboard.keyboardview.keys.AbstractKeyOf;
 import keylabels.KeyLabels;
 
 /**
@@ -90,19 +90,16 @@ public class KeyboardView extends VBox{
         }
     }
     
-    private void hideKeys(){
+    private void hideTopKeys(){
         for (VBox rect: topKeys){
-            rect.setVisible(false);
-        }
-        for (VBox rect: bottomKeys){
             rect.setVisible(false);
         }
     }
     
-    void setKeys(Collection<KeyboardKey> keys){
-        hideKeys();
-        for (KeyboardKey key : keys){
-            showKey(key);
+    void setKeys(AbstractKeyOf indices){
+        hideTopKeys();
+        for (Integer index : indices){
+            showTopKey(index);
         }
     }
     
@@ -112,6 +109,14 @@ public class KeyboardView extends VBox{
     
     private void showKey(KeyboardKey key){
         getKeyRect(key).setVisible(true);
+    }
+    
+    private void showTopKey(Integer index){
+        topKeys[index].setVisible(true);
+    }
+    
+    private void showBottomKey(Integer index){
+        topKeys[index].setVisible(true);
     }
     
     private VBox getKeyRect(KeyboardKey key){

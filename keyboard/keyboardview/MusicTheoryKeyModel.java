@@ -5,6 +5,8 @@
  */
 package keyboard.keyboardview;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mattroberts
@@ -15,7 +17,5 @@ public class MusicTheoryKeyModel extends AbstractKeyOfModel{
     protected void setKey(int index) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 
 }

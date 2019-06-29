@@ -5,10 +5,12 @@
  */
 package keyboard.keyboardview;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 import keyboard.keyboardview.keys.AbstractKeyOf;
+import keyboard.keyboardview.keys.BottomKeys;
+import keyboard.keyboardview.keys.TopKeys;
 import keyboardmappings.UnusedKeyCodeException;
 
 /**
@@ -17,24 +19,33 @@ import keyboardmappings.UnusedKeyCodeException;
  */
 public abstract class AbstractKeyOfModel {
     
-    protected AbstractKeyOf keysHashMap;
+    protected AbstractKeyOf topKeyIndices;
+    
+    protected HashMap<KeyCode, Integer> bottomKeyMap=new BottomKeys();
+    protected HashMap<KeyCode, Integer> topKeyMap=new TopKeys();
     
     public final KeyboardKey getKeyFromKeyCode(KeyCode kc) throws UnusedKeyCodeException {
         
-        KeyboardKey foundKey=keysHashMap.get(kc);
+        Integer foundKey=bottomKeyMap.get(kc);
         if (foundKey!=null){
-            return foundKey;
+            return new KeyboardKey(KeyType.BOTTOM_KEY, foundKey);
+        }
+        foundKey=topKeyMap.get(kc);
+        if (foundKey!=null){
+            return new KeyboardKey(KeyType.TOP_KEY, foundKey);
         }
         throw new UnusedKeyCodeException();
     }
     
-    Collection<KeyboardKey> getSetOfKeys(){
-        return keysHashMap.values();
+    AbstractKeyOf getKeyIndicies(){
+        System.out.println("Getting top key indices");
+        return topKeyIndices;
     }
+    
     abstract protected void setKey(int index);
     
     String getKeyOfString(){
-        return keysHashMap.getKeyOfString();
+        return topKeyIndices.getKeyOfString();
     }
     
 }

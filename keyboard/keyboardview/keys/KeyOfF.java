@@ -5,19 +5,16 @@
  */
 package keyboard.keyboardview.keys;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author mattroberts
  */
-public abstract class AbstractKeyOf extends ArrayList<Integer>{
-    
-    protected String keyOfString="";
 
-    public String getKeyOfString() {
-        return keyOfString;
+public class KeyOfF extends AbstractKeyOf{
+    
+    public KeyOfF() {
+        keyOfString="F";
+        add(1); add(2); add(3); add(5);  add(6); add(8); add(9); add(10);
+        
     }
-    
-    
 }

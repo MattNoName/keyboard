@@ -14,15 +14,11 @@ import keyboard.keyboardview.KeyboardKey;
  * @author mattroberts
  */
 
-
-public class KeyOfDSharp extends AbstractKeyOf{
+public class KeyOfE extends AbstractKeyOf{
     
-    public KeyOfDSharp() {
-        keyOfString="D Sharp";
-        add(0);  add(2); add(3); add(4); add(6);  add(7); add(9); add(10); 
-        
-        add(11);
-        
+    public KeyOfE() {
+        keyOfString="E";
+        add(2); add(3); add(4); add(6);  add(7); add(9); add(10); add(11);
         
     }
 }

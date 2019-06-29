@@ -6,7 +6,6 @@
 package keyboard.keyboardview;
 
 import javafx.event.EventHandler;
-import keyboard.keyboardview.KeyboardView;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -38,7 +37,7 @@ public class KeyboardViewManager {
     }
     
     private void setKeysInView(){
-        kvView.setKeys(kvModel.getKeyModel().getSetOfKeys());
+        kvView.setKeys(kvModel.getKeyModel().getKeyIndicies());
     }
     
     private void setKeyLabel(){
