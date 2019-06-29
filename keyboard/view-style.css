@@ -7,6 +7,7 @@
 .label{
 -fx-font-size: 16pt;
 -fx-text-fill: rgb(136, 97, 24);
+ -fx-text-fill: rgb(101,67,33);
 -fx-padding: 3;
 }
 
@@ -28,10 +29,11 @@
     -fx-background-color: rgb(136, 97, 24);
 }
 
-
 .root{
     -fx-background-color: rgb(255, 232, 23);
     -fx-control-inner-background: rgb(255, 232, 23);
+    -fx-background-color: rgb(65, 105, 225);
+    -fx-control-inner-background: rgb(65, 105, 225);
 }
 
 .decrement-button{
@@ -74,4 +76,11 @@
 .brown-label{
     -fx-font-size: 14pt;
     -fx-text-fill: rgb(189, 135, 34);
+}
+
+.storage-css{
+    -fx-background-color: rgb(65, 105, 225);
+    -fx-control-inner-background: rgb(65, 105, 225);
+    -fx-background-color: rgb(101,67,33);
+    -fx-control-inner-background: rgb(101,67,33);
 }

@@ -18,6 +18,9 @@ public abstract class AbstractKeyOf extends HashMap<KeyCode, KeyboardKey>{
     
     protected String keyOfString="";
     
+    /*
+    
+    */
     public AbstractKeyOf(){
         put(KeyCode.A, new KeyboardKey(KeyType.BOTTOM_KEY,0));//C
         put(KeyCode.S, new KeyboardKey(KeyType.BOTTOM_KEY,1));//D
