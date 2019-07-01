@@ -9,7 +9,7 @@ package keyboard.keyboardview.keys;
  *
  * @author mattroberts
  */
-public class KeyOfA extends AbstractKeyOf{
+public class KeyOfA extends AbstractKey{
     
     public KeyOfA() {
         keyOfString="A";

@@ -11,13 +11,13 @@ import keyboard.keyboardview.keys.MusicTheoryKeys;
  *
  * @author mattroberts
  */
-public class MusicTheoryKeyModel extends AbstractKeyOfModel{
+public class MusicTheoryKeyModel extends AbstractKeyModel{
 
     public MusicTheoryKeyModel() {
         setUpKeys();
     }
     
-    public MusicTheoryKeyModel(AbstractKeyOfModel abkm) {
+    public MusicTheoryKeyModel(AbstractKeyModel abkm) {
         super(abkm);
         setUpKeys();
     }

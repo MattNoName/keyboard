@@ -50,8 +50,8 @@ class KeyboardManager {
                 //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
-                    noteMessage = model.respondToKeyPressed(event);
                     kvm.getKvView().keyDown(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
+                    noteMessage = model.respondToKeyPressed(event);
                 } catch (UnusedKeyCodeException e) {
                     //do nothing
                 }
@@ -85,8 +85,9 @@ class KeyboardManager {
                 ShortMessage noteMessage = null;
                 try {
                     //System.out.println("key released");
-                    noteMessage = model.respondToKeyReleased(event);
                     kvm.getKvView().keyUp(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
+                    noteMessage = model.respondToKeyReleased(event);
+
                 } catch (UnusedKeyCodeException e) {
                     //do nothing
                 }

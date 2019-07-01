@@ -6,8 +6,6 @@
 package keyboard.keyboardview.keys;
 
 import javafx.scene.input.KeyCode;
-import keyboard.keyboardview.KeyType;
-import keyboard.keyboardview.KeyboardKey;
 
 /**
  *
@@ -15,7 +13,7 @@ import keyboard.keyboardview.KeyboardKey;
  */
 
 
-public class KeyOfDSharp extends AbstractKeyOf{
+public class KeyOfDSharp extends AbstractKey{
     
     public KeyOfDSharp() {
         keyOfString="D Sharp";

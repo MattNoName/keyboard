@@ -5,9 +5,11 @@
  */
 package keyboard.keyboardview;
 
+import keyboard.keyboardview.keys.KeyboardKey;
+import keyboard.keyboardview.keys.KeyType;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
-import keyboard.keyboardview.keys.AbstractKeyOf;
+import keyboard.keyboardview.keys.AbstractKey;
 import keyboard.keyboardview.keys.BottomKeys;
 import keyboard.keyboardview.keys.TopKeys;
 import keyboardmappings.UnusedKeyCodeException;
@@ -16,20 +18,20 @@ import keyboardmappings.UnusedKeyCodeException;
  *
  * @author mattroberts
  */
-public abstract class AbstractKeyOfModel {
+public abstract class AbstractKeyModel {
     
     protected int key=0;
     
-    protected AbstractKeyOf topKeyIndices;
+    protected AbstractKey topKeyIndices;
     
     protected HashMap<KeyCode, Integer> bottomKeyMap=new BottomKeys();
     protected HashMap<KeyCode, Integer> topKeyMap=new TopKeys();
 
-    public AbstractKeyOfModel() {
+    public AbstractKeyModel() {
         
     }
     
-    public AbstractKeyOfModel(AbstractKeyOfModel abkm) {
+    public AbstractKeyModel(AbstractKeyModel abkm) {
         key=abkm.getKey();
     }
     
@@ -46,8 +48,7 @@ public abstract class AbstractKeyOfModel {
         throw new UnusedKeyCodeException();
     }
     
-    AbstractKeyOf getKeyIndicies(){
-        System.out.println("Getting top key indices");
+    AbstractKey getKeyIndicies(){
         return topKeyIndices;
     }
     

@@ -2,18 +2,18 @@
 package keyboardmappings;
 
 import musictheory.MusicalKey;
-import keyboardmappings.pianokeys.PianoGSharpKeys;
-import keyboardmappings.pianokeys.PianoEKeys;
-import keyboardmappings.pianokeys.PianoFSharpKeys;
-import keyboardmappings.pianokeys.PianoASharpKeys;
-import keyboardmappings.pianokeys.PianoGKeys;
-import keyboardmappings.pianokeys.PianoAKeys;
-import keyboardmappings.pianokeys.PianoFKeys;
-import keyboardmappings.pianokeys.PianoBKeys;
-import keyboardmappings.pianokeys.PianoDSharpKeys;
-import keyboardmappings.pianokeys.PianoDKeys;
-import keyboardmappings.pianokeys.PianoCSharpKeys;
-import keyboardmappings.pianokeys.PianoCKeys;
+import keyboardmappings.keys.PianoGSharpKeys;
+import keyboardmappings.keys.PianoEKeys;
+import keyboardmappings.keys.PianoFSharpKeys;
+import keyboardmappings.keys.PianoASharpKeys;
+import keyboardmappings.keys.PianoGKeys;
+import keyboardmappings.keys.PianoAKeys;
+import keyboardmappings.keys.PianoFKeys;
+import keyboardmappings.keys.PianoBKeys;
+import keyboardmappings.keys.PianoDSharpKeys;
+import keyboardmappings.keys.PianoDKeys;
+import keyboardmappings.keys.PianoCSharpKeys;
+import keyboardmappings.keys.PianoCKeys;
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 

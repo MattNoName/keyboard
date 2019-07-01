@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author mattroberts
  */
-public abstract class AbstractKeyOf extends ArrayList<Integer>{
+public abstract class AbstractKey extends ArrayList<Integer>{
     
     protected String keyOfString="";
 

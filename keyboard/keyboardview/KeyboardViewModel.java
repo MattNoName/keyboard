@@ -15,13 +15,13 @@ import keyboardmappings.MusicTheoryKeyboard;
  */
 public class KeyboardViewModel {
     
-    private AbstractKeyOfModel keyModel;
+    private AbstractKeyModel keyModel;
 
     public KeyboardViewModel() {
         this.keyModel = new PianoKeyModel();
     }
 
-    public AbstractKeyOfModel getKeyModel() {
+    public AbstractKeyModel getKeyModel() {
         return keyModel;
     }
     

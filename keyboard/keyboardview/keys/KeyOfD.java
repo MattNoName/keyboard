@@ -6,14 +6,12 @@
 package keyboard.keyboardview.keys;
 
 import javafx.scene.input.KeyCode;
-import keyboard.keyboardview.KeyType;
-import keyboard.keyboardview.KeyboardKey;
 
 /**
  *
  * @author mattroberts
  */
-public class KeyOfD extends AbstractKeyOf{
+public class KeyOfD extends AbstractKey{
     
     public KeyOfD() {
         keyOfString="D";

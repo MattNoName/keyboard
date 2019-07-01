@@ -7,8 +7,6 @@ package keyboard.keyboardview.keys;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
-import keyboard.keyboardview.KeyType;
-import keyboard.keyboardview.KeyboardKey;
 
 /**
  *

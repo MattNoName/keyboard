@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboard.keyboardview;
+package keyboard.keyboardview.keys;
 
-import keyboard.keyboardview.KeyType;
+import keyboard.keyboardview.keys.KeyType;
 
 /**
  *

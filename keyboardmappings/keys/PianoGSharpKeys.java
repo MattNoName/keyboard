@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboardmappings.pianokeys;
+package keyboardmappings.keys;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
@@ -13,12 +13,9 @@ import javafx.scene.input.KeyCode;
  * @author mattroberts
  */
 
+public class PianoGSharpKeys extends HashMap<KeyCode, Integer>{
 
-public class PianoFSharpKeys extends HashMap<KeyCode, Integer>{
-
-    public PianoFSharpKeys() {
-        put(KeyCode.Q, 6);//F#
-        put(KeyCode.A, 7);//G
+    public PianoGSharpKeys() {
         put(KeyCode.W, 8);//G#
         put(KeyCode.S, 9);//A
         put(KeyCode.E, 10);//A#
@@ -37,6 +34,7 @@ public class PianoFSharpKeys extends HashMap<KeyCode, Integer>{
         put(KeyCode.SEMICOLON, 21);//B
         put(KeyCode.QUOTE, 22);//C
         put(KeyCode.CLOSE_BRACKET, 23);//C#
+        put(KeyCode.QUOTE, 24);//D
     }
     
     

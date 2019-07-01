@@ -9,7 +9,7 @@ package keyboard.keyboardview.keys;
  *
  * @author mattroberts
  */
-public class MusicTheoryKeys extends AbstractKeyOf{
+public class MusicTheoryKeys extends AbstractKey{
     
     private String[] keyOfStrArray={"C", "C Sharp", "D", "D Sharp",
         "E", "F", "F Sharp", "G", "G Sharp", "A", "A Sharp, B"};

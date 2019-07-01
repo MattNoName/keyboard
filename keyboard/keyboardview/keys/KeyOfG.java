@@ -10,7 +10,7 @@ package keyboard.keyboardview.keys;
  * @author mattroberts
  */
 
-public class KeyOfG extends AbstractKeyOf{
+public class KeyOfG extends AbstractKey{
     
     public KeyOfG() {
         keyOfString="G";

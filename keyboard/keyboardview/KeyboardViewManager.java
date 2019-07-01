@@ -16,7 +16,6 @@ import javafx.stage.Stage;
  */
 public class KeyboardViewManager {
     
-    private static KeyboardViewManager kvManager=null;
     private KeyboardViewModel kvModel=new KeyboardViewModel();
     private KeyboardView kvView=new KeyboardView();
     private Scene scene=new Scene(kvView, 

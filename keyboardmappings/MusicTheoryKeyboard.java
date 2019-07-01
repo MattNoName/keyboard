@@ -1,6 +1,7 @@
 
 package keyboardmappings;
 
+import keyboardmappings.keys.MusicTheoryKeys;
 import musictheory.MusicalKey;
 
 /**

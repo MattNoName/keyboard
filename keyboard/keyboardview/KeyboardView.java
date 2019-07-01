@@ -5,6 +5,8 @@
  */
 package keyboard.keyboardview;
 
+import keyboard.keyboardview.keys.KeyboardKey;
+import keyboard.keyboardview.keys.KeyType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -16,8 +18,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
-import keyboard.keyboardview.keys.AbstractKeyOf;
-import keylabels.KeyLabels;
+import keyboard.keyboardview.keys.AbstractKey;
+import keyboard.keyboardview.keys.KeyLabels;
 
 /**
  *
@@ -27,37 +29,48 @@ public class KeyboardView extends VBox{
     
     private int NUM_TOP_KEYS=12;
     private int NUM_BOTTOM_KEYS=11;
+    private int NUM_KEYS=12;
     
     static final int VIEW_WIDTH=840;
-    static final int VIEW_HEIGHT=360;
+    static final int VIEW_HEIGHT=540;
     
+    VBox [] changeKeys=new VBox[NUM_KEYS];
     VBox [] topKeys=new VBox[NUM_TOP_KEYS];
     VBox [] bottomKeys=new VBox[NUM_BOTTOM_KEYS];
     
-    Label keyLabel=new Label("Key of C");
+    Label currentKeyLabel=new Label("Key of C");
     Label octaveLabel=new Label("Octave: Middle C");
     KeyLabels keyLabels=new KeyLabels();
     
     KeyboardView(){
+        
+        VBox changeKeysVBox=new VBox();
+        changeKeysVBox.setAlignment(Pos.TOP_CENTER);
+        Label changeKeysLabel=new Label("Change Keys:");
+        FlowPane changeKeysFP=new FlowPane();
+        changeKeysFP.setAlignment(Pos.TOP_CENTER);
+        createChangeKeys();
+        changeKeysFP.getChildren().addAll(changeKeys);
+        changeKeysVBox.getChildren().addAll(changeKeysLabel, changeKeysFP);
+        
         StackPane keysStackPane=new StackPane();
         FlowPane bottomKeysFP=new FlowPane();
         FlowPane topKeysFP=new FlowPane();
-        //topKeysFP.setTranslateX(60);
         topKeysFP.setHgap(20);
-        //bottomKeysFP.setTranslateX(80);
-        createBottomKeys();
-        createTopKeys();
         bottomKeysFP.setAlignment(Pos.TOP_CENTER);
         topKeysFP.setAlignment(Pos.TOP_CENTER);
-        
+        createBottomKeys();
+        createTopKeys();
         topKeysFP.getChildren().addAll(topKeys);
         bottomKeysFP.getChildren().addAll(bottomKeys);
         keysStackPane.getChildren().addAll(bottomKeysFP,topKeysFP);
+        
         HBox labelsHBox=new HBox();
-        labelsHBox.getChildren().addAll(keyLabel, octaveLabel);
+        labelsHBox.getChildren().addAll(currentKeyLabel, octaveLabel);
         labelsHBox.setAlignment(Pos.CENTER);
         labelsHBox.setSpacing(30);
-        this.getChildren().addAll(keysStackPane, labelsHBox);
+        
+        this.getChildren().addAll(changeKeysVBox, keysStackPane, labelsHBox);
         this.setSpacing(20);
         this.setAlignment(Pos.CENTER);
         
@@ -90,13 +103,29 @@ public class KeyboardView extends VBox{
         }
     }
     
+    private void createChangeKeys(){
+        for (int i=0; i<NUM_KEYS; i++){
+            changeKeys[i]=new VBox();
+            changeKeys[i].setMinSize(60, 60);
+            changeKeys[i].setMaxSize(60, 60);
+            changeKeys[i].getStyleClass().add("yellow-keys");
+            changeKeys[i].setAlignment(Pos.BOTTOM_CENTER);
+            Label keyLabel=new Label(keyLabels.getKeyStrings()[i]);
+            keyLabel.getStyleClass().add("brown-label");
+            Label changeKeyLabel=new Label(String.valueOf(keyLabels.getChangeKeys()[i]));
+            keyLabel.getStyleClass().add("brown-label");
+            changeKeys[i].getChildren().addAll(keyLabel, changeKeyLabel);
+            
+        }
+    }
+    
     private void hideTopKeys(){
         for (VBox rect: topKeys){
             rect.setVisible(false);
         }
     }
     
-    void setKeys(AbstractKeyOf indices){
+    void setKeys(AbstractKey indices){
         hideTopKeys();
         for (Integer index : indices){
             showTopKey(index);
@@ -104,7 +133,7 @@ public class KeyboardView extends VBox{
     }
     
     void setKeyLabel(String key){
-        keyLabel.setText("Key of "+key);
+        currentKeyLabel.setText("Key of "+key);
     }
     
     private void showKey(KeyboardKey key){

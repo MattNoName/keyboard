@@ -2,7 +2,7 @@
 package keyboard.keyboardview;
 
 import java.util.HashMap;
-import keyboard.keyboardview.keys.AbstractKeyOf;
+import keyboard.keyboardview.keys.AbstractKey;
 import keyboard.keyboardview.keys.KeyOfA;
 import keyboard.keyboardview.keys.KeyOfASharp;
 import keyboard.keyboardview.keys.KeyOfB;
@@ -20,15 +20,15 @@ import keyboard.keyboardview.keys.KeyOfGSharp;
  *
  * @author mattroberts
  */
-public class PianoKeyModel extends AbstractKeyOfModel{
+public class PianoKeyModel extends AbstractKeyModel{
     
-    private HashMap<Integer, AbstractKeyOf> hashMapOfKeysHashMap=new HashMap<>();
+    private HashMap<Integer, AbstractKey> hashMapOfKeysHashMap=new HashMap<>();
     
     public PianoKeyModel(){
         setUpKeyHashMaps();
     }
     
-    public PianoKeyModel(AbstractKeyOfModel abkm) {
+    public PianoKeyModel(AbstractKeyModel abkm) {
         super(abkm);
         setUpKeyHashMaps();
     }
