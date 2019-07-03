@@ -15,6 +15,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
@@ -31,7 +32,7 @@ public class KeyboardView extends VBox{
     private int NUM_BOTTOM_KEYS=11;
     private int NUM_KEYS=12;
     
-    static final int VIEW_WIDTH=840;
+    static final int VIEW_WIDTH=1340;
     static final int VIEW_HEIGHT=540;
     
     VBox [] changeKeys=new VBox[NUM_KEYS];
@@ -44,6 +45,7 @@ public class KeyboardView extends VBox{
     
     KeyboardView(){
         
+        //change keys display
         VBox changeKeysVBox=new VBox();
         changeKeysVBox.setAlignment(Pos.TOP_CENTER);
         Label changeKeysLabel=new Label("Change Keys:");
@@ -53,6 +55,7 @@ public class KeyboardView extends VBox{
         changeKeysFP.getChildren().addAll(changeKeys);
         changeKeysVBox.getChildren().addAll(changeKeysLabel, changeKeysFP);
         
+        //main keys display
         StackPane keysStackPane=new StackPane();
         FlowPane bottomKeysFP=new FlowPane();
         FlowPane topKeysFP=new FlowPane();
@@ -65,12 +68,38 @@ public class KeyboardView extends VBox{
         bottomKeysFP.getChildren().addAll(bottomKeys);
         keysStackPane.getChildren().addAll(bottomKeysFP,topKeysFP);
         
+        //left shift display
+        VBox leftVBox=new VBox();
+        leftVBox.setAlignment(Pos.BOTTOM_CENTER);
+        Label leftShiftLabel=new Label("Shift Down An Octave");
+        leftShiftLabel.setWrapText(true);
+        leftVBox.getChildren().addAll(leftShiftLabel, createBrownKey("shift"));
+        
+        //right shift and enter display
+        VBox rightVBox=new VBox();
+        rightVBox.setAlignment(Pos.BOTTOM_CENTER);
+        Label rightEnterLabel=new Label("Shift Up An Octave");
+        leftShiftLabel.setWrapText(true);
+        Label rightShiftLabel=new Label("Shift Down An Octave");
+        rightShiftLabel.setWrapText(true);
+        rightVBox.getChildren().addAll(rightEnterLabel, createBrownKey("enter"), 
+                rightShiftLabel, createBrownKey("shift"));
+        
+        //center keys display
+        HBox keysHBox=new HBox();
+        keysHBox.setAlignment(Pos.BOTTOM_CENTER);
+        keysStackPane.setMinWidth(VIEW_WIDTH-600);
+        keysStackPane.setPrefWidth(VIEW_WIDTH-600);
+        keysHBox.getChildren().addAll(leftVBox,keysStackPane, rightVBox);
+        
+        //key and octave labels display
         HBox labelsHBox=new HBox();
         labelsHBox.getChildren().addAll(currentKeyLabel, octaveLabel);
         labelsHBox.setAlignment(Pos.CENTER);
         labelsHBox.setSpacing(30);
         
-        this.getChildren().addAll(changeKeysVBox, keysStackPane, labelsHBox);
+        //add all to VBox view
+        this.getChildren().addAll(changeKeysVBox, keysHBox, labelsHBox);
         this.setSpacing(20);
         this.setAlignment(Pos.CENTER);
         
