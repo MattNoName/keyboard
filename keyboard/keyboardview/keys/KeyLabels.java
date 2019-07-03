@@ -17,6 +17,9 @@ public class KeyLabels {
     private final char [] topKeys={'Q','W','E','R','T','Y','U','I','O','P','[',']'};
     private final char [] bottomKeys={'A','S','D','F','G','H','J','K','L',';','\''};
     
+    private final char [] octaveKeys={'Z','X','C','V','B'};
+    private final String [] octaveStrings={"-2","-1","C","+1","+2"};
+    
     public char[] getChangeKeys() {
         return changeKeys;
     }
@@ -32,6 +35,16 @@ public class KeyLabels {
     public char[] getBottomKeys() {
         return bottomKeys;
     }
+
+    public char[] getOctaveKeys() {
+        return octaveKeys;
+    }
+
+    public String[] getOctaveStrings() {
+        return octaveStrings;
+    }
+    
+    
     
     
     

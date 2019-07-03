@@ -28,19 +28,22 @@ import keyboard.keyboardview.keys.KeyLabels;
  */
 public class KeyboardView extends VBox{
     
-    private int NUM_TOP_KEYS=12;
-    private int NUM_BOTTOM_KEYS=11;
-    private int NUM_KEYS=12;
+    private final int NUM_TOP_KEYS=12;
+    private final int NUM_BOTTOM_KEYS=11;
+    private final int NUM_KEYS=12;
+    private final int NUM_OCTAVES=5;
     
-    static final int VIEW_WIDTH=1340;
-    static final int VIEW_HEIGHT=540;
+    static final int VIEW_WIDTH=1180;
+    static final int VIEW_HEIGHT=640;
     
     VBox [] changeKeys=new VBox[NUM_KEYS];
     VBox [] topKeys=new VBox[NUM_TOP_KEYS];
     VBox [] bottomKeys=new VBox[NUM_BOTTOM_KEYS];
+    VBox [] octaveKeys=new VBox[NUM_OCTAVES];
     
     Label currentKeyLabel=new Label("Key of C");
     Label octaveLabel=new Label("Octave: Middle C");
+    Label keyboardLabel=new Label("Piano Keyboard");
     KeyLabels keyLabels=new KeyLabels();
     
     KeyboardView(){
@@ -57,9 +60,9 @@ public class KeyboardView extends VBox{
         
         //main keys display
         StackPane keysStackPane=new StackPane();
-        FlowPane bottomKeysFP=new FlowPane();
-        FlowPane topKeysFP=new FlowPane();
-        topKeysFP.setHgap(20);
+        HBox bottomKeysFP=new HBox();
+        HBox topKeysFP=new HBox();
+        topKeysFP.setSpacing(20);
         bottomKeysFP.setAlignment(Pos.TOP_CENTER);
         topKeysFP.setAlignment(Pos.TOP_CENTER);
         createBottomKeys();
@@ -73,7 +76,7 @@ public class KeyboardView extends VBox{
         leftVBox.setAlignment(Pos.BOTTOM_CENTER);
         Label leftShiftLabel=new Label("Shift Down An Octave");
         leftShiftLabel.setWrapText(true);
-        leftVBox.getChildren().addAll(leftShiftLabel, createBrownKey("shift"));
+        leftVBox.getChildren().addAll(leftShiftLabel, createBrownKey("shift", 120, 60));
         
         //right shift and enter display
         VBox rightVBox=new VBox();
@@ -82,14 +85,14 @@ public class KeyboardView extends VBox{
         leftShiftLabel.setWrapText(true);
         Label rightShiftLabel=new Label("Shift Down An Octave");
         rightShiftLabel.setWrapText(true);
-        rightVBox.getChildren().addAll(rightEnterLabel, createBrownKey("enter"), 
-                rightShiftLabel, createBrownKey("shift"));
+        rightVBox.getChildren().addAll(rightEnterLabel, createBrownKey("enter", 170, 60), 
+                rightShiftLabel, createBrownKey("shift", 120, 60));
         
         //center keys display
         HBox keysHBox=new HBox();
         keysHBox.setAlignment(Pos.BOTTOM_CENTER);
-        keysStackPane.setMinWidth(VIEW_WIDTH-600);
-        keysStackPane.setPrefWidth(VIEW_WIDTH-600);
+        keysStackPane.setMinWidth(VIEW_WIDTH-400);
+        keysStackPane.setPrefWidth(VIEW_WIDTH-400);
         keysHBox.getChildren().addAll(leftVBox,keysStackPane, rightVBox);
         
         //key and octave labels display
@@ -98,8 +101,40 @@ public class KeyboardView extends VBox{
         labelsHBox.setAlignment(Pos.CENTER);
         labelsHBox.setSpacing(30);
         
+        //octave and change keyboard keys
+        HBox lowerHBox=new HBox();
+        lowerHBox.setAlignment(Pos.CENTER);
+        //octave VBox
+        VBox octaveVBox=new VBox();
+        octaveVBox.setAlignment(Pos.CENTER);
+        Label changeOctavesLabel=new Label("Change Octaves:");
+        changeOctavesLabel.setWrapText(true);
+        createOctaveKeys();
+        //octave HBox
+        HBox octaveHBox=new HBox();
+        octaveHBox.setAlignment(Pos.CENTER);
+        octaveHBox.getChildren().addAll(octaveKeys);
+        octaveVBox.getChildren().addAll(changeOctavesLabel, octaveHBox);
+        //keyboard VBox
+        VBox keyboardVBox=new VBox();
+        keyboardVBox.setAlignment(Pos.CENTER);
+        Label keyboardLabel=new Label("Change Keyboards:");
+        keyboardLabel.setWrapText(true);
+        //keyboard HBox
+        HBox keyboardHBox=new HBox();
+        keyboardHBox.setAlignment(Pos.CENTER);
+        keyboardHBox.getChildren().addAll(createBrownKey("N", 60, 60),
+                createBrownKey("M", 60, 60));
+        keyboardVBox.getChildren().addAll(keyboardLabel,keyboardHBox);
+        
+        
+        lowerHBox.getChildren().addAll(octaveVBox,keyboardVBox);
+        
+        
+        //keyboard key VBox
+        
         //add all to VBox view
-        this.getChildren().addAll(changeKeysVBox, keysHBox, labelsHBox);
+        this.getChildren().addAll(changeKeysVBox, keysHBox, labelsHBox,lowerHBox);
         this.setSpacing(20);
         this.setAlignment(Pos.CENTER);
         
@@ -149,10 +184,26 @@ public class KeyboardView extends VBox{
         }
     }
     
-    private VBox createBrownKey(String text){
+    private void createOctaveKeys(){
+        for (int i=0; i<5; i++){
+            octaveKeys[i]=new VBox();
+            octaveKeys[i].setMinSize(60, 60);
+            octaveKeys[i].setMaxSize(60, 60);
+            octaveKeys[i].getStyleClass().add("brown-keys");
+            octaveKeys[i].setAlignment(Pos.BOTTOM_CENTER);
+            Label octaveLabel=new Label(String.valueOf(keyLabels.getOctaveStrings()[i]));
+            octaveLabel.getStyleClass().add("yellow-label");
+            Label changeOctaveLabel=new Label(String.valueOf(keyLabels.getOctaveKeys()[i]));
+            changeOctaveLabel.getStyleClass().add("yellow-label");
+            octaveKeys[i].getChildren().addAll(octaveLabel, changeOctaveLabel);
+            
+        }
+    }
+    
+    private VBox createBrownKey(String text, int width, int height){
             VBox brownKey=new VBox();
-            brownKey.setMinSize(170, 60);
-            brownKey.setMaxSize(170, 60);
+            brownKey.setMinSize(width, height);
+            brownKey.setMaxSize(width, height);
             brownKey.getStyleClass().add("brown-keys");
             brownKey.setAlignment(Pos.BOTTOM_CENTER);
             Label keyLabel=new Label(text);
