@@ -103,6 +103,7 @@ public class KeyboardView extends VBox{
         }
     }
     
+    
     private void createChangeKeys(){
         for (int i=0; i<NUM_KEYS; i++){
             changeKeys[i]=new VBox();
@@ -113,10 +114,22 @@ public class KeyboardView extends VBox{
             Label keyLabel=new Label(keyLabels.getKeyStrings()[i]);
             keyLabel.getStyleClass().add("brown-label");
             Label changeKeyLabel=new Label(String.valueOf(keyLabels.getChangeKeys()[i]));
-            keyLabel.getStyleClass().add("brown-label");
+            changeKeyLabel.getStyleClass().add("brown-label");
             changeKeys[i].getChildren().addAll(keyLabel, changeKeyLabel);
             
         }
+    }
+    
+    private VBox createBrownKey(String text){
+            VBox brownKey=new VBox();
+            brownKey.setMinSize(170, 60);
+            brownKey.setMaxSize(170, 60);
+            brownKey.getStyleClass().add("brown-keys");
+            brownKey.setAlignment(Pos.BOTTOM_CENTER);
+            Label keyLabel=new Label(text);
+            keyLabel.getStyleClass().add("yellow-label");
+            brownKey.getChildren().addAll(keyLabel);
+            return brownKey;
     }
     
     private void hideTopKeys(){
