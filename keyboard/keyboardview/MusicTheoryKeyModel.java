@@ -14,15 +14,16 @@ import keyboard.keyboardview.keys.MusicTheoryKeys;
 public class MusicTheoryKeyModel extends AbstractKeyModel{
 
     public MusicTheoryKeyModel() {
-        setUpKeys();
+        setUpKeyboard();
     }
     
     public MusicTheoryKeyModel(AbstractKeyModel abkm) {
         super(abkm);
-        setUpKeys();
+        setUpKeyboard();
     }
     
-    private void setUpKeys(){
+    private void setUpKeyboard(){
+        name="Music Theory Keyboard";
         topKeyIndices=new MusicTheoryKeys();
     }
     

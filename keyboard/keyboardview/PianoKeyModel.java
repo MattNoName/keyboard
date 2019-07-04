@@ -25,12 +25,12 @@ public class PianoKeyModel extends AbstractKeyModel{
     private HashMap<Integer, AbstractKey> hashMapOfKeysHashMap=new HashMap<>();
     
     public PianoKeyModel(){
-        setUpKeyHashMaps();
+        setUpKeyboard();
     }
     
     public PianoKeyModel(AbstractKeyModel abkm) {
         super(abkm);
-        setUpKeyHashMaps();
+        setUpKeyboard();
     }
     
     @Override
@@ -54,7 +54,8 @@ public class PianoKeyModel extends AbstractKeyModel{
         hashMapOfKeysHashMap.put(11, new KeyOfB());
     }
     
-    private void setUpKeyHashMaps(){
+    private void setUpKeyboard(){
+        name="Piano Keyboard";
         putKeyHashMaps();
         setKey(0);
     }

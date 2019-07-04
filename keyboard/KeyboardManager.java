@@ -69,6 +69,7 @@ class KeyboardManager {
                     
                 }else if (model.updateOctaveAndKey(event)){
                     kvm.setKey(model.getKeyboard().getKey());
+                    kvm.setOctave(model.getKeyboard().getOctave());
                 }
             } catch (Exception e) {
                 AppAlertsManager.showAlert(e);

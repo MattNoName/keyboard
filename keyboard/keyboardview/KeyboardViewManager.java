@@ -35,9 +35,15 @@ public class KeyboardViewManager {
         setKeyLabel();
     }
     
+    public void setOctave(int index){
+        kvModel.getKeyModel().setOctave(index);
+        setOctaveLabel();
+    }
+    
     public void setKeyboard(KeyEvent event){
         kvModel.updateKeyboard(event);
         setKeysInView();
+        setKeyBoardLabel();
     }
     
     private void setKeysInView(){
@@ -46,6 +52,14 @@ public class KeyboardViewManager {
     
     private void setKeyLabel(){
         kvView.setKeyLabel(kvModel.getKeyModel().getKeyOfString());
+    }
+    
+    private void setOctaveLabel(){
+        kvView.setOctaveLabel(kvModel.getKeyModel().getOctaveString());
+    }
+    
+    private void setKeyBoardLabel(){
+        kvView.setKeyboardLabel(kvModel.getKeyModel().getName());
     }
     
     private void setUpScene(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){

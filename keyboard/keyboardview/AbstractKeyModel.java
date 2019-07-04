@@ -20,12 +20,18 @@ import keyboardmappings.UnusedKeyCodeException;
  */
 public abstract class AbstractKeyModel {
     
+    protected String name;
+    
     protected int key=0;
+    
+    protected int octave=0;
     
     protected AbstractKey topKeyIndices;
     
     protected HashMap<KeyCode, Integer> bottomKeyMap=new BottomKeys();
     protected HashMap<KeyCode, Integer> topKeyMap=new TopKeys();
+    
+    protected String [] octaves={"-2", "-1", "", "+1", "+2"};
 
     public AbstractKeyModel() {
         
@@ -53,6 +59,18 @@ public abstract class AbstractKeyModel {
     }
     
     abstract protected void setKey(int index);
+    
+    protected void setOctave(int octave){
+        this.octave=octave-3;
+    }
+    
+    public String getOctaveString(){
+        return octaves[this.octave];
+    }
+    
+    protected void setKeyboard(int octave){
+        this.octave=octave-3;
+    }
 
     public int getKey() {
         return key;
@@ -61,5 +79,11 @@ public abstract class AbstractKeyModel {
     String getKeyOfString(){
         return topKeyIndices.getKeyOfString();
     }
+
+    public String getName() {
+        return name;
+    }
+    
+    
     
 }

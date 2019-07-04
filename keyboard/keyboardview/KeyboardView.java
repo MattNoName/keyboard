@@ -15,7 +15,6 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
@@ -97,7 +96,7 @@ public class KeyboardView extends VBox{
         
         //key and octave labels display
         HBox labelsHBox=new HBox();
-        labelsHBox.getChildren().addAll(currentKeyLabel, octaveLabel);
+        labelsHBox.getChildren().addAll(currentKeyLabel, keyboardLabel, octaveLabel);
         labelsHBox.setAlignment(Pos.CENTER);
         labelsHBox.setSpacing(30);
         
@@ -227,6 +226,14 @@ public class KeyboardView extends VBox{
     
     void setKeyLabel(String key){
         currentKeyLabel.setText("Key of "+key);
+    }
+    
+    void setOctaveLabel(String octaveText){
+        octaveLabel.setText("Middle C"+octaveText);
+    }
+    
+    void setKeyboardLabel(String keyboardText){
+        keyboardLabel.setText(keyboardText);
     }
     
     private void showKey(KeyboardKey key){

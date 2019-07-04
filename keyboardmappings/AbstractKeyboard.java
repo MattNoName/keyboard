@@ -98,22 +98,28 @@ public abstract class AbstractKeyboard implements KeyboardInterface {
             case SHIFT:
                 
                 if (octaveTranslation == 36) {
-
+                
                 } else {
+                    System.out.println("Octave shifted down");
                     octaveTranslation -= 12;
                 }
                 return true;
             case ENTER:
                 
                 if (octaveTranslation == 84) {
-
+                    
                 } else {
+                    System.out.println("Octave shifted up");
                     octaveTranslation += 12;
                 }
                 
                 return true;
         }
         return false;
+    }
+    
+    public int getOctave(){
+        return octaveTranslation/12;
     }
     
     private void makeChangeKeyHashMap(){
