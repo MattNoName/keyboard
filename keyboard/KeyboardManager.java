@@ -38,7 +38,7 @@ class KeyboardManager {
             return;
         }
         viewManager = new ViewManager(primaryStage, keyPressedHandler, keyReleasedHandler);
-        kvm=viewManager.getKeyboardViewManager();
+        kvm = viewManager.getKeyboardViewManager();
         viewManager.showWindow();
     }
 
@@ -58,19 +58,21 @@ class KeyboardManager {
                 if (noteMessage != null) {
                     //System.out.println(noteMessage.toString());
                     sound.sendToSynethesizer(noteMessage);
-                } else if (!model.updateOctaveAndKey(event)) {
+                } else {
+                    if (!model.updateOctaveAndKey(event)) {
 
-                    ArrayList<ShortMessage> notesOffArrayList = model.respondToPedalsDown(event);
-                    if (notesOffArrayList != null) {
-                        sound.sendToSynethesizer(notesOffArrayList);
+                        ArrayList<ShortMessage> notesOffArrayList = model.respondToPedalsDown(event);
+                        if (notesOffArrayList != null) {
+                            sound.sendToSynethesizer(notesOffArrayList);
+                        }
+                        model.updateKeyboard(event);
+                        kvm.setKeyboard(event);
+                    } else {
+                        kvm.setKey(model.getKeyboard().getKey());
+                        kvm.setOctave(model.getKeyboard().getOctave());
                     }
-                    model.updateKeyboard(event);
-                    kvm.setKeyboard(event);
-                    
-                }else if (model.updateOctaveAndKey(event)){
-                    kvm.setKey(model.getKeyboard().getKey());
-                    kvm.setOctave(model.getKeyboard().getOctave());
                 }
+
             } catch (Exception e) {
                 AppAlertsManager.showAlert(e);
             }

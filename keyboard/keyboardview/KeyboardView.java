@@ -32,7 +32,7 @@ public class KeyboardView extends VBox{
     private final int NUM_KEYS=12;
     private final int NUM_OCTAVES=5;
     
-    static final int VIEW_WIDTH=1180;
+    static final int VIEW_WIDTH=1140;
     static final int VIEW_HEIGHT=640;
     
     VBox [] changeKeys=new VBox[NUM_KEYS];
@@ -229,7 +229,7 @@ public class KeyboardView extends VBox{
     }
     
     void setOctaveLabel(String octaveText){
-        octaveLabel.setText("Middle C"+octaveText);
+        octaveLabel.setText("Octave: Middle C"+octaveText);
     }
     
     void setKeyboardLabel(String keyboardText){

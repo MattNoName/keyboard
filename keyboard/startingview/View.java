@@ -28,8 +28,7 @@ public class View extends VBox {
     */
     private Label instructionsLabel=new Label("Instructions");
     private TextArea thankYouTextArea=new TextArea();
-    private Button viewKeyboardButton=new Button("See View");
-    private Button pictureDirectionsButton=new Button("See Picture Directions");
+    private Button viewKeyboardButton=new Button("See Full View");
     private Label acknowledgementsLabel=new Label("Acknowledgements");
     private TextArea teachingTextArea=new TextArea();
     
@@ -42,7 +41,7 @@ public class View extends VBox {
         teachingTextArea.setMaxWidth(500);
         teachingTextArea.setMaxHeight(500);
         HBox btnHBox=new HBox();
-        btnHBox.getChildren().addAll(viewKeyboardButton,pictureDirectionsButton);
+        btnHBox.getChildren().add(viewKeyboardButton);
         btnHBox.setAlignment(Pos.CENTER);
         btnHBox.setSpacing(20);
         viewKeyboardButton.setFocusTraversable(false);
