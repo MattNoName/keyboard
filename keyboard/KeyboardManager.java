@@ -1,16 +1,17 @@
 package keyboard;
 
+import keyboard.startingview.ViewManager;
 import java.util.ArrayList;
 import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
+import keyboard.keyboardview.KeyboardViewManager;
 
 /**
  *
- * @author mattroberts
+ * @author matt roberts
  */
 class KeyboardManager {
 
@@ -19,6 +20,7 @@ class KeyboardManager {
     KeyPressedHandler keyPressedHandler = new KeyPressedHandler();
     KeyReleasedHandler keyReleasedHandler = new KeyReleasedHandler();
     ViewManager viewManager;
+    KeyboardViewManager kvm;
 
     /*
     Once note is gotten, pass to sendToSynethesizer function
@@ -35,6 +37,7 @@ class KeyboardManager {
             return;
         }
         viewManager = new ViewManager(primaryStage, keyPressedHandler, keyReleasedHandler);
+        kvm = viewManager.getKeyboardViewManager();
         viewManager.showWindow();
     }
 
@@ -43,24 +46,30 @@ class KeyboardManager {
         @Override
         public void handle(KeyEvent event) {
             try {
-                //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
+                    kvm.getKvView().keyDown(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                     noteMessage = model.respondToKeyPressed(event);
                 } catch (UnusedKeyCodeException e) {
                     //do nothing
                 }
                 if (noteMessage != null) {
-                    //System.out.println(noteMessage.toString());
                     sound.sendToSynethesizer(noteMessage);
-                } else if (!model.updateOctaveAndKey(event)) {
+                } else {
+                    if (!model.updateOctaveAndKey(event)) {
 
-                    ArrayList<ShortMessage> notesOffArrayList = model.respondToPedalsDown(event);
-                    if (notesOffArrayList != null) {
-                        sound.sendToSynethesizer(notesOffArrayList);
+                        ArrayList<ShortMessage> notesOffArrayList = model.respondToPedalsDown(event);
+                        if (notesOffArrayList != null) {
+                            sound.sendToSynethesizer(notesOffArrayList);
+                        }
+                        model.updateKeyboard(event);
+                        kvm.setKeyboard(event);
+                    } else {
+                        kvm.setKey(model.getKeyboard().getKey());
+                        kvm.setOctave(model.getKeyboard().getOctave());
                     }
-                    model.updateKeyboard(event);
                 }
+
             } catch (Exception e) {
                 AppAlertsManager.showAlert(e);
             }
@@ -72,11 +81,11 @@ class KeyboardManager {
         @Override
         public void handle(KeyEvent event) {
             try {
-                //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
-                    //System.out.println("key released");
+                    kvm.getKvView().keyUp(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                     noteMessage = model.respondToKeyReleased(event);
+
                 } catch (UnusedKeyCodeException e) {
                     //do nothing
                 }

@@ -40,8 +40,6 @@ class KeyboardModel {
     
     private boolean sostenato = false;
 
-    //private final short NOTE_TRANSLATION_CONSTANT = 60;
-
     KeyboardModel() {
         keyboard = new PianoKeyboard(60,MusicalKey.C);
     }
@@ -57,19 +55,12 @@ class KeyboardModel {
         }
 
     }
-
-    /*
-    private boolean isKeyPressed(KeyCode kc){
-            return keyDown.get(kc.getName());
-    }
-     */
     
     private ShortMessage getNoteOnMessage(int noteCode)
             throws InvalidMidiDataException, MidiUnavailableException {
         ShortMessage noteMessage = new ShortMessage();
-        //System.out.println(noteCode);
         noteMessage.setMessage(ShortMessage.NOTE_ON, 4,
-                noteCode + keyboard.getOctaveKeyTranslation(), 70);
+                noteCode + keyboard.getOctaveKeyTranslation(), 25+4500/(noteCode+keyboard.getOctaveKeyTranslation()+10));
         return noteMessage;
     }
 
@@ -135,13 +126,9 @@ class KeyboardModel {
     ShortMessage respondToKeyPressed(KeyEvent keyEvent) throws UnusedKeyCodeException,
             InvalidMidiDataException, MidiUnavailableException {
         int noteCode = keyboard.getIntFromKey(keyEvent.getCode());
-        //KeyCode kc=keyEvent.getCode();
         if (keyDown.contains(noteCode)) {
-            //updateKeyPressed(kc, true);
-            //keyDown.put(noteCode, true);
             return null;
         } else {
-            //updateKeyPressed(kc, true);
             keyDown.add(noteCode);
             if(sustaining){
                 sustainingNotes.add(noteCode);
@@ -152,9 +139,7 @@ class KeyboardModel {
 
     public ShortMessage respondToKeyReleased(KeyEvent keyEvent) throws UnusedKeyCodeException,
             InvalidMidiDataException, MidiUnavailableException {
-        //KeyCode kc=keyEvent.getCode();
         int noteCode = keyboard.getIntFromKey(keyEvent.getCode());
-        //updateKeyPressed(kc, false);
         keyDown.remove(noteCode);
         if (sustaining||sostenatoNotes.contains(noteCode)) {
             throw new UnusedKeyCodeException();
@@ -178,5 +163,11 @@ class KeyboardModel {
     boolean updateOctaveAndKey(KeyEvent ke){
         return keyboard.updateOctaveAndKey(ke);
     }
+
+    public AbstractKeyboard getKeyboard() {
+        return keyboard;
+    }
+    
+    
     
 }
