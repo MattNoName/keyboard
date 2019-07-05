@@ -18,21 +18,13 @@ import javafx.scene.layout.VBox;
 
 /**
  *
- * @author mattroberts
+ * @author matt roberts
  */
 public class View extends VBox {
     
-    /*
-    title--keyboard
-    directions in uneditable text area
-    */
     private Label instructionsLabel=new Label("Instructions");
-    private TextArea thankYouTextArea=new TextArea();
     private Button viewKeyboardButton=new Button("See Full View");
-    private Label acknowledgementsLabel=new Label("Acknowledgements");
     private TextArea teachingTextArea=new TextArea();
-    
-
 
     View() {
         teachingTextArea.setFocusTraversable(false);
@@ -45,20 +37,10 @@ public class View extends VBox {
         btnHBox.setAlignment(Pos.CENTER);
         btnHBox.setSpacing(20);
         viewKeyboardButton.setFocusTraversable(false);
-        thankYouTextArea.setFocusTraversable(false);
-        thankYouTextArea.setEditable(false);
-        thankYouTextArea.setWrapText(true);
-        thankYouTextArea.setMaxWidth(500);
-        thankYouTextArea.setMaxHeight(135);
-        getChildren().addAll(instructionsLabel, teachingTextArea, btnHBox, acknowledgementsLabel,thankYouTextArea);
+        getChildren().addAll(instructionsLabel, teachingTextArea, btnHBox);
         setAlignment(Pos.CENTER);
         setSpacing(5);
-        VBox.setVgrow(thankYouTextArea, Priority.ALWAYS);
         VBox.setVgrow(teachingTextArea, Priority.ALWAYS);
-    }
-    
-    void setThankYouText(String text){
-        thankYouTextArea.setText(text);
     }
     
     void setTeachingText(String writtenText, String spokenText){
@@ -66,19 +48,17 @@ public class View extends VBox {
         teachingTextArea.setAccessibleText(spokenText);
     }
     
-    void setUpKeyPressedInput(EventHandler<KeyEvent> kph){
+    void setUpKeyPressedHandler(EventHandler<KeyEvent> kph){
         teachingTextArea.setOnKeyPressed(kph);
 
     }
     
-    void setUpKeyReleasedInput(EventHandler<KeyEvent> krh){
+    void setUpKeyReleasedHandler(EventHandler<KeyEvent> krh){
         teachingTextArea.setOnKeyReleased(krh);
     }
     
     void setShowKeyboardHandler(EventHandler<ActionEvent> event){
         viewKeyboardButton.setOnAction(event);
     }
-    
-
     
 }

@@ -11,7 +11,7 @@ import javax.sound.midi.Synthesizer;
 
 /**
  *
- * @author mattroberts
+ * @author matt roberts
  */
 class KeyboardSound {
     
@@ -21,11 +21,6 @@ class KeyboardSound {
     
     private Instrument electricPiano;
     
-    //private String MAC_ELECTRIC_PIANO_2="Electric Piano 2";
-    
-    //private String PC_E_PIANO_2="E. Piano 2   ";
-    private short ELECTRIC_PIANO_NUM=6;
-
     KeyboardSound() throws MidiUnavailableException, InstrumentUnavailableException{
         synthesizer=MidiSystem.getSynthesizer();
         Instrument [] availableInstruments=synthesizer.getAvailableInstruments();
@@ -42,7 +37,7 @@ class KeyboardSound {
                 electricPiano=instrument;
             }
         }
-*/
+        */
         synthesizer.loadInstrument(electricPiano);
         receiver = MidiSystem.getReceiver();
     }

@@ -4,7 +4,6 @@ import keyboard.startingview.ViewManager;
 import java.util.ArrayList;
 import keyboardmappings.UnusedKeyCodeException;
 import javafx.event.EventHandler;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javax.sound.midi.ShortMessage;
@@ -12,7 +11,7 @@ import keyboard.keyboardview.KeyboardViewManager;
 
 /**
  *
- * @author mattroberts
+ * @author matt roberts
  */
 class KeyboardManager {
 
@@ -47,7 +46,6 @@ class KeyboardManager {
         @Override
         public void handle(KeyEvent event) {
             try {
-                //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
                     kvm.getKvView().keyDown(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
@@ -56,7 +54,6 @@ class KeyboardManager {
                     //do nothing
                 }
                 if (noteMessage != null) {
-                    //System.out.println(noteMessage.toString());
                     sound.sendToSynethesizer(noteMessage);
                 } else {
                     if (!model.updateOctaveAndKey(event)) {
@@ -84,10 +81,8 @@ class KeyboardManager {
         @Override
         public void handle(KeyEvent event) {
             try {
-                //System.out.println(keyEvent.getCode());
                 ShortMessage noteMessage = null;
                 try {
-                    //System.out.println("key released");
                     kvm.getKvView().keyUp(kvm.getKvModel().getKeyModel().getKeyFromKeyCode(event.getCode()));
                     noteMessage = model.respondToKeyReleased(event);
 

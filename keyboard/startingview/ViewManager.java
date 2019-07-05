@@ -22,8 +22,6 @@ public class ViewManager {
     private Scene scene;
     private View directionsView = new View();
     private ViewModel directionsModel = new ViewModel();
-    private EventHandler<KeyEvent> keyPressedHandler;
-    private EventHandler<KeyEvent> keyReleasedHandler;
     private KeyboardViewManager keyboardViewManager;
 
     public ViewManager(Stage primaryStage, 
@@ -38,21 +36,18 @@ public class ViewManager {
     }
 
     private void setUpScene() {
-        directionsView.setThankYouText(directionsModel.getThankYouText());
         directionsView.setTeachingText(directionsModel.getTeachingText(false), directionsModel.getTeachingText(true));
         
-        scene = new Scene(directionsView, 375, 600);
+        scene = new Scene(directionsView, 375, 400);
         scene.getStylesheets().add("keyboard/view-style.css");
         primaryStage.setScene(scene);
     }
     
     private void setUpKeyboardInput(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
-        directionsView.setUpKeyPressedInput(kph);
-        directionsView.setUpKeyReleasedInput(krh);
+        directionsView.setUpKeyPressedHandler(kph);
+        directionsView.setUpKeyReleasedHandler(krh);
         scene.setOnKeyPressed(kph);
         scene.setOnKeyReleased(krh);
-        keyPressedHandler=kph;
-        keyReleasedHandler=krh;
     }
     
     private void setUpWindow(){
@@ -75,10 +70,5 @@ public class ViewManager {
     public KeyboardViewManager getKeyboardViewManager() {
         return keyboardViewManager;
     }
-    
-    
-    
-    
-    
-    
+
 }
