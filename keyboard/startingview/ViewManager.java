@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboard;
+package keyboard.startingview;
 
+import keyboard.keyboardview.KeyboardViewManager;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
@@ -14,23 +16,28 @@ import javafx.stage.Stage;
  *
  * @author mattroberts
  */
-class ViewManager {
+public class ViewManager {
     
     private Stage primaryStage;
     private Scene scene;
     private View directionsView = new View();
     private ViewModel directionsModel = new ViewModel();
+    private EventHandler<KeyEvent> keyPressedHandler;
+    private EventHandler<KeyEvent> keyReleasedHandler;
+    private KeyboardViewManager keyboardViewManager;
 
-    ViewManager(Stage primaryStage, 
+    public ViewManager(Stage primaryStage, 
             EventHandler<KeyEvent> keyPressedHandler, 
             EventHandler<KeyEvent> keyReleasedHandler) {
         this.primaryStage = primaryStage;
-        setUpDirectionsScene();
+        setUpScene();
         setUpWindow();
         setUpKeyboardInput(keyPressedHandler, keyReleasedHandler);
+        keyboardViewManager=new KeyboardViewManager(keyPressedHandler,keyReleasedHandler);
+        directionsView.setShowKeyboardHandler(new showKeyboardViewHandler());
     }
 
-    private void setUpDirectionsScene() {
+    private void setUpScene() {
         directionsView.setThankYouText(directionsModel.getThankYouText());
         directionsView.setTeachingText(directionsModel.getTeachingText(false), directionsModel.getTeachingText(true));
         
@@ -39,20 +46,38 @@ class ViewManager {
         primaryStage.setScene(scene);
     }
     
-    private void setUpKeyboardInput(EventHandler<KeyEvent> keyPressedHandler, EventHandler<KeyEvent> keyReleasedHandler){
-        directionsView.setUpKeyPressedInput(keyPressedHandler);
-        directionsView.setUpKeyReleasedInput(keyReleasedHandler);
-        scene.setOnKeyPressed(keyPressedHandler);
-        scene.setOnKeyReleased(keyReleasedHandler);
+    private void setUpKeyboardInput(EventHandler<KeyEvent> kph, EventHandler<KeyEvent> krh){
+        directionsView.setUpKeyPressedInput(kph);
+        directionsView.setUpKeyReleasedInput(krh);
+        scene.setOnKeyPressed(kph);
+        scene.setOnKeyReleased(krh);
+        keyPressedHandler=kph;
+        keyReleasedHandler=krh;
     }
     
     private void setUpWindow(){
         primaryStage.setTitle("Keyboard");
     }
     
-    void showWindow(){
+    public void showWindow(){
         primaryStage.show();
     }
+    
+    class showKeyboardViewHandler implements EventHandler{
+
+        @Override
+        public void handle(Event event) {
+            keyboardViewManager.showWindow();
+        }
+        
+    }
+
+    public KeyboardViewManager getKeyboardViewManager() {
+        return keyboardViewManager;
+    }
+    
+    
+    
     
     
     

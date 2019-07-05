@@ -1,5 +1,5 @@
 
-package keyboard;
+package keyboard.startingview;
 
 /**
  *

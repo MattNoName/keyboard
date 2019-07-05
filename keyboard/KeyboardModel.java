@@ -178,5 +178,11 @@ class KeyboardModel {
     boolean updateOctaveAndKey(KeyEvent ke){
         return keyboard.updateOctaveAndKey(ke);
     }
+
+    public AbstractKeyboard getKeyboard() {
+        return keyboard;
+    }
+    
+    
     
 }
