@@ -16,25 +16,26 @@ import javafx.scene.input.KeyCode;
 public class PianoGSharpKeys extends HashMap<KeyCode, Integer>{
 
     public PianoGSharpKeys() {
-        put(KeyCode.W, 8);//G#
-        put(KeyCode.S, 9);//A
-        put(KeyCode.E, 10);//A#
-        put(KeyCode.D, 11);//B
-        put(KeyCode.F, 12);//C
-        put(KeyCode.T, 13);//C#
-        put(KeyCode.G, 14);//D
-        put(KeyCode.Y, 15);//D#
-        put(KeyCode.H, 16);//E
-        put(KeyCode.J, 17);//F
-        put(KeyCode.I, 18);//F#
-        put(KeyCode.K, 19);//G
-        put(KeyCode.O, 20);//G#
-        put(KeyCode.L, 19);//A
-        put(KeyCode.P, 20);//A#
-        put(KeyCode.SEMICOLON, 21);//B
-        put(KeyCode.QUOTE, 22);//C
-        put(KeyCode.CLOSE_BRACKET, 23);//C#
-        put(KeyCode.QUOTE, 24);//D
+        put(KeyCode.Q, 8);//G#
+        put(KeyCode.A, 9);//A
+        put(KeyCode.W, 10);//A#
+        put(KeyCode.S, 11);//B
+        put(KeyCode.D, 12);//C
+        put(KeyCode.R, 13);//C#
+        put(KeyCode.F, 14);//D
+        put(KeyCode.T, 15);//D#
+        put(KeyCode.G, 16);//E
+        put(KeyCode.H, 17);//F
+        put(KeyCode.U, 18);//F#
+        put(KeyCode.J, 19);//G
+        put(KeyCode.I, 20);//G#
+        put(KeyCode.K, 21);//A
+        put(KeyCode.O, 22);//A#
+        put(KeyCode.L, 23);//B
+        put(KeyCode.SEMICOLON, 24);//C
+        put(KeyCode.OPEN_BRACKET, 25);//C#
+        put(KeyCode.QUOTE, 26);//D
+        put(KeyCode.CLOSE_BRACKET, 27);//E#
     }
     
     

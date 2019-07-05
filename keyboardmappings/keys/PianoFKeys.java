@@ -35,7 +35,7 @@ public class PianoFKeys extends HashMap<KeyCode, Integer>{
         put(KeyCode.SEMICOLON, 21);//A
         put(KeyCode.OPEN_BRACKET, 22);//A#
         put(KeyCode.QUOTE, 23);//B
-        put(KeyCode.OPEN_BRACKET, 24);//C
+        put(KeyCode.CLOSE_BRACKET, 24);//C
     }
     
     

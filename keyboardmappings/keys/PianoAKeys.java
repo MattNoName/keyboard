@@ -28,13 +28,13 @@ public class PianoAKeys extends HashMap<KeyCode, Integer>{
         put(KeyCode.U, 18);//F#
         put(KeyCode.J, 19);//G
         put(KeyCode.I, 20);//G#
-        put(KeyCode.K, 19);//A
-        put(KeyCode.O, 20);//A#
-        put(KeyCode.L, 21);//B
-        put(KeyCode.SEMICOLON, 22);//C
-        put(KeyCode.OPEN_BRACKET, 23);//C#
-        put(KeyCode.QUOTE, 24);//D
-        put(KeyCode.CLOSE_BRACKET, 25);//D#
+        put(KeyCode.K, 21);//A
+        put(KeyCode.O, 22);//A#
+        put(KeyCode.L, 23);//B
+        put(KeyCode.SEMICOLON, 24);//C
+        put(KeyCode.OPEN_BRACKET, 25);//C#
+        put(KeyCode.QUOTE, 26);//D
+        put(KeyCode.CLOSE_BRACKET, 27);//D#
     }
     
     
