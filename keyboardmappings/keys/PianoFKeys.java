@@ -10,7 +10,7 @@ import javafx.scene.input.KeyCode;
 
 /**
  *
- * @author mattroberts
+ * @author matt roberts
  */
 
 public class PianoFKeys extends HashMap<KeyCode, Integer>{

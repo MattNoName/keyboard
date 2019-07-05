@@ -14,6 +14,4 @@ public class UnusedKeyCodeException extends Exception{
         super(message);
     }
     
-    
-    
 }

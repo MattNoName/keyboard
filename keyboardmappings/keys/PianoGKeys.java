@@ -9,8 +9,8 @@ import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 
 /**
- *
- * @author mattroberts
+ * Key Map for G
+ * @author matt roberts
  */
 
 public class PianoGKeys extends HashMap<KeyCode, Integer>{
