@@ -28,7 +28,6 @@
     -fx-background-color: rgb(136, 97, 24);
 }
 
-
 .root{
     -fx-background-color: rgb(255, 232, 23);
     -fx-control-inner-background: rgb(255, 232, 23);
@@ -40,4 +39,46 @@
 
 .increment-button{
     -fx-base: rgb(136, 97, 24);
+}
+
+.button{
+    -fx-control-inner-background: rgb(189, 135, 34);
+    -fx-background-color: rgb(189, 135, 34);
+    -fx-text-fill: rgb(255, 230, 0);
+    -fx-border-color: rgb(136, 97, 24);
+}
+
+.brown-keys{
+    -fx-fill: rgb(189, 135, 34);
+    -fx-text-fill: rgb(255, 230, 0);
+    -fx-stroke: rgb(136, 97, 24);
+    -fx-border-color: rgb(136, 97, 24);
+    -fx-background-color: rgb(189, 135, 34);
+}
+
+.yellow-keys{
+    -fx-fill: rgb(255, 230, 0);
+    -fx-text-fill: rgb(136, 97, 24);
+    -fx-stroke: rgb(136, 97, 24);
+    -fx-font-size: 12pt;
+    -fx-border-color: rgb(136, 97, 24);
+    -fx-background-color: rgb(255, 230, 0);
+}
+
+.yellow-label{
+    -fx-font-size: 14pt;
+    -fx-text-fill: rgb(255, 230, 0);
+}
+
+.brown-label{
+    -fx-font-size: 14pt;
+    -fx-text-fill: rgb(189, 135, 34);
+}
+
+.storage-css{
+    -fx-background-color: rgb(65, 105, 225);
+    -fx-control-inner-background: rgb(65, 105, 225);
+    -fx-background-color: rgb(101,67,33);
+    -fx-control-inner-background: rgb(101,67,33);
+    -fx-text-fill: rgb(101,67,33);
 }
