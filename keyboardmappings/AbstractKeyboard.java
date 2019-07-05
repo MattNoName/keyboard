@@ -7,10 +7,9 @@ import javafx.scene.input.KeyEvent;
 
 /**
  *
- * @author mattroberts
+ * @author matt roberts
  */
 public abstract class AbstractKeyboard implements KeyboardInterface {
-
 
     protected int octaveTranslation = 60;
 

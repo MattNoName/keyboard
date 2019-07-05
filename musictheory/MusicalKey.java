@@ -7,7 +7,7 @@ package musictheory;
 
 /**
  * Keys a note can be in.
- * @author mattroberts
+ * @author matt roberts
  */
 public enum MusicalKey {
     
