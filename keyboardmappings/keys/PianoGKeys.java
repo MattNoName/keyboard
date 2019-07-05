@@ -9,8 +9,8 @@ import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 
 /**
- *
- * @author mattroberts
+ * Key Map for G
+ * @author matt roberts
  */
 
 public class PianoGKeys extends HashMap<KeyCode, Integer>{
@@ -30,11 +30,11 @@ public class PianoGKeys extends HashMap<KeyCode, Integer>{
         put(KeyCode.I, 18);//F#
         put(KeyCode.K, 19);//G
         put(KeyCode.O, 20);//G#
-        put(KeyCode.L, 19);//A
-        put(KeyCode.P, 20);//A#
-        put(KeyCode.SEMICOLON, 21);//B
-        put(KeyCode.QUOTE, 22);//C
-        put(KeyCode.CLOSE_BRACKET, 23);//C#
+        put(KeyCode.L, 21);//A
+        put(KeyCode.P, 22);//A#
+        put(KeyCode.SEMICOLON, 23);//B
+        put(KeyCode.QUOTE, 24);//C
+        put(KeyCode.CLOSE_BRACKET, 25);//C#
     }
     
     

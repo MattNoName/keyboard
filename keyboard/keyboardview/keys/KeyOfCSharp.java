@@ -15,7 +15,7 @@ public class KeyOfCSharp extends AbstractKey{
 
      public KeyOfCSharp() {
         keyOfString="C Sharp";
-        add(0); add(1); add(3); add(4); add(5); add(7); add(9); add(10);
+        add(0); add(1); add(3); add(4); add(5); add(7); add(8); add(10);
         
         add(11);
         

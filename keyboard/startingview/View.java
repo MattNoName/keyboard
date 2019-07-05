@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
 public class View extends VBox {
     
     private Label instructionsLabel=new Label("Instructions");
-    private Button viewKeyboardButton=new Button("See Full View");
+    private Button viewKeyboardButton=new Button("See Full Keyboard");
     private TextArea teachingTextArea=new TextArea();
 
     View() {

@@ -3,37 +3,30 @@
 ### About keyboard
 This application does not require anything on the screen to use other than to open the application and to quit it and can be used with your screen off or the brightness turned down all the way.
 
-### Acknowledgments  
-Thank you to Osa for introducing me to the Java midi sound library which is used to create sound with your computer.
-
-Thank you to Osa again and to Vanely for encouraging me to create this keyboard.
-
-Thank you to Wayne for testing it on Windows so we could find why it didn't initially work on Windows.
-
-Thank you to Tsung Lin for testing it on Windows again once it was made compatible for Windows.
-
 ### Download and Run
 To run the application, first download keyboard.jar. When it does, on Windows, right click it and select from the drop dwon menu "Open with" and choose Java (TM) Platform SE. On Mac, double-click it to use it. On Mac, you may have to allow it from Security and Privacy->General as I am not registered as a developer with Apple. It works on Mac and on some Windows computers.  It has not been tested on Linux.  The application starts up a little slowly, so please be a little patient. If it doesn't run at all, please make sure you have Java installed on your computer.
 
 ### How to Use It
-Here are the directions, which are the only thing displayed on the screen by the app other than any system menus or icons.
-
 This keyboard is an electric keyboard that plays the notes as you play the keys.
 
-Its window must be the last thing you clicked on for it to play the notes you play.
+The keyboard application must have focus in order for it to play notes when you play the keys. If something else has focus, your playing of the keys will not go to the keyboard app and it will not play music.
 
-It is really meant for a QWERTY keyboard (a keyboard where the top left letters are, from left to right, Q, W, E, R T, Y.  This is important becuase you want the keys for the notes you want to be where you want them to be.  All the keys for notes are within the two rows of keys that are below the number keys.
+It is meant for a QWERTY keyboard (a keyboard where the top left letters are, from left to right, Q, W, E, R T, Y. This is important because you want the keys for the notes you want to be where you want them to be. All the keys for notes are within the two rows of keys that are below the number keys.
 
-It has two keyboards: a music theory keyboard and a piano keyboard.  To use the piano keyboard, type N.  To use the music theory keyboard, type M.
 
-For the piano keyboard, the keys are like those on an electric keyboard or a piano.  The first key on your keyboard of the key you are using is A or Q for all keys.
+It has two keyboards: a piano keyboard and a music theory keyboard. To use the piano keyboard, type N. To use the music theory keyboard, type M.
 
-The music theory keyboard has each note one key away from the next on the keyboard.  Keys go from tab to back-slash and A to quote.  Go up and to the right or down and to the left to go up a note.  Go down and to the left, or up and to the left to go down a note.
+For the piano keyboard, the keys are like those on an electric keyboard or a piano. The first key on your keyboard of the key you are using is A or Q for all keys.
 
-For either keyboard, switch octaves by pressing Z, X, C, V, or B.  C gives you a keyboard that uses middle C.  X is down one octave from middle C and Z is down two.  V is up one octave from middle C and B is up two.
+The music theory keyboard has each note one key away from the next on the keyboard. Keys go from tab to back-slash and A to quote. Go up and to the right or down and to the left to go up a note. Go down and to the left, or up and to the left to go down a note.
 
-To change keys, use the number keys, the minus key, and the equals key.  1 is for C, 2 is for C# (C sharp), 3 is for D, 4 is for D# (D sharp), 5 is for E, 6 is for F, 7 is for F# (F sharp), 8 is for G, 9 is for G# (G sharp), 0 is for A, minus is for A# (A sharp), and equals is for B.
 
-To make notes keep playing after you lift your fingers, press caps lock.  To stop this, press caps lock again.  On a piano, this is done by the sustaining pedal.
+For either keyboard, switch octaves by pressing Z, X, C, V, or B. C gives you a keyboard that uses middle C. X is down one octave from middle C and Z is down two. V is up one octave from middle C and B is up two.
 
-To make just the notes you are already playing play after you have lifted your fingers, press and hold space bar.  Let go of space bar to stop their playing.  On a piano, this is done by the sostenuto pedal.
+To change keys, use the number keys, the minus key, and the equals key. 1 is for C, 2 is for C Sharp, 3 is for D, 4 is for D Sharp, 5 is for E, 6 is for F, 7 is for F Sharp, 8 is for G, 9 is for G Sharp, 0 is for A, "-" is for A Sharp, and "=" is for B.
+
+
+To make notes keep playing after you lift your fingers, press caps lock. To stop this, press caps lock again. On a piano, this is done by the sustaining pedal.
+
+To make just the notes you are already playing play after you have lifted your fingers, press and hold space bar. Let go of space bar to stop their playing. On a piano, this is done by the sostenuto pedal.
+
