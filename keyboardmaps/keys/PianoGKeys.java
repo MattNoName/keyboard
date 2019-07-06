@@ -3,21 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package keyboardmappings.keys;
+package keyboardmaps.keys;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
 
 /**
- * Key Map for F Sharp
+ * Key Map for G
  * @author matt roberts
  */
 
+public class PianoGKeys extends HashMap<KeyCode, Integer>{
 
-public class PianoFSharpKeys extends HashMap<KeyCode, Integer>{
-
-    public PianoFSharpKeys() {
-        put(KeyCode.Q, 6);//F#
+    public PianoGKeys() {
         put(KeyCode.A, 7);//G
         put(KeyCode.W, 8);//G#
         put(KeyCode.S, 9);//A

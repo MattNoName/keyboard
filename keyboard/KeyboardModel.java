@@ -2,17 +2,17 @@
 package keyboard;
 
 import java.util.ArrayList;
-import keyboardmappings.KeyboardType;
-import keyboardmappings.UnusedKeyCodeException;
+import keyboardmaps.KeyboardType;
+import keyboardmaps.UnusedKeyCodeException;
 import java.util.HashSet;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
-import keyboardmappings.AbstractKeyboard;
-import keyboardmappings.MusicTheoryKeyboard;
-import keyboardmappings.PianoKeyboard;
+import keyboardmaps.AbstractKeyboard;
+import keyboardmaps.MusicTheoryKeyboard;
+import keyboardmaps.PianoKeyboard;
 import musictheory.MusicalKey;
 
 /**

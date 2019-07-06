@@ -12,7 +12,7 @@ import javafx.scene.input.KeyCode;
 import keyboard.keyboardview.keys.AbstractKey;
 import keyboard.keyboardview.keys.BottomKeys;
 import keyboard.keyboardview.keys.TopKeys;
-import keyboardmappings.UnusedKeyCodeException;
+import keyboardmaps.UnusedKeyCodeException;
 
 /**
  *

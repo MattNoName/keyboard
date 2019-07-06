@@ -1,5 +1,5 @@
 
-package keyboardmappings;
+package keyboardmaps;
 
 /**
  *
