@@ -2,7 +2,7 @@ package keyboard;
 
 import keyboard.startingview.ViewManager;
 import java.util.ArrayList;
-import keyboardmappings.UnusedKeyCodeException;
+import keyboardmaps.UnusedKeyCodeException;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;

@@ -1,4 +1,4 @@
-package keyboardmappings;
+package keyboardmaps;
 
 import musictheory.MusicalKey;
 import java.util.HashMap;

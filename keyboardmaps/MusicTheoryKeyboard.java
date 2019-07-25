@@ -1,7 +1,7 @@
 
-package keyboardmappings;
+package keyboardmaps;
 
-import keyboardmappings.keys.MusicTheoryKeys;
+import keyboardmaps.keys.MusicTheoryKeys;
 import musictheory.MusicalKey;
 
 /**

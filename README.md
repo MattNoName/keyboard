@@ -4,7 +4,7 @@
 This application does not require anything on the screen to use other than to open the application and to quit it and can be used with your screen off or the brightness turned down all the way.
 
 ### Download and Run
-To run the application, first download keyboard.jar. When it does, on Windows, right click it and select from the drop dwon menu "Open with" and choose Java (TM) Platform SE. On Mac, double-click it to use it. On Mac, you may have to allow it from Security and Privacy->General as I am not registered as a developer with Apple. It works on Mac and on some Windows computers.  It has not been tested on Linux.  The application starts up a little slowly, so please be a little patient. If it doesn't run at all, please make sure you have Java installed on your computer.
+To run the application, first download keyboard.jar from the releases section above. When it's dwonloaded, on Windows, right click it and select from the drop dwon menu "Open with" and choose Java (TM) Platform SE. On Mac, double-click it to use it. On Mac, you may have to allow it from Security and Privacy->General as I am not registered as a developer with Apple. It works on Mac and on some Windows computers.  It has not been tested on Linux.  The application starts up a little slowly, so please be a little patient. If it doesn't run at all, please make sure you have Java installed on your computer.
 
 ### How to Use It
 This keyboard is an electric keyboard that plays the notes as you play the keys.

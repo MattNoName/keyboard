@@ -1,5 +1,5 @@
 
-package keyboardmappings.keys;
+package keyboardmaps.keys;
 
 import java.util.HashMap;
 import javafx.scene.input.KeyCode;
