@@ -92,7 +92,7 @@ body{
 }
 @media (prefers-color-scheme: dark) {
     body{
-        background-color: rgb(136, 97, 24);
+        background-color: rgb(94, 67, 17);
     }
     
     .title{
@@ -109,10 +109,10 @@ body{
 
       .linkBtn{
         background-color: rgb(255, 230, 0);
-        color: rgb(136, 97, 24);
+        color: rgb(94, 67, 17);
     }
 
     .linkBtn:hover, .linkBtn:active {
-        background-color: rgb(172, 121, 28);
+        background-color: rgb(255, 247, 0);
       }
 }
