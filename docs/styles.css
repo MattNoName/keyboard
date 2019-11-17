@@ -64,3 +64,55 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+@media (prefers-color-scheme: light) {
+
+    body{
+        background-color: rgb(255, 230, 0);
+    }
+    
+    .title{
+        color: rgb(136, 97, 24);
+    }
+    
+    .basicHeading{
+        color: rgb(136, 97, 24);
+    }
+
+    .basicText{
+        color: rgb(136, 97, 24)
+    }
+
+      .linkBtn{
+        background-color: rgb(136, 97, 24);
+    }
+
+    .linkBtn:hover, .linkBtn:active {
+        background-color: rgb(172, 121, 28);
+      }
+}
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: rgb(136, 97, 24);
+    }
+    
+    .title{
+        color: white;
+    }
+    
+    .basicHeading{
+        color: white;
+    }
+
+    .basicText{
+        color: white;
+    }
+
+      .linkBtn{
+        background-color: rgb(255, 230, 0);
+        color: rgb(136, 97, 24);
+    }
+
+    .linkBtn:hover, .linkBtn:active {
+        background-color: rgb(172, 121, 28);
+      }
+}
