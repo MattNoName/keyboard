@@ -7,12 +7,14 @@ body{
 .title{
     text-align: center;
     color: rgb(136, 97, 24);
+    color: rgb(97, 69, 16);
 }
 
 .basicHeading{
     margin-left: 5%;
     color: rgb(133, 97, 31);
     color: rgb(136, 97, 24);
+    color: rgb(97, 69, 16);
     
 }
 
@@ -20,7 +22,8 @@ body{
     font-size: 20px;
     margin-left: 2.5%;
     margin-right: 2.5%;
-    color: rgb(136, 97, 24)
+    color: rgb(136, 97, 24);
+    color: rgb(97, 69, 16);
 }
 
 .linkBtn{
@@ -35,6 +38,7 @@ body{
     background-color: rgb(255, 166, 0);
     background-color: rgb(255, 136, 0);
     background-color: rgb(136, 97, 24);
+    background-color: rgb(97, 69, 16);
     
     display: inline-block;
 }
@@ -72,27 +76,33 @@ body{
     
     .title{
         color: rgb(136, 97, 24);
+        color: rgb(97, 69, 16);
     }
     
     .basicHeading{
         color: rgb(136, 97, 24);
+        color: rgb(97, 69, 16);
     }
 
     .basicText{
-        color: rgb(136, 97, 24)
+        color: rgb(136, 97, 24);
+        color: rgb(97, 69, 16);
     }
 
       .linkBtn{
         background-color: rgb(136, 97, 24);
+        background-color: rgb(97, 69, 16);
     }
 
     .linkBtn:hover, .linkBtn:active {
         background-color: rgb(172, 121, 28);
+        background-color: rgb(136, 97, 24);
       }
 }
 @media (prefers-color-scheme: dark) {
     body{
         background-color: rgb(94, 67, 17);
+        background-color: rgb(97, 69, 16);
     }
     
     .title{
@@ -110,6 +120,7 @@ body{
       .linkBtn{
         background-color: rgb(255, 230, 0);
         color: rgb(94, 67, 17);
+        color: rgb(97, 69, 16);
     }
 
     .linkBtn:hover, .linkBtn:active {
